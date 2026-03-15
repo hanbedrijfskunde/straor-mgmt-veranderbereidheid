@@ -1,7 +1,3 @@
-Hieronder een praktische handleiding in Markdown die je zo kunt hergebruiken in je eigen trainingen.
-
-***
-
 # Spelhandleiding: De Wandelende Koning
 
 ## Doel van het spel
@@ -127,7 +123,3 @@ Gebruik de nabespreking om de metafoor naar werkpraktijk te maken.
   - Kijken mensen vooral naar de koning of naar elkaar?  
 - Koppel altijd terug naar het **doel van je training**: leiderschap, zelforganisatie, verandering, macht, etc.  
 - Speel liever **twee korte rondes** dan één lange, zodat je tussen de rondes kunt bijsturen en ervaringen kunt vergelijken.
-
-***
-
-Als je wilt, kan ik hier ook een “spreektekst voor de trainer” van maken die je bijna letterlijk kunt voorlezen, plus een korte versie voor in een hand-out voor deelnemers.
