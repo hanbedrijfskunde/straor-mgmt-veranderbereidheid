@@ -6,32 +6,44 @@
 <title>Verander Canvas × DINAMO 6.0 — Synthese</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,500;12..96,700;12..96,800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --teal: #0F7B6C;
-  --teal-light: #E0F4F1;
-  --teal-mid: #5DCAA5;
-  --amber: #D4890A;
-  --amber-light: #FEF3DC;
-  --amber-mid: #F2B941;
-  --navy: #0D2540;
-  --navy-mid: #1A3A5C;
-  --coral: #C9503A;
-  --coral-light: #FAEAE6;
-  --purple: #5E42B0;
-  --purple-light: #EEE9FA;
-  --slate: #4A5568;
-  --slate-light: #EDF2F7;
-  --off-white: #F7F6F2;
+  --primary: #1e3a5f;
+  --primary-light: #2d5a8e;
+  --primary-dark: #152a45;
+  --primary-50: #f0f5fa;
+  --primary-100: #dae5f2;
+  --primary-200: #b5cce6;
+  --teal: #1e3a5f;
+  --teal-light: #f0f5fa;
+  --teal-mid: #2d5a8e;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --amber-mid: #f59e0b;
+  --navy: #1e3a5f;
+  --navy-mid: #2d5a8e;
+  --coral: #dc2626;
+  --coral-light: #fee2e2;
+  --purple: #1e3a5f;
+  --purple-light: #f0f5fa;
+  --success: #16a34a;
+  --success-light: #dcfce7;
+  --warning: #d97706;
+  --warning-light: #fef3c7;
+  --danger: #dc2626;
+  --danger-light: #fee2e2;
+  --slate: #64748b;
+  --slate-light: #f1f5f9;
+  --off-white: #f8fafc;
   --white: #FFFFFF;
-  --text: #1A1A2E;
-  --text-muted: #5A6478;
-  --border: #E2E8F0;
+  --text: #1a202c;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
   --radius: 12px;
-  --radius-lg: 20px;
-  --shadow: 0 4px 24px rgba(13,37,64,0.09);
-  --shadow-hover: 0 8px 40px rgba(13,37,64,0.16);
+  --radius-lg: 16px;
+  --shadow: 0 4px 24px rgba(30,58,95,0.08);
+  --shadow-hover: 0 8px 32px rgba(30,58,95,0.14);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,7 +51,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Lora', Georgia, serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
   background: var(--off-white);
   color: var(--text);
   line-height: 1.7;
@@ -47,7 +60,7 @@ body {
 }
 
 h1,h2,h3,h4,h5 {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   line-height: 1.15;
 }
 
@@ -63,8 +76,8 @@ h1,h2,h3,h4,h5 {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 80% 20%, rgba(15,123,108,0.35) 0%, transparent 55%),
-    radial-gradient(circle at 10% 80%, rgba(94,66,176,0.25) 0%, transparent 50%);
+    radial-gradient(circle at 80% 20%, rgba(45,90,142,0.35) 0%, transparent 55%),
+    radial-gradient(circle at 10% 80%, rgba(30,58,95,0.25) 0%, transparent 50%);
   pointer-events: none;
 }
 .hero-grid {
@@ -82,7 +95,7 @@ h1,h2,h3,h4,h5 {
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 40px;
   padding: 5px 14px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 12px; font-weight: 500;
   letter-spacing: .06em; text-transform: uppercase;
   color: rgba(255,255,255,0.75);
@@ -99,7 +112,7 @@ h1,h2,h3,h4,h5 {
 .hero-sub {
   font-size: 17px; color: rgba(255,255,255,0.65);
   max-width: 600px; margin-bottom: 36px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-weight: 300;
 }
 .hero-meta {
@@ -109,13 +122,13 @@ h1,h2,h3,h4,h5 {
   display: flex; flex-direction: column; gap: 2px;
 }
 .hero-meta-label {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 10px; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
   color: rgba(255,255,255,0.4);
 }
 .hero-meta-value {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 14px; font-weight: 500;
   color: rgba(255,255,255,0.9);
 }
@@ -124,7 +137,7 @@ h1,h2,h3,h4,h5 {
 .section { padding: 60px 40px; }
 .section-inner { max-width: 900px; margin: 0 auto; }
 .section-tag {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 700;
   letter-spacing: .12em; text-transform: uppercase;
   color: var(--teal);
@@ -183,7 +196,7 @@ h1,h2,h3,h4,h5 {
   margin-top: 16px;
 }
 .tool-tag {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 500;
   padding: 3px 10px; border-radius: 20px;
 }
@@ -196,7 +209,7 @@ h1,h2,h3,h4,h5 {
 }
 .bridge-line {
   width: 2px; height: 28px;
-  background: linear-gradient(to bottom, var(--teal), var(--amber));
+  background: linear-gradient(to bottom, var(--primary), var(--primary-light));
 }
 .bridge-x {
   width: 34px; height: 34px;
@@ -204,7 +217,7 @@ h1,h2,h3,h4,h5 {
   background: var(--off-white);
   border: 2px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 700;
   color: var(--slate);
 }
@@ -222,11 +235,11 @@ h1,h2,h3,h4,h5 {
   display: flex; align-items: center; justify-content: space-between;
 }
 .mapper-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 14px; font-weight: 600; color: white;
 }
 .mapper-hint {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 12px; color: rgba(255,255,255,0.5);
 }
 .mapper-body {
@@ -240,7 +253,7 @@ h1,h2,h3,h4,h5 {
   background: var(--off-white);
 }
 .mapper-left-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 10px; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   color: var(--text-muted);
@@ -256,7 +269,7 @@ h1,h2,h3,h4,h5 {
   cursor: pointer;
   transition: all .18s;
   margin-bottom: 3px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 .c-btn:hover { background: white; }
 .c-btn.active { background: white; box-shadow: 0 1px 8px rgba(0,0,0,0.08); }
@@ -290,7 +303,7 @@ h1,h2,h3,h4,h5 {
 }
 .mapper-intro.visible { display: flex; }
 .mapper-intro-icon { font-size: 40px; opacity: .3; }
-.mapper-intro-text { font-size: 14px; font-family: 'Bricolage Grotesque', sans-serif; }
+.mapper-intro-text { font-size: 14px; font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; }
 
 .detail-panel { display: none; }
 .detail-panel.visible { display: block; }
@@ -314,7 +327,7 @@ h1,h2,h3,h4,h5 {
   margin-bottom: 20px;
 }
 .detail-scales-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   color: var(--text-muted);
@@ -323,7 +336,7 @@ h1,h2,h3,h4,h5 {
 .scale-groups { display: flex; flex-direction: column; gap: 12px; }
 .scale-group {}
 .scale-group-label {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 10px; font-weight: 700;
   letter-spacing: .09em; text-transform: uppercase;
   padding: 2px 8px;
@@ -333,7 +346,7 @@ h1,h2,h3,h4,h5 {
 }
 .scale-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .scale-chip {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 12px; font-weight: 500;
   padding: 5px 12px;
   border-radius: 20px;
@@ -346,11 +359,44 @@ h1,h2,h3,h4,h5 {
   margin-top: 18px;
   padding: 14px 16px;
   border-radius: 10px;
-  border-left: 4px solid var(--teal);
-  background: var(--teal-light);
-  font-size: 13px; color: var(--teal);
+  border-left: 4px solid var(--primary);
+  background: var(--primary-50);
+  font-size: 13px; color: var(--primary);
   line-height: 1.6;
   font-style: italic;
+}
+
+.dinamo-vragen-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 14px;
+  padding: 7px 16px; border-radius: 8px;
+  border: 1.5px solid var(--primary-200);
+  background: white; color: var(--primary);
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+}
+.dinamo-vragen-btn:hover { background: var(--primary-50); }
+
+/* DINAMO vragen modal */
+.dq-scale-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 700;
+  color: var(--primary);
+  margin-top: 16px; margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid var(--border);
+}
+.dq-scale-title:first-child { margin-top: 0; }
+.dq-question {
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px; line-height: 1.6;
+  color: var(--text);
+  padding: 4px 0 4px 8px;
+  border-left: 2px solid var(--primary-100);
+  margin-bottom: 4px;
+}
+.dq-question strong {
+  color: var(--text-muted); font-weight: 600;
 }
 
 /* ─── 5 SYNTHESES ─────────────────────────── */
@@ -377,7 +423,7 @@ h1,h2,h3,h4,h5 {
 .synth-number {
   position: absolute;
   top: 18px; right: 20px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 52px; font-weight: 800;
   opacity: .06;
   line-height: 1;
@@ -395,19 +441,19 @@ h1,h2,h3,h4,h5 {
   margin-bottom: 8px; color: var(--navy);
 }
 .synth-canvas-ref {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 600;
   letter-spacing: .04em;
   padding: 2px 8px; border-radius: 4px;
   display: inline-block; margin-bottom: 4px;
 }
 .synth-arrow {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 13px; color: var(--text-muted);
   margin: 4px 0;
 }
 .synth-dinamo-ref {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 600;
   letter-spacing: .04em;
   padding: 2px 8px; border-radius: 4px;
@@ -441,7 +487,7 @@ h1,h2,h3,h4,h5 {
 .workflow-step:last-child { border-radius: 0 12px 12px 0; }
 .workflow-step:hover { background: rgba(255,255,255,0.09); }
 .workflow-num {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   color: rgba(255,255,255,0.3);
@@ -459,7 +505,7 @@ h1,h2,h3,h4,h5 {
 .workflow-step .step-pill {
   display: inline-block;
   margin-top: 12px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 10px; font-weight: 600;
   padding: 3px 9px; border-radius: 20px;
   background: rgba(255,255,255,0.1);
@@ -493,7 +539,7 @@ h1,h2,h3,h4,h5 {
 .bv-card p { font-size: 14px; color: var(--slate); line-height: 1.65; }
 .bv-tag {
   display: inline-block; margin-top: 12px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 600;
   padding: 4px 10px; border-radius: 6px;
   background: var(--amber-light); color: var(--amber);
@@ -529,7 +575,7 @@ h1,h2,h3,h4,h5 {
 }
 .footer-inner { max-width: 860px; margin: 0 auto; }
 .footer p {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 12px; color: rgba(255,255,255,0.35);
   line-height: 1.7;
 }
@@ -544,13 +590,13 @@ h1,h2,h3,h4,h5 {
   margin-bottom: 8px; padding: 0 4px;
 }
 .vc-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 26px; font-weight: 800;
   color: var(--navy);
   letter-spacing: -.02em;
 }
 .vc-meta {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 12px; font-style: italic;
   color: var(--text-muted);
 }
@@ -559,11 +605,22 @@ h1,h2,h3,h4,h5 {
   grid-template-columns: 200px 1fr 1.6fr;
   grid-template-rows: 180px 1fr;
   gap: 0;
-  border: 2.5px solid var(--teal);
+  border: 2px solid var(--primary);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow: visible;
   min-height: 520px;
   background: white;
+  position: relative;
+}
+
+/* Hand-drawn arrow overlay */
+.vc-arrow-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
 }
 .vc-block {
   position: relative;
@@ -572,31 +629,32 @@ h1,h2,h3,h4,h5 {
   transition: all .22s ease;
   display: flex;
   flex-direction: column;
+  overflow: visible;
 }
 .vc-block:hover {
   filter: brightness(0.97);
-  box-shadow: inset 0 0 0 2px var(--teal-mid);
+  box-shadow: inset 0 0 0 2px var(--primary-light);
 }
 .vc-block.vc-active {
-  box-shadow: inset 0 0 0 3px var(--teal);
+  box-shadow: inset 0 0 0 3px var(--primary);
 }
 .vc-block-icon {
-  font-size: 22px; margin-bottom: 6px;
+  font-size: 22px; margin-bottom: 0;
 }
 .vc-block-label {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 14px; font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .06em;
   color: var(--navy);
 }
 .vc-block-sub {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; color: var(--text-muted);
   margin-top: 2px;
 }
 .vc-block-pm {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 12px; font-weight: 600;
   color: var(--teal);
   margin-top: auto;
@@ -607,8 +665,8 @@ h1,h2,h3,h4,h5 {
 .vc-veranderidee {
   grid-column: 1 / 3; grid-row: 1;
   background: white;
-  border-right: 2px solid var(--teal);
-  border-bottom: 2px solid var(--teal);
+  border-right: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
 }
 .vc-veranderidee-inner {
   display: grid;
@@ -616,31 +674,31 @@ h1,h2,h3,h4,h5 {
   height: 100%;
 }
 .vc-veranderidee-inner > div {
-  padding: 4px 8px;
+  padding: 2px 4px;
 }
 .vc-veranderidee-inner > div:first-child {
-  border-right: 1.5px dashed rgba(15,123,108,.3);
+  border-right: 1.5px dashed rgba(30,58,95,.3);
 }
 .vc-context {
   grid-column: 3; grid-row: 1;
   background: white;
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 2px solid var(--primary);
 }
 .vc-slag {
   grid-column: 1; grid-row: 2;
   background: white;
-  border-right: 2px solid var(--teal);
+  border-right: 2px solid var(--primary);
 }
 .vc-diagnose {
   grid-column: 2; grid-row: 2;
-  background: #EEF5F3;
-  border-right: 2px solid var(--teal);
+  background: #f0f5fa;
+  border-right: 2px solid var(--primary);
 }
 
 /* Perspective diamond area */
 .vc-diamond {
   grid-column: 3; grid-row: 2;
-  background: #EEF5F3;
+  background: #f0f5fa;
   position: relative;
   overflow: visible;
   min-height: 340px;
@@ -664,7 +722,7 @@ h1,h2,h3,h4,h5 {
   transform: scale(1.08);
 }
 .vc-diamond-node.vc-active .vc-dnode-icon {
-  box-shadow: 0 0 0 3px var(--teal);
+  box-shadow: 0 0 0 3px var(--primary);
 }
 .vc-dnode-icon {
   width: 42px; height: 42px;
@@ -676,7 +734,7 @@ h1,h2,h3,h4,h5 {
   transition: box-shadow .2s;
 }
 .vc-dnode-label {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .05em;
@@ -684,7 +742,7 @@ h1,h2,h3,h4,h5 {
   white-space: nowrap;
 }
 .vc-dnode-pm {
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 11px; font-weight: 600;
   color: var(--teal);
 }
@@ -720,6 +778,89 @@ h1,h2,h3,h4,h5 {
   color: var(--teal);
   opacity: .6;
 }
+
+/* Glassdoor toggle */
+.gd-toggle-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 20px;
+  border: 1.5px solid var(--primary-200);
+  background: white; color: var(--primary);
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+  margin-left: auto;
+}
+.gd-toggle-btn:hover { background: var(--primary-50); }
+.gd-toggle-btn.active {
+  background: var(--primary); color: white; border-color: var(--primary);
+}
+.gd-toggle-indicator {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border); transition: background .2s;
+}
+.gd-toggle-btn.active .gd-toggle-indicator { background: #4ade80; }
+
+.gd-dots {
+  display: flex; flex-wrap: wrap; gap: 5px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+.gd-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  animation: gdFadeIn .3s ease;
+  flex-shrink: 0;
+}
+.gd-dot.gd-plus { background: #16a34a; }
+.gd-dot.gd-min  { background: #dc2626; }
+@keyframes gdFadeIn { from { opacity:0; transform:scale(.5); } to { opacity:1; transform:scale(1); } }
+
+/* Glassdoor modal */
+.gd-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 2000;
+  justify-content: center; align-items: center;
+}
+.gd-overlay.visible { display: flex; }
+.gd-modal {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  max-width: 420px; width: 90%;
+  box-shadow: var(--shadow-hover);
+  animation: gdModalIn .2s ease;
+  position: relative;
+}
+@keyframes gdModalIn { from { opacity:0; transform:scale(.95); } to { opacity:1; transform:scale(1); } }
+.gd-modal-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.gd-modal-close {
+  position: absolute; top: 12px; right: 16px;
+  background: none; border: none;
+  font-size: 20px; color: var(--text-muted);
+  cursor: pointer; line-height: 1;
+}
+.gd-modal-close:hover { color: var(--text); }
+.gd-modal-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; line-height: 1.6;
+  color: var(--text);
+}
+.gd-modal-item:last-child { border-bottom: none; }
+.gd-modal-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 5px;
+}
+.gd-modal-dot.gd-plus { background: #16a34a; }
+.gd-modal-dot.gd-min  { background: #dc2626; }
 
 /* Responsive */
 @media (max-width: 700px) {
@@ -841,12 +982,47 @@ h1,h2,h3,h4,h5 {
       <div class="vc-header">
         <span class="vc-title">Verander Canvas</span>
         <span class="vc-meta">organisatie, afdeling of team &bull; datum</span>
+        <button class="gd-toggle-btn" id="gd-toggle" onclick="toggleGlassdoor()">
+          <span class="gd-toggle-indicator"></span>
+          Glassdoor-analyse
+        </button>
       </div>
       <div class="vc-grid" id="vc-grid">
 
+        <!-- Hand-drawn arrow: Veranderidee → Context (positioned by JS) -->
+        <svg id="arrow-vi-ctx" width="80" height="50" style="position:absolute; z-index:10; pointer-events:none;">
+          <defs>
+            <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+            </marker>
+          </defs>
+          <line x1="4" y1="25" x2="65" y2="25"
+                stroke="#dc2626" stroke-width="2.5"
+                marker-end="url(#arrowhead-red)"/>
+        </svg>
+
+        <!-- Arrow: Context → Rationale (vertical) -->
+        <svg id="arrow-ctx-rat" width="50" height="80" style="position:absolute; z-index:10; pointer-events:none;">
+          <line x1="25" y1="0" x2="25" y2="65"
+                stroke="#dc2626" stroke-width="2.5"
+                marker-end="url(#arrowhead-red)"/>
+        </svg>
+
+        <!-- Arrow: Diagnose → Aan de slag (horizontal, right to left) -->
+        <svg id="arrow-diag-slag" width="80" height="50" overflow="visible" style="position:absolute; z-index:10; pointer-events:none;">
+          <defs>
+            <marker id="arrowhead-red-rev" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto-start-reverse">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#dc2626"/>
+            </marker>
+          </defs>
+          <line x1="65" y1="25" x2="4" y2="25"
+                stroke="#dc2626" stroke-width="2.5"
+                marker-end="url(#arrowhead-red-rev)"/>
+        </svg>
+
         <!-- TOP LEFT: Veranderidee (spans col 1-2) -->
         <div class="vc-block vc-veranderidee" data-canvas="veranderidee" onclick="canvasClick('veranderidee',this)">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
             <span class="vc-block-icon">💡</span>
             <span class="vc-block-label">Veranderidee</span>
           </div>
@@ -862,7 +1038,7 @@ h1,h2,h3,h4,h5 {
 
         <!-- TOP RIGHT: Context -->
         <div class="vc-block vc-context" data-canvas="context" onclick="canvasClick('context',this)">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
             <span class="vc-block-icon">🔗</span>
             <span class="vc-block-label">Context</span>
           </div>
@@ -871,24 +1047,22 @@ h1,h2,h3,h4,h5 {
 
         <!-- BOTTOM LEFT: Aan de slag! -->
         <div class="vc-block vc-slag" data-canvas="slag" onclick="canvasClick('slag',this)">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
             <span class="vc-block-icon">🔧</span>
             <span class="vc-block-label">Aan de slag!</span>
           </div>
           <span class="vc-block-sub">actie & gedrag</span>
-          <span class="vc-arrow" style="right:8px;top:50%;transform:translateY(-50%);">←</span>
         </div>
 
         <!-- BOTTOM CENTER: Diagnose -->
         <div class="vc-block vc-diagnose" data-canvas="diagnose" onclick="canvasClick('diagnose',this)">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-            <svg viewBox="0 0 60 20" width="28" height="12" style="flex-shrink:0;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <svg viewBox="0 0 60 20" width="42" height="18" style="flex-shrink:0;">
               <path class="vc-ekg-path" d="M0,10 L10,10 L15,2 L18,18 L21,2 L24,18 L27,10 L38,10 L43,2 L46,18 L49,2 L52,18 L55,10 L60,10" style="stroke-width:1.8;"/>
             </svg>
             <span class="vc-block-label">Diagnose</span>
           </div>
           <span class="vc-block-sub">meten bereidheid</span>
-          <span class="vc-arrow" style="left:-16px;top:50%;transform:translateY(-50%);">→</span>
         </div>
 
         <!-- BOTTOM RIGHT: Diamond / Perspective area -->
@@ -896,10 +1070,10 @@ h1,h2,h3,h4,h5 {
           <!-- SVG: diagonals from corners of entire area + verbinding box -->
           <svg class="vc-diamond-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <!-- Diagonal cross from corner to corner of entire area -->
-            <line x1="0" y1="0" x2="100" y2="100" stroke="#B8D8D0" stroke-width=".4" opacity=".5"/>
-            <line x1="100" y1="0" x2="0" y2="100" stroke="#B8D8D0" stroke-width=".4" opacity=".5"/>
+            <line x1="0" y1="0" x2="100" y2="100" stroke="#b5cce6" stroke-width=".4" opacity=".5"/>
+            <line x1="100" y1="0" x2="0" y2="100" stroke="#b5cce6" stroke-width=".4" opacity=".5"/>
             <!-- Verbinding box in center -->
-            <rect x="30" y="30" width="40" height="34" rx="1" fill="#EEF5F3" stroke="#B8D8D0" stroke-width=".5"/>
+            <rect x="30" y="30" width="40" height="34" rx="1" fill="#f0f5fa" stroke="#b5cce6" stroke-width=".5"/>
           </svg>
 
           <!-- Nodes on the square edges -->
@@ -958,39 +1132,39 @@ h1,h2,h3,h4,h5 {
           <div class="mapper-left-title">Verander Canvas</div>
 
           <button class="c-btn" data-key="veranderidee" onclick="showDetail('veranderidee',this)">
-            <span class="c-btn-dot" style="background:#0F7B6C"></span>
+            <span class="c-btn-dot" style="background:#1e3a5f"></span>
             <div><div class="c-btn-label">💡 Veranderidee</div><div class="c-btn-sub">waarom / wat</div></div>
           </button>
           <button class="c-btn" data-key="context" onclick="showDetail('context',this)">
-            <span class="c-btn-dot" style="background:#27500A"></span>
+            <span class="c-btn-dot" style="background:#2d5a8e"></span>
             <div><div class="c-btn-label">🔗 Context</div><div class="c-btn-sub">omgeving & aanleiding</div></div>
           </button>
           <button class="c-btn" data-key="diagnose" onclick="showDetail('diagnose',this)">
-            <span class="c-btn-dot" style="background:#D4890A"></span>
+            <span class="c-btn-dot" style="background:#d97706"></span>
             <div><div class="c-btn-label">📊 Diagnose</div><div class="c-btn-sub">meten bereidheid</div></div>
           </button>
           <button class="c-btn" data-key="rationale" onclick="showDetail('rationale',this)">
-            <span class="c-btn-dot" style="background:#0D7A5F"></span>
+            <span class="c-btn-dot" style="background:#16a34a"></span>
             <div><div class="c-btn-label">🧠 Rationale +/−</div><div class="c-btn-sub">argumenten voor & tegen</div></div>
           </button>
           <button class="c-btn" data-key="energie" onclick="showDetail('energie',this)">
-            <span class="c-btn-dot" style="background:#5E42B0"></span>
+            <span class="c-btn-dot" style="background:#1e3a5f"></span>
             <div><div class="c-btn-label">⚡ Energie +/−</div><div class="c-btn-sub">drive & beleving</div></div>
           </button>
           <button class="c-btn" data-key="focus" onclick="showDetail('focus',this)">
-            <span class="c-btn-dot" style="background:#C9503A"></span>
+            <span class="c-btn-dot" style="background:#dc2626"></span>
             <div><div class="c-btn-label">🎯 Focus +/−</div><div class="c-btn-sub">richting & sturing</div></div>
           </button>
           <button class="c-btn" data-key="verbinding" onclick="showDetail('verbinding',this)">
-            <span class="c-btn-dot" style="background:#993556"></span>
+            <span class="c-btn-dot" style="background:#2d5a8e"></span>
             <div><div class="c-btn-label">📡 Verbinding +/−</div><div class="c-btn-sub">draagvlak & relaties</div></div>
           </button>
           <button class="c-btn" data-key="effect" onclick="showDetail('effect',this)">
-            <span class="c-btn-dot" style="background:#5F5E5A"></span>
+            <span class="c-btn-dot" style="background:#64748b"></span>
             <div><div class="c-btn-label">🎯 Effect +/−</div><div class="c-btn-sub">beoogd resultaat</div></div>
           </button>
           <button class="c-btn" data-key="slag" onclick="showDetail('slag',this)">
-            <span class="c-btn-dot" style="background:#185FA5"></span>
+            <span class="c-btn-dot" style="background:#1e3a5f"></span>
             <div><div class="c-btn-label">🔧 Aan de slag!</div><div class="c-btn-sub">actie & gedrag</div></div>
           </button>
         </div>
@@ -1005,256 +1179,265 @@ h1,h2,h3,h4,h5 {
           <!-- DETAIL PANELS -->
           <div class="detail-panel" id="dp-veranderidee">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#0F7B6C"></div>
+              <div class="detail-dot" style="background:#1e3a5f"></div>
               <h3>💡 Veranderidee — waarom / wat</h3>
             </div>
             <p class="detail-body">Het Veranderidee beantwoordt de meest fundamentele vraag: <em>waarom veranderen we, en wat willen we bereiken?</em> Dit blok legt de basis voor de hele rationale van de verandering. In de DINAMO vertaalt dit naar de vraag of medewerkers die meerwaarde ook zíen en of ze de noodzaak begrijpen.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#E0F4F1;color:#0F7B6C">Willen →</span>
+                <span class="scale-group-label" style="background:#dcfce7;color:#16a34a">Willen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Meerwaarde</span>
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Gevolgen voor het werk</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Meerwaarde</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Gevolgen voor het werk</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FEF3DC;color:#D4890A">Moeten →</span>
+                <span class="scale-group-label" style="background:#fef3c7;color:#d97706">Moeten →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FEF3DC;color:#D4890A;border-color:#F2B941">Externe noodzaak</span>
+                  <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a">Externe noodzaak</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 Practische vraag: Sluiten de antwoorden op DINAMO-vragen 16–20 (Meerwaarde) aan bij het veranderidee dat het management heeft geformuleerd? Een kloof hier is een vroeg waarschuwingssignaal.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('veranderidee')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-context">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#27500A"></div>
+              <div class="detail-dot" style="background:#2d5a8e"></div>
               <h3>🔗 Context</h3>
             </div>
             <p class="detail-body">Context beschrijft de omgeving: marktdruk, wetgeving, concurrenten, technologische ontwikkelingen. Het Canvas vraagt hierbij: <em>wat dwingt ons eigenlijk tot verandering?</em> In de DINAMO zie je terug of medewerkers diezelfde omgevingsdruk ook voelen en herkennen.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FEF3DC;color:#D4890A">Moeten →</span>
+                <span class="scale-group-label" style="background:#fef3c7;color:#d97706">Moeten →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FEF3DC;color:#D4890A;border-color:#F2B941">Externe noodzaak</span>
+                  <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a">Externe noodzaak</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FAECE7;color:#C9503A">Kunnen →</span>
+                <span class="scale-group-label" style="background:#fee2e2;color:#dc2626">Kunnen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Beheersbaarheid</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Complexiteit</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Aansturing</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Beheersbaarheid</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Complexiteit</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Aansturing</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 Hoe complexer de externe context (wetgeving, marktdisruptie), hoe hoger de DINAMO-schalen Beheersbaarheid en Complexiteit zullen scoren. Context bepaalt mede hoe zwaar die kunnen-factoren wegen.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('context')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-diagnose">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#D4890A"></div>
+              <div class="detail-dot" style="background:#d97706"></div>
               <h3>📊 Diagnose</h3>
             </div>
             <p class="detail-body">Dit is de spil van de synthese. Het Diagnose-blok in het Canvas <em>is</em> de plek van de DINAMO-vragenlijst. De EKG-golf op het Canvas symboliseert de "hartslag" van de veranderbereidheid — je neemt een meting die alle schalen omvat. Zonder diagnose is elk Canvas-blok slechts aanname.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen — ALLE schalen zijn hier actief</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#E0F4F1;color:#0F7B6C">Willen</span>
+                <span class="scale-group-label" style="background:#dcfce7;color:#16a34a">Willen</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Gevolgen werk</span>
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Emoties</span>
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Meerwaarde</span>
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Betrokkenheid</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Gevolgen werk</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Emoties</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Meerwaarde</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Betrokkenheid</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FEF3DC;color:#D4890A">Moeten</span>
+                <span class="scale-group-label" style="background:#fef3c7;color:#d97706">Moeten</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FEF3DC;color:#D4890A;border-color:#F2B941">Interne druk</span>
-                  <span class="scale-chip" style="background:#FEF3DC;color:#D4890A;border-color:#F2B941">Externe noodzaak</span>
+                  <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a">Interne druk</span>
+                  <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a">Externe noodzaak</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FAECE7;color:#C9503A">Kunnen</span>
+                <span class="scale-group-label" style="background:#fee2e2;color:#dc2626">Kunnen</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Kennis & ervaring</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Aansturing</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Informatie</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Verandervermogen</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Beheersbaarheid</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Timing</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Complexiteit</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Kennis & ervaring</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Aansturing</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Informatie</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Verandervermogen</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Beheersbaarheid</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Timing</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Complexiteit</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#EEE9FA;color:#5E42B0">Vertrouwen</span>
+                <span class="scale-group-label" style="background:#f0f5fa;color:#1e3a5f">Vertrouwen</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#EEE9FA;color:#5E42B0;border-color:#CECBF6">Vertrouwen in leiderschap</span>
+                  <span class="scale-chip" style="background:#f0f5fa;color:#1e3a5f;border-color:#b5cce6">Vertrouwen in leiderschap</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 De DINAMO is het meetinstrument dat het Diagnose-blok vult. Zonder DINAMO-data is je Canvas gebaseerd op intuïtie, niet op bewijs. De uitkomsten bepalen welke andere Canvas-blokken aandacht nodig hebben.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('diagnose')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-rationale">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#0D7A5F"></div>
+              <div class="detail-dot" style="background:#16a34a"></div>
               <h3>🧠 Rationale +/−</h3>
             </div>
             <p class="detail-body">Rationale gaat over de <em>zakelijke en inhoudelijke argumenten</em> voor en tegen de verandering. De plusjes zijn redenen om wél te veranderen; de minnetjes zijn twijfels, bezwaren en risico's. In de DINAMO meet je of medewerkers diezelfde balans maken.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#E0F4F1;color:#0F7B6C">Willen → (plusjes)</span>
+                <span class="scale-group-label" style="background:#dcfce7;color:#16a34a">Willen → (plusjes)</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Meerwaarde</span>
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Gevolgen voor het werk</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Meerwaarde</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Gevolgen voor het werk</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FEF3DC;color:#D4890A">Moeten → (noodzaak)</span>
+                <span class="scale-group-label" style="background:#fef3c7;color:#d97706">Moeten → (noodzaak)</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FEF3DC;color:#D4890A;border-color:#F2B941">Externe noodzaak</span>
+                  <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a">Externe noodzaak</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 Een hoge DINAMO-score op Meerwaarde én lage score op Externe noodzaak betekent: mensen zien de voordelen wel, maar voelen geen urgentie. De interventie is dan anders dan wanneer het omgekeerd is.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('rationale')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-energie">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#5E42B0"></div>
+              <div class="detail-dot" style="background:#1e3a5f"></div>
               <h3>⚡ Energie +/−</h3>
             </div>
             <p class="detail-body">Energie gaat over de <em>emotionele en motivationele lading</em> rondom de verandering. Wie heeft er energie voor, wie trekt die energie juist weg? Dit is het meest menselijke blok van het Canvas — en ook de DINAMO-schalen die hier het meest bij aansluiten zijn sterk emotioneel van aard.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#E0F4F1;color:#0F7B6C">Willen →</span>
+                <span class="scale-group-label" style="background:#dcfce7;color:#16a34a">Willen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Emoties</span>
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Betrokkenheid</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Emoties</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Betrokkenheid</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#EEE9FA;color:#5E42B0">Vertrouwen → (nieuw in v6!)</span>
+                <span class="scale-group-label" style="background:#f0f5fa;color:#1e3a5f">Vertrouwen → (nieuw in v6!)</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#EEE9FA;color:#5E42B0;border-color:#CECBF6">Vertrouwen in leiderschap</span>
+                  <span class="scale-chip" style="background:#f0f5fa;color:#1e3a5f;border-color:#b5cce6">Vertrouwen in leiderschap</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 De schaal Vertrouwen in leiderschap is nieuw in DINAMO 6.0 — en sluit direct aan op het Energie-blok. Zonder vertrouwen in de leiders die de verandering aandrijven, lekt energie weg hoe goed de rationale ook is.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('energie')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-focus">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#C9503A"></div>
+              <div class="detail-dot" style="background:#dc2626"></div>
               <h3>🎯 Focus +/−</h3>
             </div>
             <p class="detail-body">Focus gaat over <em>richting, sturing en helderheid</em>: is duidelijk waar we naartoe gaan, hoe we er komen en wat er van mensen verwacht wordt? Dit zijn de organisatorische randvoorwaarden van de verandering, die direct weerspiegeld worden in vier DINAMO-schalen onder 'kunnen'.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FAECE7;color:#C9503A">Kunnen →</span>
+                <span class="scale-group-label" style="background:#fee2e2;color:#dc2626">Kunnen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Aansturing</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Informatie</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Timing</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Beheersbaarheid</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Aansturing</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Informatie</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Timing</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Beheersbaarheid</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 Een lage DINAMO-score op Informatie terwijl het Canvas-blok Focus "groen" scoort bij het management — is een klassieke top-down communicatiekloof. Management denkt dat de focus helder is; medewerkers ervaren dat niet zo.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('focus')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-verbinding">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#993556"></div>
+              <div class="detail-dot" style="background:#2d5a8e"></div>
               <h3>📡 Verbinding +/−</h3>
             </div>
             <p class="detail-body">Verbinding gaat over <em>draagvlak, coalitions en sociale cohesie</em>: wie staat erachter, wie trekt samen op? Dit is het meest sociale blok van het Canvas. De bijbehorende DINAMO-schalen meten de sociale druk vanuit de omgeving en het collectieve vermogen om te veranderen.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FEF3DC;color:#D4890A">Moeten →</span>
+                <span class="scale-group-label" style="background:#fef3c7;color:#d97706">Moeten →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FEF3DC;color:#D4890A;border-color:#F2B941">Interne druk</span>
+                  <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a">Interne druk</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FAECE7;color:#C9503A">Kunnen →</span>
+                <span class="scale-group-label" style="background:#fee2e2;color:#dc2626">Kunnen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Verandervermogen</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Verandervermogen</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#E0F4F1;color:#0F7B6C">Willen →</span>
+                <span class="scale-group-label" style="background:#dcfce7;color:#16a34a">Willen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Betrokkenheid</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Betrokkenheid</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#EEE9FA;color:#5E42B0">Vertrouwen →</span>
+                <span class="scale-group-label" style="background:#f0f5fa;color:#1e3a5f">Vertrouwen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#EEE9FA;color:#5E42B0;border-color:#CECBF6">Vertrouwen in leiderschap</span>
+                  <span class="scale-chip" style="background:#f0f5fa;color:#1e3a5f;border-color:#b5cce6">Vertrouwen in leiderschap</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 Interne druk (DINAMO) meet of collega's en leidinggevenden als positief of negatief worden gezien. Dat is de kwantitatieve onderbouwing van het Verbinding-blok in het Canvas.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('verbinding')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-effect">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#5F5E5A"></div>
+              <div class="detail-dot" style="background:#64748b"></div>
               <h3>🎯 Effect +/−</h3>
             </div>
             <p class="detail-body">Effect beschrijft de <em>beoogde en gevreesde uitkomsten</em> van de verandering: wat hopen we te bereiken, en wat zijn de risico's als het mis gaat? Dit blok sluit direct aan op de Resultaat-sectie van de DINAMO, die het INK-model als raamwerk gebruikt.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#EDF2F7;color:#4A5568">Uitkomst →</span>
+                <span class="scale-group-label" style="background:#f1f5f9;color:#64748b">Uitkomst →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#EDF2F7;color:#4A5568;border-color:#D3D1C7">Resultaat (INK)</span>
+                  <span class="scale-chip" style="background:#f1f5f9;color:#64748b;border-color:#D3D1C7">Resultaat (INK)</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#E0F4F1;color:#0F7B6C">Willen →</span>
+                <span class="scale-group-label" style="background:#dcfce7;color:#16a34a">Willen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#E0F4F1;color:#0F7B6C;border-color:#5DCAA5">Meerwaarde</span>
+                  <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac">Meerwaarde</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 Het DINAMO-Resultaat (vragen 77–85) vraagt verwachte effecten op leiderschap, medewerkers, klanten en maatschappij — exact de vier effectdimensies uit het INK-model. Dit maakt de DINAMO tot een voorspeller van het Canvas-effect, niet alleen een diagnose-instrument.</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('effect')">📋 Toon DINAMO-vragen</button>
           </div>
 
           <div class="detail-panel" id="dp-slag">
             <div class="detail-heading">
-              <div class="detail-dot" style="background:#185FA5"></div>
+              <div class="detail-dot" style="background:#1e3a5f"></div>
               <h3>🔧 Aan de slag!</h3>
             </div>
             <p class="detail-body">Dit is het actieblok — waar diagnose omslaat in <em>concreet verandergedrag</em>. Het Canvas vraagt: wat ga je daadwerkelijk doen? De DINAMO meet of medewerkers de bereidheid hebben om dat gedrag ook te vertonen, en of ze al begonnen zijn.</p>
             <div class="detail-scales-title">Gerelateerde DINAMO-schalen</div>
             <div class="scale-groups">
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#EDF2F7;color:#4A5568">Uitkomst →</span>
+                <span class="scale-group-label" style="background:#f1f5f9;color:#64748b">Uitkomst →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#EDF2F7;color:#4A5568;border-color:#D3D1C7">Veranderbereidheid</span>
-                  <span class="scale-chip" style="background:#EDF2F7;color:#4A5568;border-color:#D3D1C7">Gedrag</span>
+                  <span class="scale-chip" style="background:#f1f5f9;color:#64748b;border-color:#D3D1C7">Veranderbereidheid</span>
+                  <span class="scale-chip" style="background:#f1f5f9;color:#64748b;border-color:#D3D1C7">Gedrag</span>
                 </div>
               </div>
               <div class="scale-group">
-                <span class="scale-group-label" style="background:#FAECE7;color:#C9503A">Kunnen →</span>
+                <span class="scale-group-label" style="background:#fee2e2;color:#dc2626">Kunnen →</span>
                 <div class="scale-chips">
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Kennis & ervaring</span>
-                  <span class="scale-chip" style="background:#FAECE7;color:#C9503A;border-color:#F5C4B3">Timing</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Kennis & ervaring</span>
+                  <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5">Timing</span>
                 </div>
               </div>
             </div>
             <div class="insight-box">🔍 De DINAMO-schaal Gedrag (vraag 76) is een multiple-choice observatie: van actief meewerken tot ziekmelden. Dit geeft de "Aan de slag!"-interventie direct richting: zien we al gewenst gedrag, of juist weerstand?</div>
+            <button class="dinamo-vragen-btn" type="button" onclick="openDqModal('slag')">📋 Toon DINAMO-vragen</button>
           </div>
 
         </div><!-- /mapper-right -->
@@ -1273,61 +1456,61 @@ h1,h2,h3,h4,h5 {
 
       <div class="synth-card">
         <div class="synth-number">1</div>
-        <div class="synth-icon-wrap" style="background:#E0F4F1">🧭</div>
+        <div class="synth-icon-wrap" style="background:#dcfce7">🧭</div>
         <h3>Diagnose is de DINAMO</h3>
-        <span class="synth-canvas-ref" style="background:#FEF3DC;color:#D4890A">Canvas: Diagnose</span>
+        <span class="synth-canvas-ref" style="background:#fef3c7;color:#d97706">Canvas: Diagnose</span>
         <div class="synth-arrow">↕ directe koppeling</div>
-        <span class="synth-dinamo-ref" style="background:#FEF3DC;color:#D4890A">DINAMO: alle 14 schalen</span>
+        <span class="synth-dinamo-ref" style="background:#fef3c7;color:#d97706">DINAMO: alle 14 schalen</span>
         <p class="synth-desc">Het diagnoseblok in het Canvas is niet gevuld met aannames — het wordt gevuld met DINAMO-data. De twee instrumenten delen letterlijk dezelfde fase in het veranderproces.</p>
       </div>
 
       <div class="synth-card">
         <div class="synth-number">2</div>
-        <div class="synth-icon-wrap" style="background:#FEF3DC">🧠</div>
+        <div class="synth-icon-wrap" style="background:#fef3c7">🧠</div>
         <h3>Rationale = Willen meten</h3>
-        <span class="synth-canvas-ref" style="background:#E0F4F1;color:#0F7B6C">Canvas: Rationale +/−</span>
+        <span class="synth-canvas-ref" style="background:#dcfce7;color:#16a34a">Canvas: Rationale +/−</span>
         <div class="synth-arrow">↕ inhoudelijke overlap</div>
-        <span class="synth-dinamo-ref" style="background:#E0F4F1;color:#0F7B6C">DINAMO: Meerwaarde, Gevolgen</span>
+        <span class="synth-dinamo-ref" style="background:#dcfce7;color:#16a34a">DINAMO: Meerwaarde, Gevolgen</span>
         <p class="synth-desc">De plus-kant van Rationale (argumenten voor verandering) correspondeert direct met de DINAMO-schalen Meerwaarde en Gevolgen voor het werk. De min-kant weerspiegelt lage scores op deze schalen.</p>
       </div>
 
       <div class="synth-card">
         <div class="synth-number">3</div>
-        <div class="synth-icon-wrap" style="background:#EEE9FA">⚡</div>
+        <div class="synth-icon-wrap" style="background:#f0f5fa">⚡</div>
         <h3>Energie = Vertrouwen & Emoties</h3>
-        <span class="synth-canvas-ref" style="background:#EEE9FA;color:#5E42B0">Canvas: Energie +/−</span>
+        <span class="synth-canvas-ref" style="background:#f0f5fa;color:#1e3a5f">Canvas: Energie +/−</span>
         <div class="synth-arrow">↕ emotionele kern</div>
-        <span class="synth-dinamo-ref" style="background:#EEE9FA;color:#5E42B0">DINAMO: Emoties, Vertrouwen</span>
+        <span class="synth-dinamo-ref" style="background:#f0f5fa;color:#1e3a5f">DINAMO: Emoties, Vertrouwen</span>
         <p class="synth-desc">Energie zonder vertrouwen in het leiderschap is instabiel. DINAMO 6.0 heeft hier een nieuwe schaal voor toegevoegd: Vertrouwen in leiderschap — direct verbonden met het energieniveau op het Canvas.</p>
       </div>
 
       <div class="synth-card">
         <div class="synth-number">4</div>
-        <div class="synth-icon-wrap" style="background:#FAECE7">🔌</div>
+        <div class="synth-icon-wrap" style="background:#fee2e2">🔌</div>
         <h3>Verbinding & Focus = Kunnen</h3>
-        <span class="synth-canvas-ref" style="background:#FAECE7;color:#C9503A">Canvas: Verbinding + Focus</span>
+        <span class="synth-canvas-ref" style="background:#fee2e2;color:#dc2626">Canvas: Verbinding + Focus</span>
         <div class="synth-arrow">↕ organisatorische capaciteit</div>
-        <span class="synth-dinamo-ref" style="background:#FAECE7;color:#C9503A">DINAMO: Aansturing, Informatie, Verandervermogen</span>
+        <span class="synth-dinamo-ref" style="background:#fee2e2;color:#dc2626">DINAMO: Aansturing, Informatie, Verandervermogen</span>
         <p class="synth-desc">Verbinding en Focus zijn de sociale en structurele randvoorwaarden. Ze dekken samen de "Kunnen"-pijler van de DINAMO: heeft de organisatie de capaciteit, informatie en sturing om te veranderen?</p>
       </div>
 
       <div class="synth-card">
         <div class="synth-number">5</div>
-        <div class="synth-icon-wrap" style="background:#EDF2F7">🎯</div>
+        <div class="synth-icon-wrap" style="background:#f1f5f9">🎯</div>
         <h3>Effect = Resultaat meten</h3>
-        <span class="synth-canvas-ref" style="background:#EDF2F7;color:#4A5568">Canvas: Effect +/−</span>
+        <span class="synth-canvas-ref" style="background:#f1f5f9;color:#64748b">Canvas: Effect +/−</span>
         <div class="synth-arrow">↕ uitkomstmeting</div>
-        <span class="synth-dinamo-ref" style="background:#EDF2F7;color:#4A5568">DINAMO: Resultaat (INK-model)</span>
+        <span class="synth-dinamo-ref" style="background:#f1f5f9;color:#64748b">DINAMO: Resultaat (INK-model)</span>
         <p class="synth-desc">Het Effect-blok op het Canvas is de ambities van het management. De DINAMO-Resultaatschalen (vragen 77–85) meten of medewerkers diezelfde effecten verwachten — op leiderschap, medewerkers, klanten en maatschappij.</p>
       </div>
 
       <div class="synth-card" style="border-color:var(--amber-mid);background:var(--amber-light)">
         <div class="synth-number" style="color:var(--amber)">!</div>
-        <div class="synth-icon-wrap" style="background:rgba(212,137,10,0.15)">🔍</div>
+        <div class="synth-icon-wrap" style="background:rgba(217,119,6,0.15)">🔍</div>
         <h3 style="color:var(--amber)">Blinde vlek: Kennis</h3>
-        <span class="synth-canvas-ref" style="background:rgba(212,137,10,0.2);color:var(--amber)">Canvas: geen expliciet blok</span>
+        <span class="synth-canvas-ref" style="background:rgba(217,119,6,0.2);color:var(--amber)">Canvas: geen expliciet blok</span>
         <div class="synth-arrow" style="color:var(--amber)">↕ ontbrekende verbinding</div>
-        <span class="synth-dinamo-ref" style="background:rgba(212,137,10,0.2);color:var(--amber)">DINAMO: Kennis & ervaring</span>
+        <span class="synth-dinamo-ref" style="background:rgba(217,119,6,0.2);color:var(--amber)">DINAMO: Kennis & ervaring</span>
         <p class="synth-desc" style="color:var(--amber);opacity:.8">Het Canvas heeft geen expliciete plek voor kennis en competenties. De DINAMO meet wél of mensen voldoende kennis en ervaring hebben. Dit is de meest waardevolle aanvulling van DINAMO op het Canvas.</p>
       </div>
 
@@ -1358,7 +1541,7 @@ h1,h2,h3,h4,h5 {
       </div>
       <div class="workflow-step">
         <div class="workflow-num">Stap 03</div>
-        <div class="workflow-icon">📊</div>
+        <div class="workflow-icon"><svg viewBox="0 0 60 20" width="42" height="18"><path class="vc-ekg-path" d="M0,10 L10,10 L15,2 L18,18 L21,2 L24,18 L27,10 L38,10 L43,2 L46,18 L49,2 L52,18 L55,10 L60,10" style="stroke-width:1.8;"/></svg></div>
         <h4>Diagnose analyseren</h4>
         <p>Analyseer de DINAMO-scores per schaal. Welke zijn laag? Zijn er afdelingsverschillen? Wat zijn de sterkste knelpunten?</p>
         <span class="step-pill">Spindiagram</span>
@@ -1397,7 +1580,7 @@ h1,h2,h3,h4,h5 {
     <div class="bv-grid">
       <div class="bv-card">
         <h3>
-          <div class="bv-icon" style="background:#FEF3DC">🔎</div>
+          <div class="bv-icon" style="background:#fef3c7">🔎</div>
           Canvas mist competentiechecks
         </h3>
         <p>Het Canvas heeft geen expliciet blok dat vraagt: <em>hebben mensen eigenlijk de kennis en vaardigheden?</em> De DINAMO-schaal Kennis & ervaring vult dit gat. Zonder die meting kun je een mooie interventie bedenken die strandt op onvoldoende bekwaamheid.</p>
@@ -1405,7 +1588,7 @@ h1,h2,h3,h4,h5 {
       </div>
       <div class="bv-card">
         <h3>
-          <div class="bv-icon" style="background:#FAECE7">📸</div>
+          <div class="bv-icon" style="background:#fee2e2">📸</div>
           DINAMO is een momentopname
         </h3>
         <p>De DINAMO meet de bereidheid op één moment in de tijd. Een Canvas beschrijft een heel traject. Zorg dus voor hermetingen tijdens het traject, niet alleen aan het begin. Veranderbereidheid fluctueert — zeker bij grote, langlopende trajecten.</p>
@@ -1413,7 +1596,7 @@ h1,h2,h3,h4,h5 {
       </div>
       <div class="bv-card">
         <h3>
-          <div class="bv-icon" style="background:#EEE9FA">👁️</div>
+          <div class="bv-icon" style="background:#f0f5fa">👁️</div>
           Canvas is management-perspectief
         </h3>
         <p>Het Canvas wordt doorgaans door het management of een veranderteam ingevuld. De DINAMO geeft het medewerkersperspectief. Als die twee ver uit elkaar liggen, is dat op zichzelf al een diagnose — van een disconnect tussen top en werkvloer.</p>
@@ -1421,7 +1604,7 @@ h1,h2,h3,h4,h5 {
       </div>
       <div class="bv-card">
         <h3>
-          <div class="bv-icon" style="background:#E0F4F1">🕐</div>
+          <div class="bv-icon" style="background:#dcfce7">🕐</div>
           Tijdsdimensie ontbreekt in beide
         </h3>
         <p>Noch het Canvas noch de DINAMO laat je goed zien <em>hoe</em> de bereidheid in de loop van het traject verandert. Combineer de instrumenten met een tijdlijn of veranderfasenmodel (bijv. Kotter of Luddenscheidt) voor een completer beeld.</p>
@@ -1472,6 +1655,24 @@ h1,h2,h3,h4,h5 {
 </section>
 
 <!-- ─── FOOTER ─── -->
+<!-- DINAMO vragen modal -->
+<div class="gd-overlay" id="dq-overlay" onclick="closeDqModal(event)">
+  <div class="gd-modal" id="dq-modal" style="max-width:520px;max-height:80vh;overflow-y:auto;">
+    <button class="gd-modal-close" onclick="closeDqModal()">&times;</button>
+    <div class="gd-modal-title" id="dq-modal-title"></div>
+    <div id="dq-modal-body"></div>
+  </div>
+</div>
+
+<!-- Glassdoor modal -->
+<div class="gd-overlay" id="gd-overlay" onclick="closeGdModal(event)">
+  <div class="gd-modal" id="gd-modal">
+    <button class="gd-modal-close" onclick="closeGdModal()">&times;</button>
+    <div class="gd-modal-title" id="gd-modal-title"></div>
+    <div id="gd-modal-body"></div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="footer-inner">
     <p>
@@ -1522,6 +1723,363 @@ function syncCanvas(key) {
   if (node) node.classList.add('vc-active');
 }
 
+// ─── GLASSDOOR TOGGLE ────────────────────
+const glassdoorData = {
+  veranderidee: [
+    { type: 'plus', text: 'Trots op producten en missie: breed gedeeld (#6, #7, #11, #12, #16, #18, #25, #32)' },
+    { type: 'plus', text: 'Autonomie en vrijheid: positief benoemd (#1, #4, #26, #28)' },
+    { type: 'min',  text: 'Doorgroeimogelijkheden beperkt (#3, #8, #15, #19, #22, #26, #27, #30)' },
+    { type: 'min',  text: 'Salaris / beloning: onderbetaling en magere loonsverhogingen (#5, #6, #29, #30)' },
+  ],
+  context: [
+    { type: 'min',  text: 'Herhaalde reorganisaties en ontslagrondes (#3, #4)' },
+    { type: 'min',  text: 'Fusie/merger als externe driver (#4)' },
+    { type: 'min',  text: 'Marktpositie en groei als uitdaging (#3)' },
+  ],
+  rationale: [
+    { type: 'plus', text: 'Trots op producten en missie (#6, #7, #11, #12, #16, #18, #25, #32)' },
+    { type: 'min',  text: 'Doorgroeimogelijkheden beperkt (#3, #8, #15, #19, #22, #26, #27, #30)' },
+    { type: 'min',  text: 'Salaris / beloning: onderbetaling (#5, #6, #29, #30)' },
+  ],
+  energie: [
+    { type: 'plus', text: '"Fun culture", "great community" (#3, #17, #22)' },
+    { type: 'plus', text: 'Vertrouwen in directe collega\'s (#13, #14, #33)' },
+    { type: 'min',  text: '"Toxic environment", "oppressive" (#7, #12, #19, #30)' },
+    { type: 'min',  text: 'Wantrouwen richting management (#12, #16, #22, #24)' },
+  ],
+  focus: [
+    { type: 'min',  text: 'Zwak/inconsistent leiderschap (#3, #9, #11, #12, #16, #21, #24, #32)' },
+    { type: 'min',  text: 'Onduidelijke visie en wisselende strategie (#9, #18)' },
+    { type: 'min',  text: 'Micromanagement (#24)' },
+    { type: 'min',  text: 'Favoritisme en discriminatie (#24, #30)' },
+  ],
+  verbinding: [
+    { type: 'plus', text: 'Medewerkers betrokken bij de missie (#11, #18, #27)' },
+    { type: 'plus', text: 'Vertrouwen in directe collega\'s (#13, #14, #33)' },
+    { type: 'min',  text: 'Wantrouwen richting management (#12, #16, #22, #24)' },
+    { type: 'min',  text: 'Hoog verloop als signaal (#18, #22)' },
+  ],
+  effect: [
+    { type: 'plus', text: 'Trots op producten (#6, #7, #11, #12, #16, #18, #25, #32)' },
+    { type: 'min',  text: 'Trage besluitvorming / complexe governance (#2)' },
+    { type: 'min',  text: 'Verouderde technologie en IT-systemen (#11, #31)' },
+  ],
+  slag: [
+    { type: 'min',  text: 'Geen inwerkprogramma (#19)' },
+    { type: 'min',  text: 'Beperkte ontwikkelingsmogelijkheden (#8)' },
+    { type: 'min',  text: 'Verouderde technologie en IT-systemen (#11, #31)' },
+    { type: 'min',  text: 'Trage besluitvorming (#2)' },
+  ],
+  diagnose: [
+    { type: 'plus', text: 'DINAMO-dimensies herkenbaar in Glassdoor-reviews: willen, moeten, kunnen' },
+    { type: 'min',  text: 'Dimensies Timing en Veranderaanpak komen nauwelijks terug in reviews' },
+  ],
+};
+
+let glassdoorActive = false;
+
+function toggleGlassdoor() {
+  glassdoorActive = !glassdoorActive;
+  document.getElementById('gd-toggle').classList.toggle('active', glassdoorActive);
+  document.querySelectorAll('.vc-dnode-pm').forEach(el => el.style.display = glassdoorActive ? 'none' : '');
+  if (glassdoorActive) {
+    injectDots();
+  } else {
+    removeDots();
+  }
+}
+
+const gdLabels = {
+  veranderidee: '💡 Veranderidee',
+  context: '🔗 Context',
+  rationale: '🧠 Rationale',
+  energie: '⚡ Energie',
+  focus: '🎯 Focus',
+  verbinding: '📡 Verbinding',
+  effect: '🎯 Effect',
+  slag: '🔧 Aan de slag!',
+  diagnose: '📊 Diagnose',
+};
+
+function injectDots() {
+  for (const [key, items] of Object.entries(glassdoorData)) {
+    let container = document.querySelector('.vc-block[data-canvas="' + key + '"]')
+                 || document.querySelector('.vc-diamond-node[data-canvas="' + key + '"]');
+    if (!container) continue;
+    const dotsDiv = document.createElement('div');
+    dotsDiv.className = 'gd-dots';
+    dotsDiv.setAttribute('data-gd', key);
+    dotsDiv.onclick = function(e) { e.stopPropagation(); openGdModal(key); };
+    items.forEach((item, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'gd-dot ' + (item.type === 'plus' ? 'gd-plus' : 'gd-min');
+      dot.style.animationDelay = (i * 0.06) + 's';
+      dotsDiv.appendChild(dot);
+    });
+    container.appendChild(dotsDiv);
+  }
+}
+
+function removeDots() {
+  document.querySelectorAll('.gd-dots').forEach(el => el.remove());
+}
+
+function openGdModal(key) {
+  const items = glassdoorData[key];
+  if (!items) return;
+  document.getElementById('gd-modal-title').textContent = gdLabels[key] || key;
+  const body = document.getElementById('gd-modal-body');
+  body.innerHTML = '';
+  items.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'gd-modal-item';
+    row.innerHTML = '<span class="gd-modal-dot ' + (item.type === 'plus' ? 'gd-plus' : 'gd-min') + '"></span>'
+                  + '<span>' + item.text + '</span>';
+    body.appendChild(row);
+  });
+  document.getElementById('gd-overlay').classList.add('visible');
+}
+
+function closeGdModal(e) {
+  if (e && e.target !== document.getElementById('gd-overlay')) return;
+  document.getElementById('gd-overlay').classList.remove('visible');
+}
+
+// ─── DINAMO VRAGEN MODAL ─────────────────
+const dinamoVragen = {
+  'Gevolgen voor het werk': {
+    intro: 'Welke invloed verwacht u van het veranderproces op:',
+    vragen: [
+      '1. …de mate waarin u uw werk als interessant ervaart.',
+      '2. …het belang van uw werk voor de organisatie.',
+      '3. …de hoeveelheid verantwoordelijkheid die u draagt in uw werk.',
+      '4. …de mogelijkheden die u heeft om uw werk naar eigen inzicht uit te voeren.',
+      '5. …de mogelijkheden om aan wensen van (interne) klanten tegemoet te komen.',
+      '6. …de kwaliteit van uw werk.',
+      '7. …de tevredenheid met uw werk.',
+      '8. …de ontwikkeling van uw salaris en overige arbeidsvoorwaarden.',
+      '9. …uw betrokkenheid bij de organisatie.',
+      '10. …de ontwikkeling van uw loopbaan.',
+    ]
+  },
+  'Emoties': {
+    intro: 'Geef hier aan hoe u het veranderproces ervaart, gezien uw positie in de organisatie.',
+    vragen: [
+      '11. Bedreigend of uitdagend?',
+      '12. Slecht of goed?',
+      '13. Vreemd of vertrouwd?',
+      '14. Negatief of positief?',
+      '15. Benauwend of verfrissend?',
+    ]
+  },
+  'Meerwaarde': {
+    intro: 'Hoe groot is volgens u de meerwaarde van het veranderproces voor:',
+    vragen: [
+      '16. …de slagkracht van de organisatie op de markt.',
+      '17. …de interne efficiency.',
+      '18. …de kwaliteit van de diensten of producten van de organisatie.',
+      '19. …het imago van de organisatie naar klanten.',
+      '20. …het imago van de organisatie op de arbeidsmarkt.',
+    ]
+  },
+  'Betrokkenheid': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '21. Het veranderproces leeft voor mij.',
+      '22. Het veranderproces neemt een belangrijke plaats in in mijn werk.',
+      '23. Ik praat veel met collega\u2019s over het veranderproces.',
+      '24. Ik voel me betrokken bij het veranderproces.',
+    ]
+  },
+  'Interne druk': {
+    intro: 'Geef hier aan hoe volgens u de volgende personen tegenover het veranderproces staan:',
+    vragen: [
+      '25. Uw collega\u2019s?',
+      '26. Uw medewerkers (indien van toepassing)?',
+      '27. Uw direct-leidinggevende?',
+      '28. De directie (indien van toepassing)?',
+      '29. De Raad van Bestuur (indien van toepassing)?',
+    ]
+  },
+  'Externe noodzaak': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '30. Het veranderproces is noodzakelijk gezien de ontwikkelingen op de markt.',
+      '31. We moeten veranderen om de organisatie gezond te houden.',
+      '32. Als het veranderproces mislukt, voorzie ik problemen voor de organisatie.',
+      '33. De noodzaak om te veranderen is mij duidelijk.',
+    ]
+  },
+  'Kennis en ervaring': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '34. Ik beschik over voldoende kennis en ervaring om het veranderproces tot een succes te maken.',
+      '35. Ik kan op basis van mijn ervaring met eerdere veranderingsprojecten bijdragen aan het slagen.',
+      '36. Mijn competentieprofiel sluit aan op wat er in de toekomst van mijn functie wordt verwacht.',
+      '37. Ik kan op basis van mijn vak-inhoudelijke kennis bijdragen aan het slagen.',
+      '38. Ik heb in het verleden negatieve ervaringen opgedaan met organisatieveranderingen.',
+    ]
+  },
+  'Aansturing': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '39. De directie informeert iedereen op tijd over de komende ontwikkelingen.',
+      '40. Het veranderproces wordt doelgericht aangestuurd.',
+      '41. Het veranderproces is in duidelijke fasen ingedeeld.',
+      '42. De mensen die het veranderproces aansturen hebben de benodigde kennis en ervaring.',
+      '43. Aan de basis van het veranderproces ligt een helder veranderplan.',
+    ]
+  },
+  'Informatie': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '44. Ik kan de gevolgen voor mijn eigen positie goed overzien.',
+      '45. Ik kan mijn collega\u2019s goed informeren over de gevolgen voor de afdeling.',
+      '46. Op mijn afdeling heerst onzekerheid over de personele gevolgen.',
+      '47. Op mijn afdeling heerst onzekerheid over de financi\u00eble gevolgen.',
+      '48. Op mijn afdeling heerst onzekerheid over de organisatorische gevolgen.',
+      '49. Op mijn afdeling heerst onzekerheid over de gevolgen voor de inhoud van het werk.',
+    ]
+  },
+  'Verandervermogen': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '50. De stijl van leidinggeven helpt om het veranderproces tot een succes te maken.',
+      '51. De systemen waarmee ik nu werk helpen om de doelen te bereiken.',
+      '52. De collega\u2019s met wie ik werk zijn voldoende ervaren om de veranderingen in te voeren.',
+      '53. De ondersteunende afdelingen (bijv. HR) kunnen succesvol meeveranderen.',
+      '54. De huidige structuur van de organisatie draagt bij aan het slagen.',
+      '55. De normen en waarden van mijn collega\u2019s dragen bij aan het slagen.',
+      '56. De strategische visie van het senior-management ondersteunt het veranderproces.',
+    ]
+  },
+  'Timing': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '57. Ik loop wat het veranderproces betreft achter de feiten aan.',
+      '58. Ik kan het veranderproces goed bijhouden.',
+      '59. Ik ben eraan toe om mijn werk te veranderen.',
+      '60. Het veranderproces komt voor mij op een goed moment.',
+      '61. Het veranderproces voltrekt zich voor mij te snel.',
+    ]
+  },
+  'Beheersbaarheid': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '62. Ik beschouw de veranderingen als complex om in te voeren.',
+      '63. Het succes hangt af van externe factoren die moeilijk te managen zijn.',
+      '64. Er zal een grote inspanning nodig zijn om alle medewerkers op niveau te krijgen.',
+      '65. Succesvolle invoering hangt af van middelen die schaars zijn.',
+      '66. De huidige ontwikkelingen bemoeilijken de succesvolle invoering.',
+    ]
+  },
+  'Complexiteit': {
+    intro: 'Hoeveel verandert er volgens u aan:',
+    vragen: [
+      '88. …de positie van uw organisatie op de markt?',
+      '89. …de doelstelling(en) die uw organisatie nastreeft?',
+      '90. …de wijze waarop u met elkaar omgaat?',
+      '91. …de wijze waarop besluiten worden genomen?',
+      '92. …de inhoud van het werk van uw collega\u2019s?',
+      '93. …de wijze waarop uw organisatie wordt bestuurd?',
+      '94. …de wijze waarop uw organisatie de markt benadert?',
+    ]
+  },
+  'Vertrouwen': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '67. Ik heb vertrouwen in de goede afloop van dit veranderproces.',
+      '68. Ik heb vertrouwen in de door de directie uitgezette koers.',
+      '69. Ik heb vertrouwen in de door de directie gemaakte (strategische) keuzen.',
+      '70. Ik vertrouw erop dat de directie het beste wil voor de organisatie.',
+      '71. Ik heb vertrouwen in de rechtvaardigheid van de directie.',
+    ]
+  },
+  'Veranderbereidheid': {
+    intro: 'Geef uw mening over de volgende stellingen:',
+    vragen: [
+      '72. Ik ben bereid om mijn collega\u2019s te overtuigen van het nut van het veranderproces.',
+      '73. Ik ben bereid om me in te zetten voor de doelstellingen van het veranderproces.',
+      '74. Ik ben bereid om eventuele weerstand onder mijn collega\u2019s weg te nemen.',
+      '75. Ik ben bereid om tijd vrij te maken voor de invoering van de veranderingen.',
+    ]
+  },
+  'Gedrag': {
+    intro: 'Hoe reageren uw collega\u2019s op het veranderproces? (meerdere antwoorden mogelijk)',
+    vragen: [
+      '76a. Zij zetten zich actief in om het veranderproces te realiseren.',
+      '76b. Zij staan achter het veranderproces.',
+      '76c. Zij voelen zich betrokken en hebben behoefte aan informatie.',
+      '76d. Zij praten er niet over.',
+      '76e. Zij stellen zich afwachtend op.',
+      '76f. In de wandelgangen praten zij negatief over het veranderproces.',
+      '76g. Zij spreken zich op vergaderingen negatief uit.',
+      '76h. Zij melden zich ziek.',
+    ]
+  },
+  'Resultaat': {
+    intro: 'Welk resultaat verwacht u van het veranderproces voor:',
+    vragen: [
+      '77. …de kwaliteit van het leiderschap in de organisatie?',
+      '78. …de kwaliteit van de medewerkers?',
+      '79. …de kwaliteit van strategie en beleid?',
+      '80. …de kwaliteit van middelen-management (tijd, geld, mensen)?',
+      '81. …de kwaliteit van werkprocessen?',
+      '82. …de tevredenheid van medewerkers?',
+      '83. …de tevredenheid van klanten?',
+      '84. …de waardering door de maatschappij?',
+      '85. …het leervermogen van de organisatie?',
+    ]
+  },
+};
+
+const dqMapping = {
+  veranderidee: ['Meerwaarde', 'Gevolgen voor het werk', 'Externe noodzaak'],
+  context: ['Externe noodzaak', 'Beheersbaarheid', 'Complexiteit', 'Aansturing'],
+  diagnose: ['Gevolgen voor het werk', 'Emoties', 'Meerwaarde', 'Betrokkenheid', 'Interne druk', 'Externe noodzaak', 'Kennis en ervaring', 'Aansturing', 'Informatie', 'Verandervermogen', 'Timing', 'Beheersbaarheid', 'Complexiteit', 'Vertrouwen'],
+  rationale: ['Meerwaarde', 'Gevolgen voor het werk', 'Externe noodzaak'],
+  energie: ['Emoties', 'Betrokkenheid', 'Vertrouwen'],
+  focus: ['Aansturing', 'Informatie', 'Timing', 'Beheersbaarheid'],
+  verbinding: ['Interne druk', 'Verandervermogen', 'Betrokkenheid', 'Vertrouwen'],
+  effect: ['Resultaat', 'Meerwaarde'],
+  slag: ['Veranderbereidheid', 'Gedrag', 'Kennis en ervaring', 'Timing'],
+};
+
+function openDqModal(key) {
+  const scales = dqMapping[key];
+  if (!scales) return;
+  const title = gdLabels[key] || key;
+  document.getElementById('dq-modal-title').textContent = title + ' \u2014 DINAMO-vragen';
+  const body = document.getElementById('dq-modal-body');
+  body.innerHTML = '';
+  scales.forEach(function(scaleName) {
+    var scale = dinamoVragen[scaleName];
+    if (!scale) return;
+    var h = document.createElement('div');
+    h.className = 'dq-scale-title';
+    h.textContent = scaleName;
+    body.appendChild(h);
+    if (scale.intro) {
+      var intro = document.createElement('div');
+      intro.style.cssText = 'font-size:12px;color:var(--text-muted);font-style:italic;margin-bottom:6px;';
+      intro.textContent = scale.intro;
+      body.appendChild(intro);
+    }
+    scale.vragen.forEach(function(q) {
+      var d = document.createElement('div');
+      d.className = 'dq-question';
+      d.textContent = q;
+      body.appendChild(d);
+    });
+  });
+  document.getElementById('dq-overlay').classList.add('visible');
+}
+
+function closeDqModal(e) {
+  if (e && e.target !== document.getElementById('dq-overlay')) return;
+  document.getElementById('dq-overlay').classList.remove('visible');
+}
+
 // ─── FADE-IN ON SCROLL ───────────────────
 function checkFade() {
   document.querySelectorAll('.fade-in').forEach(el => {
@@ -1533,6 +2091,87 @@ function checkFade() {
 }
 window.addEventListener('scroll', checkFade, { passive: true });
 checkFade();
+
+// ─── POSITION HAND-DRAWN ARROW: Veranderidee → Context ───
+function positionArrow() {
+  const grid = document.getElementById('vc-grid');
+  const vi = grid.querySelector('.vc-veranderidee');
+  const ctx = grid.querySelector('.vc-context');
+  const arrow = document.getElementById('arrow-vi-ctx');
+  if (!vi || !ctx || !arrow || !grid) return;
+
+  const gridRect = grid.getBoundingClientRect();
+  const viRect = vi.getBoundingClientRect();
+  const ctxRect = ctx.getBoundingClientRect();
+
+  // Arrow starts inside veranderidee (40px from right edge) and ends inside context (40px from left edge)
+  const startX = viRect.right - gridRect.left - 40;
+  const endX = ctxRect.left - gridRect.left + 40;
+  const centerY = (viRect.top + viRect.bottom) / 2 - gridRect.top;
+  const arrowW = endX - startX;
+
+  // Position and scale the SVG
+  arrow.style.left = startX + 'px';
+  arrow.style.top = (centerY - 25) + 'px';
+  arrow.setAttribute('width', Math.max(arrowW + 4, 40));
+  arrow.setAttribute('height', 50);
+
+  // Redraw straight line to fit actual width
+  const line = arrow.querySelector('line');
+  line.setAttribute('x1', 0);
+  line.setAttribute('y1', 25);
+  line.setAttribute('x2', arrowW);
+  line.setAttribute('y2', 25);
+  // ─── Arrow 2: Context → Rationale (vertical) ───
+  const diamond = grid.querySelector('.vc-diamond');
+  const ratNode = diamond ? diamond.querySelector('[data-canvas="rationale"]') : null;
+  const arrow2 = document.getElementById('arrow-ctx-rat');
+  if (ctx && ratNode && arrow2 && diamond) {
+    const ctxBottom = ctxRect.bottom - gridRect.top;
+    const ratRect = ratNode.getBoundingClientRect();
+    const ratTop = ratRect.top - gridRect.top + 5;
+    const ctxRightArea = ctxRect.left + (ctxRect.width * 0.75) - gridRect.left;
+
+    const arrowH = ratTop - ctxBottom + 40;
+    arrow2.style.left = (ctxRightArea - 25) + 'px';
+    arrow2.style.top = (ctxBottom - 25) + 'px';
+    arrow2.setAttribute('width', 50);
+    arrow2.setAttribute('height', Math.max(arrowH + 10, 40));
+
+    const line2 = arrow2.querySelector('line');
+    line2.setAttribute('x1', 25);
+    line2.setAttribute('y1', 5);
+    line2.setAttribute('x2', 25);
+    line2.setAttribute('y2', arrowH);
+  }
+
+  // ─── Arrow 3: Diagnose → Aan de slag (horizontal, right to left) ───
+  const diag = grid.querySelector('.vc-diagnose');
+  const slag = grid.querySelector('.vc-slag');
+  const arrow3 = document.getElementById('arrow-diag-slag');
+  if (diag && slag && arrow3) {
+    const diagRect = diag.getBoundingClientRect();
+    const slagRect = slag.getBoundingClientRect();
+
+    const startX = diagRect.left - gridRect.left + 40;
+    const endX = slagRect.right - gridRect.left - 40;
+    const centerY = (diagRect.top + diagRect.bottom) / 2 - gridRect.top;
+    const arrowW = startX - endX;
+
+    arrow3.style.left = endX + 'px';
+    arrow3.style.top = (centerY - 25) + 'px';
+    arrow3.setAttribute('width', Math.max(arrowW, 40));
+    arrow3.setAttribute('height', 50);
+
+    const line3 = arrow3.querySelector('line');
+    line3.setAttribute('x1', arrowW);
+    line3.setAttribute('y1', 25);
+    line3.setAttribute('x2', 0);
+    line3.setAttribute('y2', 25);
+  }
+}
+window.addEventListener('load', positionArrow);
+window.addEventListener('resize', positionArrow);
 </script>
 </body>
 </html>

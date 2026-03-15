@@ -1,6 +1,6 @@
-# Analyse Glassdoor-reviews Össur op DINAMO-dimensies
+# Analyse Glassdoor-reviews [organisatie] op DINAMO-dimensies
 
-Op basis van 35 Glassdoor-reviews van Össur worden de volgende DINAMO-dimensies herkenbaar aangekaart:
+Op basis van 35 Glassdoor-reviews van [organisatie] worden de volgende DINAMO-dimensies herkenbaar aangekaart:
 
 ## WILLEN veranderen
 
