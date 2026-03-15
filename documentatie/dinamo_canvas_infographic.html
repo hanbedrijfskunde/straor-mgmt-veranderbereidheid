@@ -512,6 +512,125 @@ h1,h2,h3,h4,h5 {
   color: rgba(255,255,255,0.6);
 }
 
+/* ─── WORKFLOW ROUTE TABS ─────────────────── */
+.wf-route-tabs {
+  display: flex; gap: 4px;
+  margin: 14px 0 10px;
+}
+.wf-route-tab {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: .04em;
+  padding: 4px 10px; border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  transition: all .2s;
+}
+.wf-route-tab:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+.wf-route-tab.active {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border-color: rgba(255,255,255,0.35);
+}
+.wf-route-content { display: none; }
+.wf-route-content.active { display: block; }
+.wf-route-content .qs-stickers {
+  display: flex; gap: 6px; margin: 8px 0;
+}
+.qs-sticker {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px; font-weight: 500;
+  color: rgba(255,255,255,0.6);
+}
+.qs-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+}
+.qs-dot.red { background: #ef4444; }
+.qs-dot.orange { background: #f59e0b; }
+.qs-dot.green { background: #22c55e; }
+.wf-route-content .qs-link {
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  font-style: italic;
+  margin-top: 6px;
+}
+.qs-poster-link {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 8px;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px; font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all .2s;
+}
+.qs-poster-link:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* ─── INTERVENTION CARDS ─────────────────── */
+.intervention-toggle {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 14px;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px; font-weight: 600;
+  padding: 4px 12px; border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all .2s;
+}
+.intervention-toggle:hover { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+.intervention-toggle.active {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border-color: rgba(255,255,255,0.35);
+}
+.intervention-grid {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+.intervention-grid.visible {
+  display: grid;
+}
+.intervention-card {
+  background: rgba(255,255,255,0.06);
+  border-left: 3px solid;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.intervention-card.willen { border-left-color: #3b82f6; }
+.intervention-card.moeten { border-left-color: #a855f7; }
+.intervention-card.kunnen { border-left-color: #14b8a6; }
+.intervention-card h5 {
+  font-size: 11px; font-weight: 700;
+  margin-bottom: 3px;
+}
+.intervention-card.willen h5 { color: #93c5fd; }
+.intervention-card.moeten h5 { color: #c4b5fd; }
+.intervention-card.kunnen h5 { color: #5eead4; }
+.intervention-card p {
+  font-size: 11px !important;
+  color: rgba(255,255,255,0.5) !important;
+  line-height: 1.5 !important;
+}
+.intervention-tip {
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+  margin-top: 8px;
+}
+
 /* ─── BLINDE VLEKKEN ─────────────────────── */
 .bv-section { background: var(--off-white); }
 .bv-grid {
@@ -1693,8 +1812,27 @@ h1,h2,h3,h4,h5 {
         <div class="workflow-num">Stap 02</div>
         <div class="workflow-icon">📋</div>
         <h4>DINAMO uitzetten</h4>
-        <p>Zet de DINAMO-vragenlijst uit naar alle betrokken medewerkers en managers. Verzamel data via anonieme survey.</p>
-        <span class="step-pill">Kwantitatief bewijs</span>
+        <div class="wf-route-tabs">
+          <button class="wf-route-tab active" onclick="toggleRoute('digital', this)">Digitale vragenlijst</button>
+          <button class="wf-route-tab" onclick="toggleRoute('quickscan', this)">Fysieke Quickscan</button>
+        </div>
+        <div class="wf-route-content active" data-route="digital">
+          <p>Zet de volledige DINAMO-vragenlijst (93 vragen, ~15 min) uit als anonieme online survey naar alle betrokken medewerkers en managers.</p>
+          <a href="DINAMO_6_0_Compleet.docx" download class="qs-poster-link">📄 Download DINAMO 6.0 vragenlijst</a>
+          <span class="step-pill">Kwantitatief bewijs</span>
+        </div>
+        <div class="wf-route-content" data-route="quickscan">
+          <p>Gebruik een A0-poster met alle 14 DINAMO-factoren. Het team plakt per factor een gekleurde sticker:</p>
+          <div class="qs-stickers">
+            <span class="qs-sticker"><span class="qs-dot red"></span> Urgent knelpunt</span>
+            <span class="qs-sticker"><span class="qs-dot orange"></span> Aandachtspunt</span>
+            <span class="qs-sticker"><span class="qs-dot green"></span> Positieve bijdrage</span>
+          </div>
+          <p>Bespreek daarna: waar ligt het draagvlak? In het Willen, Moeten of Kunnen?</p>
+          <a href="DINAMO-model-op-managementmodellensite.nl_.png" target="_blank" class="qs-poster-link">🖼️ Bekijk de A0-poster layout</a>
+          <p class="qs-link">Net als het Canvas is de Quickscan een visuele werkvorm — ideaal om in dezelfde sessie te combineren.</p>
+          <span class="step-pill">Kwalitatieve dialoog</span>
+        </div>
       </div>
       <div class="workflow-step">
         <div class="workflow-num">Stap 03</div>
@@ -1714,7 +1852,23 @@ h1,h2,h3,h4,h5 {
         <div class="workflow-num">Stap 05</div>
         <div class="workflow-icon">🎯</div>
         <h4>Interventies kiezen</h4>
-        <p>Elke lage DINAMO-schaal heeft een bijbehorende interventie (informeren, coachen, plannen). Verbind die aan de Canvas-blokken.</p>
+        <p>Elke lage DINAMO-dimensie heeft een bijbehorende interventiestrategie. Verbind die aan de Canvas-blokken.</p>
+        <button class="intervention-toggle" onclick="toggleInterventions(this)">▶ Toon interventiewiel</button>
+        <div class="intervention-grid" id="intervention-grid">
+          <div class="intervention-card willen">
+            <h5>Willen laag → Informeren & Inspireren</h5>
+            <p>Meerwaarde communiceren, succesverhalen delen, betrokkenheid vergroten door dialoog.</p>
+          </div>
+          <div class="intervention-card moeten">
+            <h5>Moeten laag → Aantonen & Mobiliseren</h5>
+            <p>Urgentie zichtbaar maken, marktdata delen, consequenties van niet-veranderen tonen.</p>
+          </div>
+          <div class="intervention-card kunnen">
+            <h5>Kunnen laag → Faciliteren & Ondersteunen</h5>
+            <p>Training en coaching bieden, systemen aanpassen, extra tijd vrijmaken, stafafdelingen inschakelen.</p>
+          </div>
+        </div>
+        <p class="intervention-tip" id="intervention-tip" style="display:none">Exploiteer sterke punten om zwakke te compenseren — collegiale ondersteuning is een krachtige hefboom.</p>
         <span class="step-pill">Gericht handelen</span>
       </div>
       <div class="workflow-step">
@@ -2236,6 +2390,27 @@ function openDqModal(key) {
 function closeDqModal(e) {
   if (e && e.target !== document.getElementById('dq-overlay')) return;
   document.getElementById('dq-overlay').classList.remove('visible');
+}
+
+// ─── WORKFLOW ROUTE TOGGLE ───────────────
+function toggleRoute(route, btn) {
+  const step = btn.closest('.workflow-step');
+  step.querySelectorAll('.wf-route-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  step.querySelectorAll('.wf-route-content').forEach(c => c.classList.remove('active'));
+  const target = step.querySelector('.wf-route-content[data-route="' + route + '"]');
+  if (target) target.classList.add('active');
+}
+
+// ─── INTERVENTION TOGGLE ─────────────────
+function toggleInterventions(btn) {
+  const grid = document.getElementById('intervention-grid');
+  const tip = document.getElementById('intervention-tip');
+  const isVisible = grid.classList.contains('visible');
+  grid.classList.toggle('visible', !isVisible);
+  btn.classList.toggle('active', !isVisible);
+  btn.textContent = isVisible ? '▶ Toon interventiewiel' : '▼ Verberg interventiewiel';
+  if (tip) tip.style.display = isVisible ? 'none' : 'block';
 }
 
 // ─── FADE-IN ON SCROLL ───────────────────
