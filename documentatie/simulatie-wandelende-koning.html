@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulatie: De Wandelende Koning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1e3a5f;
+  --primary-light: #2d5a8e;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --coral: #dc2626;
+  --success: #16a34a;
+  --slate: #64748b;
+  --off-white: #f8fafc;
+  --white: #ffffff;
+  --text: #1a202c;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(30,58,95,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--off-white);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem 1rem 1rem;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+header p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem 1rem 1rem;
+  align-items: center;
+}
+
+.controls label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.controls select, .controls input[type="range"] {
+  font-family: inherit;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  background: var(--white);
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover { background: var(--primary-light); }
+
+.btn-danger {
+  background: var(--coral);
+  color: var(--white);
+}
+
+.btn-danger:hover { opacity: 0.9; }
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Stats bar */
+.stats {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 0 1rem 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stats span { font-weight: 600; color: var(--text); }
+
+/* Canvas */
+.arena-wrap {
+  position: relative;
+  width: min(90vw, 800px);
+  height: min(70vh, 600px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid;
+}
+
+.legend-dot.king {
+  background: #fbbf24;
+  border-color: #d97706;
+}
+
+.legend-dot.subject {
+  background: #93c5fd;
+  border-color: #2563eb;
+}
+
+.legend-dot.moving {
+  background: #86efac;
+  border-color: #16a34a;
+}
+
+.legend-dot.chair {
+  background: transparent;
+  border-color: #94a3b8;
+  border-radius: 3px;
+}
+
+.legend-dot.chair-empty {
+  background: #fef3c7;
+  border-color: #d97706;
+  border-radius: 3px;
+}
+
+/* Info panel */
+.info-panel {
+  max-width: min(90vw, 800px);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 0.75rem 1rem 1.5rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  box-shadow: var(--shadow);
+}
+
+.info-panel h3 {
+  color: var(--primary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>De Wandelende Koning</h1>
+  <p>Interactieve simulatie — zelforganisatie en impliciete afstemming</p>
+</header>
+
+<div class="controls">
+  <label>Deelnemers:
+    <select id="numSubjects">
+      <option value="6">6</option>
+      <option value="8" selected>8</option>
+      <option value="10">10</option>
+      <option value="14">14</option>
+      <option value="18">18</option>
+    </select>
+  </label>
+  <label>Snelheid:
+    <input type="range" id="speedSlider" min="0.3" max="3" step="0.1" value="1">
+  </label>
+  <button class="btn btn-primary" id="btnStart">Start</button>
+  <button class="btn btn-danger" id="btnReset" disabled>Reset</button>
+</div>
+
+<div class="stats">
+  <div>Tijd: <span id="statTime">0:00</span></div>
+  <div>Stoelwissels: <span id="statSwaps">0</span></div>
+  <div>Reactietijd gem.: <span id="statReaction">—</span></div>
+  <div id="statusText" style="color:var(--amber);font-weight:600;"></div>
+</div>
+
+<div class="arena-wrap">
+  <canvas id="arena"></canvas>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot king"></div> Koning</div>
+  <div class="legend-item"><div class="legend-dot subject"></div> Onderdaan (zittend)</div>
+  <div class="legend-item"><div class="legend-dot moving"></div> Onderdaan (beweegt)</div>
+  <div class="legend-item"><div class="legend-dot chair"></div> Stoel (bezet)</div>
+  <div class="legend-item"><div class="legend-dot chair-empty"></div> Lege stoel</div>
+</div>
+
+<div class="info-panel">
+  <h3>Over de simulatie</h3>
+  <p>
+    De <strong>koning</strong> (geel) loopt naar de lege stoel. De <strong>onderdanen</strong> (blauw) proberen
+    de koning in beweging te houden door op te staan en de lege stoel in te nemen voordat de koning er is.
+    Hierdoor ontstaat steeds een nieuwe lege stoel en draait de koning om.
+  </p>
+</div>
+
+<script>
+// ─── Config ──────────────────────────────────────────────────────
+const canvas = document.getElementById('arena');
+const ctx = canvas.getContext('2d');
+const dpr = window.devicePixelRatio || 1;
+
+let W, H;
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  W = rect.width;
+  H = rect.height;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ─── State ───────────────────────────────────────────────────────
+let chairs = [];
+let subjects = [];
+let king = null;
+let emptyChairIdx = -1;
+let running = false;
+let startTime = 0;
+let elapsed = 0;
+let swapCount = 0;
+let reactionTimes = [];
+let animId = null;
+let speedMul = 1;
+
+// ─── Helpers ─────────────────────────────────────────────────────
+function dist(a, b) {
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function randomInPad(pad) {
+  return {
+    x: pad + Math.random() * (W - 2 * pad),
+    y: pad + Math.random() * (H - 2 * pad)
+  };
+}
+
+// Generate non-overlapping positions
+function scatterPositions(n, pad, minDist) {
+  const positions = [];
+  let attempts = 0;
+  while (positions.length < n && attempts < 5000) {
+    const p = randomInPad(pad);
+    let ok = true;
+    for (const q of positions) {
+      if (dist(p, q) < minDist) { ok = false; break; }
+    }
+    if (ok) positions.push(p);
+    attempts++;
+  }
+  // Fill remaining with less strict spacing
+  while (positions.length < n) {
+    positions.push(randomInPad(pad));
+  }
+  return positions;
+}
+
+// ─── Init ────────────────────────────────────────────────────────
+function init() {
+  const numSubjects = parseInt(document.getElementById('numSubjects').value);
+  const totalChairs = numSubjects + 1;
+  speedMul = parseFloat(document.getElementById('speedSlider').value);
+
+  const pad = 50;
+  const minDist = Math.min(80, Math.min(W, H) / (Math.sqrt(totalChairs) + 1));
+  const positions = scatterPositions(totalChairs, pad, minDist);
+
+  chairs = positions.map((p, i) => ({
+    x: p.x,
+    y: p.y,
+    occupied: i < numSubjects // last chair is empty
+  }));
+
+  emptyChairIdx = totalChairs - 1;
+
+  // Create subjects, each seated on a chair
+  subjects = [];
+  for (let i = 0; i < numSubjects; i++) {
+    subjects.push({
+      x: chairs[i].x,
+      y: chairs[i].y,
+      chairIdx: i,
+      state: 'seated', // seated, moving
+      targetChairIdx: -1,
+      moveProgress: 0,
+      startX: 0,
+      startY: 0,
+      reactDelay: 0,
+      reactTimer: 0,
+      awareness: 0.5 + Math.random() * 0.5 // how aware this person is
+    });
+  }
+
+  // King starts at a random position away from empty chair
+  const kingStart = randomInPad(pad);
+  king = {
+    x: kingStart.x,
+    y: kingStart.y,
+    targetX: chairs[emptyChairIdx].x,
+    targetY: chairs[emptyChairIdx].y,
+    speed: 1.2, // base px per frame
+    seated: false
+  };
+
+  swapCount = 0;
+  reactionTimes = [];
+  elapsed = 0;
+
+  updateStats();
+}
+
+// ─── Simulation logic ────────────────────────────────────────────
+let lastKingDistToTarget = Infinity;
+let lastEmptySwitch = 0;
+
+function getKingSpeed() {
+  return king.speed * speedMul * (1 + 0.15 * Math.sin(elapsed * 0.002)); // slight variation
+}
+
+function getReactDelay(subject) {
+  const base = 250 + Math.random() * 500;
+  return base / subject.awareness;
+}
+
+function tick(dt) {
+  if (!running) return;
+  elapsed += dt;
+
+  // ── King movement ──
+  const ec = chairs[emptyChairIdx];
+  king.targetX = ec.x;
+  king.targetY = ec.y;
+
+  const dxK = king.targetX - king.x;
+  const dyK = king.targetY - king.y;
+  const distK = Math.hypot(dxK, dyK);
+
+  if (distK < 8) {
+    // King sits down!
+    king.x = ec.x;
+    king.y = ec.y;
+    king.seated = true;
+    running = false;
+    document.getElementById('statusText').textContent = 'De koning heeft de troon gevonden!';
+    return;
+  }
+
+  const spd = getKingSpeed();
+  const step = Math.min(spd * dt * 0.06, distK);
+  king.x += (dxK / distK) * step;
+  king.y += (dyK / distK) * step;
+
+  // ── Subject AI ──
+  const kingDistToEmpty = dist(king, ec);
+
+  for (let i = 0; i < subjects.length; i++) {
+    const s = subjects[i];
+
+    if (s.state === 'seated') {
+      // Decide whether to move
+      const urgency = 1 - Math.min(kingDistToEmpty / 300, 1); // 0..1 how close king is
+
+      if (s.reactTimer <= 0) {
+        // Should I react?
+        const shouldReact = urgency > (0.3 + (1 - s.awareness) * 0.4);
+        if (shouldReact) {
+          s.reactTimer = getReactDelay(s);
+        }
+      } else {
+        s.reactTimer -= dt;
+        if (s.reactTimer <= 0) {
+          // Try to move to empty chair
+          // Only one person should succeed at a time
+          const alreadyMoving = subjects.some(o => o.state === 'moving' && o.targetChairIdx === emptyChairIdx);
+          if (!alreadyMoving) {
+            // Check: am I reasonably close and can I beat the king?
+            const myDist = dist(s, ec);
+            if (myDist < kingDistToEmpty * 1.8 + 50) {
+              s.state = 'moving';
+              s.targetChairIdx = emptyChairIdx;
+              s.startX = s.x;
+              s.startY = s.y;
+              s.moveProgress = 0;
+              reactionTimes.push(Date.now() - lastEmptySwitch || 500);
+            }
+          }
+          s.reactTimer = 0;
+        }
+      }
+    }
+
+    if (s.state === 'moving') {
+      const target = chairs[s.targetChairIdx];
+      const moveDist = dist({ x: s.startX, y: s.startY }, target);
+      const moveSpeed = (1.8 + s.awareness * 0.8) * speedMul;
+      s.moveProgress += (moveSpeed * dt * 0.06) / Math.max(moveDist, 1);
+
+      if (s.moveProgress >= 1) {
+        // Arrived
+        s.x = target.x;
+        s.y = target.y;
+
+        // Free old chair
+        if (s.chairIdx >= 0) {
+          chairs[s.chairIdx].occupied = false;
+          const newEmpty = s.chairIdx;
+
+          // Occupy new chair
+          chairs[s.targetChairIdx].occupied = true;
+          s.chairIdx = s.targetChairIdx;
+          s.targetChairIdx = -1;
+          s.state = 'seated';
+          s.moveProgress = 0;
+
+          emptyChairIdx = newEmpty;
+          lastEmptySwitch = Date.now();
+          swapCount++;
+        }
+      } else {
+        // Interpolate position with slight curve
+        const t = s.moveProgress;
+        const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        s.x = lerp(s.startX, target.x, ease);
+        s.y = lerp(s.startY, target.y, ease);
+        // Add slight perpendicular offset for natural movement
+        const perpX = -(target.y - s.startY) / Math.max(moveDist, 1);
+        const perpY = (target.x - s.startX) / Math.max(moveDist, 1);
+        const curve = Math.sin(t * Math.PI) * 15;
+        s.x += perpX * curve;
+        s.y += perpY * curve;
+      }
+    }
+  }
+}
+
+// ─── Rendering ───────────────────────────────────────────────────
+function drawChair(x, y, empty) {
+  const s = 14;
+  ctx.save();
+  ctx.translate(x, y);
+
+  if (empty) {
+    ctx.strokeStyle = '#d97706';
+    ctx.lineWidth = 2.5;
+    ctx.fillStyle = 'rgba(254, 243, 199, 0.6)';
+    // Glow
+    ctx.shadowColor = 'rgba(217, 119, 6, 0.3)';
+    ctx.shadowBlur = 12;
+  } else {
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1.5;
+    ctx.fillStyle = 'rgba(241, 245, 249, 0.5)';
+    ctx.shadowBlur = 0;
+  }
+
+  // Chair seat
+  ctx.beginPath();
+  ctx.roundRect(-s, -s * 0.5, s * 2, s * 1.2, 3);
+  ctx.fill();
+  ctx.stroke();
+
+  // Chair back
+  ctx.beginPath();
+  ctx.moveTo(-s, -s * 0.5);
+  ctx.lineTo(-s, -s * 1.4);
+  ctx.lineTo(s, -s * 1.4);
+  ctx.lineTo(s, -s * 0.5);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+function drawPerson(x, y, color, borderColor, radius, label, extraRing) {
+  ctx.save();
+
+  // Extra ring for director
+  if (extraRing) {
+    ctx.beginPath();
+    ctx.arc(x, y - 6, radius + 5, 0, Math.PI * 2);
+    ctx.strokeStyle = '#16a34a';
+    ctx.lineWidth = 2.5;
+    ctx.setLineDash([4, 3]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Body
+  ctx.beginPath();
+  ctx.arc(x, y - 6, radius, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.strokeStyle = borderColor;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Head
+  ctx.beginPath();
+  ctx.arc(x, y - 6 - radius - 5, radius * 0.45, 0, Math.PI * 2);
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.strokeStyle = borderColor;
+  ctx.lineWidth = 1.5;
+  ctx.stroke();
+
+  // Label
+  if (label) {
+    ctx.fillStyle = borderColor;
+    ctx.font = `bold ${radius * 0.7}px Inter, sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label, x, y - 6);
+  }
+
+  ctx.restore();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Floor pattern
+  ctx.fillStyle = '#fafbfc';
+  ctx.fillRect(0, 0, W, H);
+  // Subtle grid
+  ctx.strokeStyle = 'rgba(0,0,0,0.03)';
+  ctx.lineWidth = 1;
+  for (let gx = 0; gx < W; gx += 40) {
+    ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke();
+  }
+  for (let gy = 0; gy < H; gy += 40) {
+    ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
+  }
+
+  // Draw chairs
+  for (let i = 0; i < chairs.length; i++) {
+    drawChair(chairs[i].x, chairs[i].y, i === emptyChairIdx);
+  }
+
+  // Draw line from king to target
+  if (king && running) {
+    const ec = chairs[emptyChairIdx];
+    ctx.save();
+    ctx.setLineDash([6, 6]);
+    ctx.strokeStyle = 'rgba(217, 119, 6, 0.25)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(king.x, king.y - 6);
+    ctx.lineTo(ec.x, ec.y);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  // Draw subjects
+  for (let i = 0; i < subjects.length; i++) {
+    const s = subjects[i];
+    const isMoving = s.state === 'moving';
+    const color = isMoving ? '#86efac' : '#93c5fd';
+    const border = isMoving ? '#16a34a' : '#2563eb';
+    drawPerson(s.x, s.y, color, border, 12, null, false);
+  }
+
+  // Draw king
+  if (king) {
+    // Crown emoji approximation
+    drawPerson(king.x, king.y, '#fbbf24', '#d97706', 14, '♛', false);
+  }
+}
+
+// ─── Stats ───────────────────────────────────────────────────────
+function updateStats() {
+  const secs = Math.floor(elapsed / 1000);
+  const mins = Math.floor(secs / 60);
+  const s = secs % 60;
+  document.getElementById('statTime').textContent = `${mins}:${s.toString().padStart(2, '0')}`;
+  document.getElementById('statSwaps').textContent = swapCount;
+
+  if (reactionTimes.length > 0) {
+    const avg = reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length;
+    document.getElementById('statReaction').textContent = `${Math.round(avg)}ms`;
+  } else {
+    document.getElementById('statReaction').textContent = '—';
+  }
+}
+
+// ─── Game loop ───────────────────────────────────────────────────
+let lastTime = 0;
+
+function loop(ts) {
+  const dt = lastTime ? Math.min(ts - lastTime, 50) : 16;
+  lastTime = ts;
+
+  if (running) {
+    tick(dt);
+    updateStats();
+  }
+
+  draw();
+  animId = requestAnimationFrame(loop);
+}
+
+// ─── Controls ────────────────────────────────────────────────────
+document.getElementById('btnStart').addEventListener('click', () => {
+  if (running) return;
+  if (!king || king.seated) {
+    init();
+  }
+  running = true;
+  startTime = Date.now();
+  lastEmptySwitch = Date.now();
+  document.getElementById('statusText').textContent = '';
+  document.getElementById('btnStart').disabled = true;
+  document.getElementById('btnReset').disabled = false;
+});
+
+document.getElementById('btnReset').addEventListener('click', () => {
+  running = false;
+  king = null;
+  document.getElementById('statusText').textContent = '';
+  document.getElementById('btnStart').disabled = false;
+  document.getElementById('btnReset').disabled = true;
+  init();
+});
+
+document.getElementById('speedSlider').addEventListener('input', (e) => {
+  speedMul = parseFloat(e.target.value);
+});
+
+document.getElementById('numSubjects').addEventListener('change', () => {
+  if (!running) init();
+});
+
+// ─── Start ───────────────────────────────────────────────────────
+init();
+draw();
+animId = requestAnimationFrame(loop);
+</script>
+</body>
+</html>
