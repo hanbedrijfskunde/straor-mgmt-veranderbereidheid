@@ -79,7 +79,7 @@ Uiteindelijk leert de groep het door het gewoon een aantal keren te doen en de d
 
 ---
 
-## 4. Ontwerpcriteria: motivatiefactoren (Pink)
+## 5. Ontwerpcriteria: motivatiefactoren (Pink)
 
 Elk onderdeel van de workshop moet scoren op alle drie de motivatiefactoren van Dan Pink. Hieronder de operationalisering per factor:
 
@@ -100,54 +100,69 @@ Elk onderdeel van de workshop moet scoren op alle drie de motivatiefactoren van 
 
 ---
 
-## 5. Programmaoverzicht
+## 6. Programmaoverzicht
 
 | Tijd | Fase | Activiteit | Leerdoel | Pink-factor |
 |------|------|-----------|----------|-------------|
 | 0-5 | Opening | Welkom, programma schetsen | — | — |
-| 5-25 | Ervaren | De Wandelende Koning — 3-4 korte rondes. Rondes worden niet onderbroken; de groep ervaart de volledige boog van chaos → zelfbenoemde leiders → spontane procedures → vertrouwen en flow | — | Meesterschap |
+| 5-25 | Ervaren | De Wandelende Koning — 3-4 korte rondes (zie [spel-de-wandelende-koning.md](spel-de-wandelende-koning.md) en [simulatie](simulatie-wandelende-koning.html)). Rondes worden niet onderbroken; de groep ervaart de volledige boog van chaos → zelfbenoemde leiders → spontane procedures → vertrouwen en flow | — | Meesterschap |
 | 25-35 | Verbinden | Debrief aan de hand van drie kernlessen (zie §4): dynamiek, controle werkt averechts, vertrouwen groeit door doen. Koppeling naar DINAMO-dimensies via debriefvragen | 1 | Meesterschap |
-| 30-40 | Begrijpen | Minihoorcollege: DINAMO-model + Verandercanvas. Facilitator demonstreert de koppeling met geanonimiseerde praktijkvoorbeelden | 1, 2 | Meesterschap |
-| 40-55 | Toepassen | Tweetallen vullen Verandercanvas in voor eigen organisatie met beschikbare kennis. Lege plekken worden gemarkeerd als onderzoeksvragen | 2, 3, 4 | Autonomie, Zingeving |
-| 55-70 | Feedback | Consultancy-ronde: tweetallen vormen viertallen, bekijken elkaars canvas, stellen DINAMO-gestuurde vragen | 5 | Autonomie, Meesterschap |
-| 70-85 | Verdiepen | Plenair: 2-3 tweetallen delen canvas + blinde vlekken. Facilitator verbindt aan DINAMO-dimensies die het vaakst ontbreken | 1, 2, 4 | Zingeving |
-| 85-90 | Afsluiten | Elk tweetal benoemt: wat ga je ophalen en hoe? | 4 | Zingeving |
+| 35-45 | Begrijpen | Minihoorcollege: DINAMO-model + Verandercanvas via de [interactieve infographic](dinamo_canvas_infographic.html). Facilitator demonstreert de koppeling met geanonimiseerde praktijkvoorbeelden (AI-ERP casus in de infographic) | 1, 2 | Meesterschap |
+| 45-55 | Toepassen A | **Feit of Hypothese?** — tweetallen inventariseren per DINAMO-dimensie wat ze al weten (feit) en wat ze vermoeden (hypothese) over hun organisatie. Hypotheses worden gekoppeld aan DINAMO-schalen en omgezet in onderzoeksvragen. (zie [draaiboek](draaiboek-feit-of-hypothese.md) en interactieve oefening in de [infographic](dinamo_canvas_infographic.html#feit-of-hypothese)) | 3, 4 | Autonomie, Zingeving |
+| 55-65 | Toepassen B | Tweetallen vullen het Verandercanvas in op basis van hun feit/hypothese-inventarisatie. Feiten gaan direct in de Canvas-blokken; hypotheses worden gemarkeerd met **?** als blinde vlekken | 2, 3 | Autonomie, Zingeving |
+| 65-75 | Feedback | Consultancy-ronde: tweetallen vormen viertallen, bekijken elkaars canvas, stellen DINAMO-gestuurde vragen. Specifiek: "Is dit een feit of een hypothese? Hoe weet je dat?" | 5 | Autonomie, Meesterschap |
+| 75-85 | Verdiepen | Plenair: 2-3 tweetallen delen canvas + blinde vlekken. Facilitator verbindt aan DINAMO-dimensies die het vaakst ontbreken | 1, 2, 4 | Zingeving |
+| 85-90 | Afsluiten | Elk tweetal benoemt: welke hypotheses ga je toetsen en hoe? | 4 | Zingeving |
 
 ---
 
-## 6. Benodigdheden
+## 7. Benodigdheden
 
 ### Materialen
 - Stoelen (aantal deelnemers + 1) voor De Wandelende Koning
 - Geprinte of digitale Verandercanvas-templates (1 per tweetal)
-- Post-its en stiften voor consultancy-ronde
-- Slide-deck met DINAMO-model en Verandercanvas uitleg
+- Werkblad "Feit of Hypothese?" per tweetal (A4 met vier kwadranten, twee kolommen F/H) — of gebruik de interactieve versie in de infographic
+- Post-its en stiften (groen/oranje) voor consultancy-ronde
+- Laptop/beamer voor de interactieve infographic
+
+### Digitale materialen
+| Document | Functie |
+|----------|---------|
+| [dinamo_canvas_infographic.html](dinamo_canvas_infographic.html) | Interactieve leeromgeving: DINAMO-model, Feit/Hypothese-oefening, Canvas-mapper, Wandelende Koning-sectie, AI-ERP casus, discussievragen |
+| [spel-de-wandelende-koning.md](spel-de-wandelende-koning.md) | Spelhandleiding met regels, varianten en debriefvragen |
+| [simulatie-wandelende-koning.html](simulatie-wandelende-koning.html) | Interactieve simulatie van het spel (voor demo of terugblik) |
+| [draaiboek-feit-of-hypothese.md](draaiboek-feit-of-hypothese.md) | Facilitator-draaiboek voor de Feit/Hypothese-oefening met timing, tips en uitgewerkt voorbeeld |
+| [DINAMO_6_0_Compleet.docx](DINAMO_6_0_Compleet.docx) | Volledige DINAMO-vragenlijst (93 vragen) |
 
 ### Voorbereiding facilitator
-- Geanonimiseerde voorbeelden paraat hebben uit de DINAMO-analyse (oorspronkelijke bron: Glassdoor-reviews van een internationaal medtechbedrijf) — bedrijfsnaam wordt niet gedeeld
+- Infographic geopend en getest op beamer (klik door Canvas-blokken, Glassdoor-toggle, Feit/Hypothese-oefening)
+- Geanonimiseerde voorbeelden paraat uit de DINAMO-analyse (AI-ERP casus in de infographic; oorspronkelijke bron: Glassdoor-reviews van een internationaal medtechbedrijf — bedrijfsnaam wordt niet gedeeld)
 - Speluitleg De Wandelende Koning voorbereid (zie [spel-de-wandelende-koning.md](spel-de-wandelende-koning.md))
 - Eén ingevuld voorbeeld-Verandercanvas voor de demo
 
 ---
 
-## 7. Toetsing en opbrengst
+## 8. Toetsing en opbrengst
 
 | Wat | Hoe | Formeel/Informeel |
 |-----|-----|-------------------|
 | Begrip DINAMO-dimensies | Observatie tijdens debrief en plenaire bespreking | Informeel |
-| Koppeling DINAMO→Canvas | Ingevuld Verandercanvas (eerste versie) | Informeel — formatief |
-| Onderzoeksvragen formuleren | Genoteerde vragen op het canvas / kaartjes | Informeel — formatief |
-| Feedback geven/ontvangen | Observatie consultancy-ronde | Informeel |
+| Onderscheid feit/hypothese | Ingevuld Feit/Hypothese-werkblad per dimensie | Informeel — formatief |
+| Koppeling DINAMO→Canvas | Ingevuld Verandercanvas met feiten en gemarkeerde hypotheses (?) | Informeel — formatief |
+| Onderzoeksvragen formuleren | Genoteerde vragen gekoppeld aan DINAMO-schalen | Informeel — formatief |
+| Feedback geven/ontvangen | Observatie consultancy-ronde ("Is dit een feit of hypothese?") | Informeel |
 
-**Opbrengst voor het semesterproject**: studenten verlaten de workshop met (a) een eerste versie van hun Verandercanvas en (b) een concrete lijst onderzoeksvragen voor hun eerstvolgende contactmoment met de organisatie.
+**Opbrengst voor het semesterproject**: studenten verlaten de workshop met (a) een Feit/Hypothese-inventarisatie per DINAMO-dimensie, (b) een eerste versie van hun Verandercanvas met expliciet gemarkeerde blinde vlekken, en (c) een concrete lijst onderzoeksvragen voor hun eerstvolgende contactmoment met de organisatie.
 
 ---
 
-## 8. Risico's en mitigatie
+## 9. Risico's en mitigatie
 
 | Risico | Mitigatie |
 |--------|----------|
-| Studenten weten nog te weinig van hun organisatie om het canvas zinvol in te vullen | Benadruk dat lege plekken *gewenst* zijn — die worden onderzoeksvragen. Het doel is de structuur leren, niet de inhoud completeren |
+| Studenten weten nog te weinig van hun organisatie om het canvas zinvol in te vullen | De Feit/Hypothese-oefening maakt dit expliciet productief: lege plekken en hypotheses *zijn* de opbrengst — ze worden onderzoeksvragen |
+| Studenten presenteren aannames als feiten | De facilitator daagt uit tijdens de Feit/Hypothese-ronde: "Hoe weet je dat? Van wie heb je dat gehoord — is dat representatief?" (zie [draaiboek](draaiboek-feit-of-hypothese.md)) |
 | Het spel kost meer tijd dan gepland | Minimaal 3 rondes nodig om de volledige boog (chaos → flow) te bereiken; kort desnoods de plenaire bespreking in |
-| Studenten zien de koppeling DINAMO→Canvas niet | Live demo met concrete voorbeelden; loop actief rond tijdens de werksessie |
-| Consultancy-ronde blijft oppervlakkig | Geef 2-3 voorbeeldvragen mee als startpunt ("Hoe weet je dat Willen hier + scoort?") |
+| Studenten zien de koppeling DINAMO→Canvas niet | Gebruik de interactieve mapper in de [infographic](dinamo_canvas_infographic.html) voor live demo; loop actief rond tijdens de werksessie |
+| Consultancy-ronde blijft oppervlakkig | Geef het frame mee: "Is dit een feit of een hypothese?" als kernvraag. Aanvullend: "Hoe weet je dat Willen hier + scoort?" |
+| Technische problemen met infographic | De oefening werkt ook met een papieren werkblad (4 kwadranten, F/H kolommen). Print vooraf als backup |
