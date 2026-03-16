@@ -958,6 +958,35 @@ h1,h2,h3,h4,h5 {
 }
 .dv-card p { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.6; }
 
+/* ─── MODULE LEERUITKOMSTEN ────────────── */
+.lu-section { background: white; }
+.lu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.lu-card {
+  background: var(--off-white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-left: 4px solid var(--primary);
+}
+.lu-card h3 {
+  font-size: 16px; font-weight: 700; color: var(--navy);
+  margin-bottom: 8px; display: flex; align-items: center; gap: 10px;
+}
+.lu-card h3 span {
+  font-size: 11px; font-weight: 600; background: var(--primary);
+  color: white; width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.lu-card blockquote {
+  font-size: 13px; color: var(--text-muted); line-height: 1.6;
+  border-left: 2px solid var(--border); padding-left: 12px;
+  margin: 8px 0;
+}
+.lu-card .lu-bijdrage {
+  font-size: 13px; color: var(--text); line-height: 1.6; margin-top: 10px;
+}
+@media (max-width: 700px) { .lu-grid { grid-template-columns: 1fr; } }
+
 /* ─── FACILITATOR CHECK ─────────────────── */
 .fc-section { background: var(--off-white); }
 .fc-grid {
@@ -2505,6 +2534,28 @@ h1,h2,h3,h4,h5 {
 </section>
 
 <!-- ─── SECTION 8: FACILITATOR CHECK ─── -->
+<!-- ─── MODULE-LEERUITKOMSTEN ─── -->
+<section class="section lu-section fade-in">
+  <div class="section-inner">
+    <div class="section-tag">Context — Module-leeruitkomsten</div>
+    <h2>Waar draagt deze workshop aan bij?</h2>
+    <p class="section-intro">Deze workshop valt binnen de module Verandermanagement en draagt bij aan twee leeruitkomsten.</p>
+
+    <div class="lu-grid">
+      <div class="lu-card">
+        <h3><span>A</span> Organisatieanalyse</h3>
+        <blockquote>De junior organisatieadviseur voert een interne- en externe organisatieanalyse uit dat resulteert in een businessmodel, waarin invloed van interne innovatie en/of trends en ontwikkelingen van buiten de organisatie zichtbaar is gemaakt op processen, mensen, systemen en besturing.</blockquote>
+        <p class="lu-bijdrage"><strong>Bijdrage:</strong> Studenten leren het DINAMO-model als diagnostisch kader voor veranderbereidheid te koppelen aan het Verandercanvas. Hiermee versterken zij hun vermogen om interne factoren (mensen, besturing) gestructureerd te analyseren.</p>
+      </div>
+      <div class="lu-card">
+        <h3><span>B</span> Veranderingsprocessen begeleiden</h3>
+        <blockquote>De junior organisatieadviseur begeleidt een organisatie bij veranderingsprocessen gericht op het creëren van de gewenste situatie, zet zelfstandig een (complexe) bedrijfskundige verandering op waarbij uiteenlopende belangen een rol spelen en begeleidt deze verandering planmatig.</blockquote>
+        <p class="lu-bijdrage"><strong>Bijdrage:</strong> Het Verandercanvas biedt studenten een planmatig instrument om veranderbereidheid te diagnosticeren. Door te oefenen met de koppeling DINAMO→Canvas ontwikkelen zij het vermogen om uiteenlopende belangen (Willen, Moeten, Kunnen) systematisch in kaart te brengen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section fc-section fade-in">
   <div class="section-inner">
     <div class="section-tag">Stap 8 — Facilitator checkvragen</div>

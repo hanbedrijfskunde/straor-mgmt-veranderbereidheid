@@ -13,6 +13,20 @@
 
 ---
 
+## Module-leeruitkomsten
+
+### Leeruitkomst A — Organisatieanalyse
+> De junior organisatieadviseur voert een interne- en externe organisatieanalyse uit dat resulteert in een businessmodel, waarin invloed van interne innovatie en/of trends en ontwikkelingen van buiten de organisatie zichtbaar is gemaakt op processen, mensen, systemen en besturing.
+
+**Bijdrage van deze workshop**: studenten leren het DINAMO-model als diagnostisch kader voor veranderbereidheid te koppelen aan het Verandercanvas. Hiermee versterken zij hun vermogen om interne factoren (mensen, besturing) gestructureerd te analyseren als onderdeel van hun organisatieanalyse.
+
+### Leeruitkomst B — Veranderingsprocessen begeleiden
+> De junior organisatieadviseur begeleidt een organisatie bij veranderingsprocessen gericht op het creëren van de gewenste situatie, zet zelfstandig een (complexe) bedrijfskundige verandering op waarbij uiteenlopende belangen een rol spelen en begeleidt deze verandering planmatig en draagt zorg voor het realiseren en verankeren van de oplossing.
+
+**Bijdrage van deze workshop**: het Verandercanvas biedt studenten een planmatig instrument om veranderbereidheid te diagnosticeren en interventies te ontwerpen. Door te oefenen met de koppeling DINAMO→Canvas ontwikkelen zij het vermogen om uiteenlopende belangen (Willen, Moeten, Kunnen) systematisch in kaart te brengen als basis voor een veranderaanpak.
+
+---
+
 ## Leerdoelen (kort overzicht)
 
 Na afloop kan de student:
