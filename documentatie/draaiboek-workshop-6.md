@@ -71,6 +71,7 @@ Na afloop kan de student:
 **Doel:** Verwachtingen scheppen, programma schetsen.
 
 **Wat je doet:**
+
 1. Verwelkom de groep.
 2. Schets het programma in drie zinnen:
 
@@ -89,6 +90,7 @@ Na afloop kan de student:
 **Doel:** Kernlessen over verandering lichamelijk laten ervaren.
 
 **Opstelling (2 min):**
+
 1. Laat studenten opstaan.
 2. Zet stoelen willekeurig verspreid door de ruimte (niet in kring of rijen).
 3. Iedereen zit, één stoel blijft leeg.
@@ -99,6 +101,7 @@ Na afloop kan de student:
 > "Ik ben de koning. Ik loop rustig door de ruimte en probeer op de lege stoel te gaan zitten. Jullie doel: houd mij zo lang mogelijk in beweging. Dat doen jullie door op de lege stoel te gaan zitten vóórdat ik er ben. Daardoor komt jullie eigen stoel vrij en moet ik van richting veranderen."
 
 Regels benadrukken:
+
 - Niet rennen of duwen
 - Niet met de koning praten tijdens het spel
 - Wel onderling afstemmen (bij voorkeur non-verbaal)
@@ -217,10 +220,12 @@ Opdracht:
 > "Pak het werkblad. Per DINAMO-dimensie: wat weten jullie (F) en wat vermoeden jullie (H)? Werk eerst 3 minuten alleen, bespreek dan 4 minuten samen."
 
 **Inventariseren (7 min):**
+
 - 3 min individueel (stilte!)
 - 4 min samen in tweetallen
 
 **Jij loopt rond en stelt scherpe vragen:**
+
 - *"Hoe weet je dat? Wat is je bewijs?"*
 - *"Is dat een feit of een gevoel?"*
 - *"Van wie heb je dat gehoord — is dat representatief?"*
@@ -229,6 +234,7 @@ Opdracht:
 **Van hypothese naar onderzoeksvraag (3 min):**
 
 Tweetallen markeren hun 2-3 belangrijkste hypotheses en formuleren per hypothese:
+
 1. Bij welke DINAMO-schaal hoort dit?
 2. Welke vraag zou je stellen om dit te toetsen?
 
@@ -250,11 +256,13 @@ Toon het voorbeeld op scherm:
 > "Nu gaan jullie het Verandercanvas invullen voor jullie eigen organisatie. Feiten gaan direct in de Canvas-blokken. Hypotheses markeren jullie met een vraagteken — dat zijn jullie blinde vlekken. Gebruik de infographic als referentie: klik op een blok om te zien welke DINAMO-schalen erbij horen."
 
 **Spelregels:**
+
 - Feiten → in het Canvas-blok
 - Hypotheses → in het Canvas-blok met **?** markering
 - Onderzoeksvragen → naast het Canvas als actiepunten
 
 **Jij loopt rond:**
+
 - Check of studenten het onderscheid F/H ook op het Canvas doorvoeren
 - Vraag bij lege blokken: *"Weten jullie hier niks over, of hebben jullie het niet overwogen?"*
 - Verwijs naar de infographic als studenten vastlopen: *"Klik op dat blok, dan zie je welke DINAMO-schalen erbij horen"*
@@ -266,6 +274,7 @@ Toon het voorbeeld op scherm:
 **Doel:** Studenten geven en ontvangen kritische feedback op elkaars Canvas.
 
 **Opstelling:**
+
 - Tweetallen vormen viertallen
 - Elk tweetal presenteert kort (2 min) hun Canvas aan het andere tweetal
 - Het andere tweetal speelt "consultant" en stelt vragen (3 min)
@@ -276,11 +285,13 @@ Toon het voorbeeld op scherm:
 > "Jullie zijn adviseurs. Jullie kernvraag bij elk blok: **Is dit een feit of een hypothese? Hoe weet je dat?**"
 
 Aanvullende vragen die je op het bord schrijft:
+
 - "Hoe weet je dat Willen hier + scoort?"
 - "Welk bewijs heb je voor deze inschatting?"
 - "Wat zou je als eerste willen toetsen?"
 
 **Jij luistert mee bij 2-3 groepjes:**
+
 - Noteer patronen die je plenair kunt benoemen
 - Grijp in als de feedback oppervlakkig blijft: *"Vraag eens door: is dat gebaseerd op één gesprek of op meerdere bronnen?"*
 
@@ -331,6 +342,7 @@ Laat 2-3 tweetallen hardop delen.
 > 3. **"Noem een ding dat je hebt geleerd."** *(Meesterschap)*
 
 **Voor de facilitator:** Noteer na afloop de antwoorden. Patronen in de antwoorden wijzen op sterke en zwakke punten in de workshop:
+
 - Weinig concrete antwoorden op vraag 1 → de koppeling naar het project was onvoldoende
 - Weinig variatie in antwoorden op vraag 2 → studenten hadden te weinig keuzevrijheid
 - Vage antwoorden op vraag 3 → de leerstof is niet beklijfd
@@ -374,6 +386,7 @@ Spel (ervaren) → Debrief (reflecteren) → DINAMO (begrijpen) → Feit/Hypothe
 ```
 
 Verwijs bij elke overgang terug naar de vorige fase:
+
 - Bij de debrief: "Wat jullie net ervaarden..."
 - Bij DINAMO: "De drie lessen uit het spel komen terug in drie dimensies..."
 - Bij Feit/Hypothese: "Net zagen jullie het model. Nu: wat weten jullie echt?"
