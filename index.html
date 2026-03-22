@@ -646,9 +646,15 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
   display: flex; gap: 12px; align-items: flex-start;
   padding: 16px;
   border-radius: 10px;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   background: white;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
 }
+.unc-card:hover { border-color: var(--primary-200); box-shadow: var(--shadow); }
+.unc-card.selected { border-color: var(--primary); background: var(--primary-50); box-shadow: 0 0 0 3px rgba(30,58,95,0.12); }
+.unc-card.selected .unc-label { color: var(--primary-dark); }
 .unc-icon {
   width: 38px; height: 38px;
   border-radius: 10px;
@@ -660,38 +666,6 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 .unc-desc { font-size: 13px; color: var(--slate); line-height: 1.5; }
 
 /* ─── QUIZ ─────────────────────────────── */
-.quiz-options { display: flex; flex-direction: column; gap: 8px; }
-.quiz-option {
-  display: flex; align-items: center; gap: 12px;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: white;
-  cursor: pointer;
-  transition: all .15s;
-  font-size: 14px; color: var(--text);
-  line-height: 1.5;
-}
-.quiz-option:hover { border-color: var(--primary-200); background: var(--primary-50); }
-.quiz-option input[type="checkbox"] { display: none; }
-.quiz-check {
-  width: 22px; height: 22px;
-  border-radius: 6px;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  transition: all .15s;
-}
-.quiz-option input:checked ~ .quiz-check {
-  background: var(--primary);
-  border-color: var(--primary);
-}
-.quiz-option input:checked ~ .quiz-check::after {
-  content: '\2713';
-  color: white;
-  font-size: 14px; font-weight: 700;
-}
-.quiz-option input:checked ~ span:last-child { font-weight: 600; }
 .quiz-feedback {
   min-height: 24px;
   margin: 12px 0 4px;
@@ -715,6 +689,161 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 
 @media (max-width: 768px) {
   .uncertainty-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── TWEE WERELDEN TABEL ──────────────── */
+.two-worlds-table {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+.tw-header {
+  padding: 12px 16px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.tw-header.tw-left { background: #e5e7eb; color: #6b7280; grid-column: 2; }
+.tw-header.tw-right { background: var(--primary); color: white; grid-column: 3; }
+.tw-row-label {
+  grid-column: 1;
+  padding: 10px 12px;
+  font-weight: 700; font-size: 12px;
+  color: var(--primary);
+  background: var(--slate-light);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+}
+.tw-cell {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.tw-cell.tw-left { background: #f9fafb; color: #6b7280; }
+.tw-cell.tw-right { background: white; color: var(--text); }
+
+/* ─── DRIESLAG FLOW ────────────────────── */
+.drieslag-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.drieslag-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: var(--primary-light);
+  padding: 0 8px;
+  flex-shrink: 0;
+}
+.drieslag-card {
+  flex: 1;
+  border-radius: var(--radius);
+  padding: 20px;
+  position: relative;
+  border: 1px solid var(--border);
+  background: white;
+}
+.drieslag-card.sensing { border-top: 4px solid #7c3aed; }
+.drieslag-card.seizing { border-top: 4px solid #d97706; }
+.drieslag-card.transforming { border-top: 4px solid #16a34a; }
+.drieslag-num {
+  position: absolute; top: 12px; right: 14px;
+  font-size: 36px; font-weight: 800; opacity: .06;
+  color: var(--primary);
+}
+.drieslag-icon { font-size: 28px; margin-bottom: 8px; }
+.drieslag-card h4 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.drieslag-sub { font-size: 11px; color: var(--text-muted); margin-bottom: 10px; font-weight: 500; }
+.drieslag-question {
+  font-size: 14px; font-weight: 600; font-style: italic;
+  color: var(--primary-light);
+  margin-bottom: 10px;
+}
+.drieslag-actions {
+  padding-left: 16px;
+  font-size: 13px; color: var(--slate);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.drieslag-example {
+  font-size: 12px; color: var(--slate);
+  background: var(--slate-light);
+  padding: 10px 12px;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+/* ─── EXPERIMENT TRAPEZE ───────────────── */
+.trapeze { display: flex; flex-direction: column; gap: 8px; }
+.trapeze-level {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: white;
+}
+.trapeze-level.level-1 { border-left: 4px solid #93c5fd; }
+.trapeze-level.level-2 { border-left: 4px solid #d97706; }
+.trapeze-level.level-3 { border-left: 4px solid #dc2626; }
+.trapeze-badge {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 12px;
+  white-space: nowrap; flex-shrink: 0; margin-top: 2px;
+}
+.level-1 .trapeze-badge { background: #dbeafe; color: #1e40af; }
+.level-2 .trapeze-badge { background: #fef3c7; color: #92400e; }
+.level-3 .trapeze-badge { background: #fee2e2; color: #991b1b; }
+.trapeze-content h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.trapeze-content p { font-size: 13px; color: var(--slate); line-height: 1.6; margin-bottom: 8px; }
+.trapeze-ex {
+  font-size: 12px; color: var(--slate);
+  background: var(--slate-light);
+  padding: 8px 12px; border-radius: 6px;
+  line-height: 1.6;
+}
+
+/* ─── LOOP DIAGRAM ─────────────────────── */
+.loop-diagram { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.loop-card {
+  padding: 20px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.loop-card.single { background: #f9fafb; }
+.loop-card.double { background: var(--primary-50); border-color: var(--primary-200); }
+.loop-label {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.loop-card.single .loop-label { color: #6b7280; }
+.loop-card.double .loop-label { color: var(--primary); }
+.loop-flow {
+  display: flex; align-items: center; gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.loop-step {
+  font-size: 13px; font-weight: 600;
+  padding: 4px 12px; border-radius: 16px;
+  background: white; border: 1px solid var(--border);
+  color: var(--text);
+}
+.loop-step.highlight { background: var(--primary); color: white; border-color: var(--primary); }
+.loop-arr { font-size: 16px; color: var(--text-muted); }
+.loop-card p { font-size: 13px; color: var(--slate); line-height: 1.6; margin: 0; }
+.loop-card.single p { color: #9ca3af; }
+
+@media (max-width: 768px) {
+  .two-worlds-table { grid-template-columns: 1fr; }
+  .tw-header { grid-column: 1; }
+  .tw-row-label { grid-column: 1; }
+  .tw-cell { grid-column: 1; }
+  .drieslag-flow { flex-direction: column; }
+  .drieslag-arrow { transform: rotate(90deg); padding: 4px 0; }
+  .loop-diagram { grid-template-columns: 1fr; }
 }
 
 /* ─── LOCKDOWN REVEAL CARD ─────────────── */
@@ -966,34 +1095,35 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
     <h2>Kamer 2: De Lockdown</h2>
     <div class="lockdown-reveal visible" id="lockdownReveal"></div>
 
-    <!-- Vier dimensies van onzekerheid -->
-    <div class="uncertainty-block" style="margin-top:32px;">
-      <h3 style="font-size:20px;font-weight:700;color:var(--primary);margin-bottom:6px;">De vier dimensies van onzekerheid</h3>
-      <p style="font-size:14px;color:var(--slate);margin-bottom:20px;">Strategische verandering mislukt zelden door één incident. Volgens O'Connor &amp; Meyer (2026) zijn er vier fundamentele bronnen van onzekerheid die elk veranderplan kunnen breken:</p>
+    <!-- Quiz: dimensies van onzekerheid -->
+    <div class="opdracht" style="margin-top:32px;">
+      <p>Strategische verandering mislukt zelden door &eacute;&eacute;n incident. Volgens O'Connor &amp; Meyer (2026) zijn er vier fundamentele bronnen van onzekerheid die elk veranderplan kunnen breken.</p>
+      <h4 style="margin-top:16px;">Welke dimensie(s) van onzekerheid spelen een rol in jullie rode kaart?</h4>
+      <p style="margin-bottom:16px;">Denk breed: een incident kan meerdere onderliggende oorzaken hebben. Klik op alle dimensies die jullie herkennen.</p>
 
-      <div class="uncertainty-grid">
-        <div class="unc-card">
+      <div class="uncertainty-grid" id="quizOptions">
+        <div class="unc-card" data-value="organizational" onclick="toggleUncCard(this)">
           <div class="unc-icon" style="background:#ede9fe;color:#7c3aed;">O</div>
           <div>
             <div class="unc-label">Organizational uncertainty</div>
             <div class="unc-desc">Interne weerstand, verlies van draagvlak, politieke verschuivingen, psychologische onveiligheid</div>
           </div>
         </div>
-        <div class="unc-card">
+        <div class="unc-card" data-value="market" onclick="toggleUncCard(this)">
           <div class="unc-icon" style="background:#fef3c7;color:#d97706;">M</div>
           <div>
             <div class="unc-label">Market uncertainty</div>
             <div class="unc-desc">Verschuivende prioriteiten, veranderende marktcontext, wegvallende urgentie</div>
           </div>
         </div>
-        <div class="unc-card">
+        <div class="unc-card" data-value="resource" onclick="toggleUncCard(this)">
           <div class="unc-icon" style="background:#fee2e2;color:#dc2626;">R</div>
           <div>
             <div class="unc-label">Resource uncertainty</div>
             <div class="unc-desc">Bevroren budgetten, wegvallende capaciteit, ingetrokken uren en middelen</div>
           </div>
         </div>
-        <div class="unc-card">
+        <div class="unc-card" data-value="technical" onclick="toggleUncCard(this)">
           <div class="unc-icon" style="background:#dbeafe;color:#1e40af;">T</div>
           <div>
             <div class="unc-label">Technical uncertainty</div>
@@ -1001,34 +1131,7 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Quiz -->
-    <div class="opdracht" style="margin-top:24px;">
-      <h4>Welke dimensie(s) van onzekerheid spelen een rol in jullie rode kaart?</h4>
-      <p style="margin-bottom:16px;">Denk breed: een incident kan meerdere onderliggende oorzaken hebben. Vink alle dimensies aan die jullie herkennen.</p>
-      <div class="quiz-options" id="quizOptions">
-        <label class="quiz-option">
-          <input type="checkbox" name="unc" value="organizational">
-          <span class="quiz-check"></span>
-          <span><strong>Organizational</strong> — speelt interne weerstand of politiek een rol?</span>
-        </label>
-        <label class="quiz-option">
-          <input type="checkbox" name="unc" value="market">
-          <span class="quiz-check"></span>
-          <span><strong>Market</strong> — verschuift de markt, context of prioriteit?</span>
-        </label>
-        <label class="quiz-option">
-          <input type="checkbox" name="unc" value="resource">
-          <span class="quiz-check"></span>
-          <span><strong>Resource</strong> — vallen middelen, budget of capaciteit weg?</span>
-        </label>
-        <label class="quiz-option">
-          <input type="checkbox" name="unc" value="technical">
-          <span class="quiz-check"></span>
-          <span><strong>Technical</strong> — verandert de technologie of regelgeving?</span>
-        </label>
-      </div>
       <div class="quiz-feedback" id="quizFeedback"></div>
       <button class="quiz-submit-btn" id="quizSubmitBtn" onclick="checkQuiz()">Controleer</button>
       <div id="quizNextBtn" style="display:none; margin-top:16px;">
@@ -1042,13 +1145,175 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 <section class="section room-section" id="room-ontsnapping" style="display:none;">
   <div class="section-inner">
     <h2>Kamer 3: De Ontsnapping</h2>
+    <p style="font-size:15px;color:var(--slate);max-width:680px;margin-bottom:32px;">Jullie lineaire Kotter-plan is gesneuveld op onzekerheid. Tijd om anders te leren denken. Niet plannen en uitrollen, maar <strong>waarnemen, experimenteren en laten groeien</strong>.</p>
+
+    <!-- ═ ELEMENT 1: Twee Werelden tabel ═ -->
+    <div style="margin-bottom:40px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">Twee werelden</h3>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Herken jullie Masterplan in de linkerkolom. De rechterkolom is waar jullie naartoe moeten.</p>
+      <div class="two-worlds-table">
+        <div class="tw-header tw-left">Tin Man / Incrementeel</div>
+        <div class="tw-header tw-right">Octopus / Strategisch</div>
+
+        <div class="tw-row-label">Doelstelling</div>
+        <div class="tw-cell tw-left">Effici&euml;nt beheren van huidige markt en operaties</div>
+        <div class="tw-cell tw-right">Nieuwe markten ontdekken en cre&euml;ren</div>
+
+        <div class="tw-row-label">Leiderschap</div>
+        <div class="tw-cell tw-left">Planning &amp; delivery</div>
+        <div class="tw-cell tw-right">Learning &amp; building</div>
+
+        <div class="tw-row-label">Governance</div>
+        <div class="tw-cell tw-left">Hi&euml;rarchisch, go/kill criteria vooraf vast</div>
+        <div class="tw-cell tw-right">Coaching, ruimte voor onzekerheid, criteria niet vooraf vast</div>
+
+        <div class="tw-row-label">Processen</div>
+        <div class="tw-cell tw-left">Stage-gate, afwijkingen vermijden</div>
+        <div class="tw-cell tw-right">Experimenteren, koerswijziging op basis van inzichten</div>
+
+        <div class="tw-row-label">Cultuur</div>
+        <div class="tw-cell tw-left">Controle, voorspelbaarheid, risico minimaliseren</div>
+        <div class="tw-cell tw-right">Nieuwsgierigheid, eigenaarschap, leren van falen</div>
+
+        <div class="tw-row-label">Metrics</div>
+        <div class="tw-cell tw-left">On-time delivery, kosten, winstbijdrage</div>
+        <div class="tw-cell tw-right">Portfolio-gezondheid, nieuwe domeinen, geleerde lessen</div>
+      </div>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;font-style:italic;">Bronnen: Werner &amp; Le-Brun (2025), O'Connor &amp; Meyer (2026), Warner &amp; W&auml;ger (2019)</p>
+    </div>
+
+    <!-- ═ ELEMENT 2: Drieslag Sensing → Seizing → Transforming ═ -->
+    <div style="margin-bottom:40px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">De drieslag: van waarnemen tot verankeren</h3>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:20px;">Drie capabilities die elkaar opvolgen en versterken.</p>
+      <div class="drieslag-flow">
+        <!-- Stap 1: Sensing -->
+        <div class="drieslag-card sensing">
+          <div class="drieslag-num">1</div>
+          <div class="drieslag-icon">&#128065;</div>
+          <h4>Waarnemen</h4>
+          <div class="drieslag-sub">Sensing &middot; Discovery &middot; Curiosity</div>
+          <div class="drieslag-question">"Wat gebeurt er &eacute;cht?"</div>
+          <ul class="drieslag-actions">
+            <li>Signalen oppikken bij medewerkers en klanten</li>
+            <li>Scenario's verkennen, niet voorspellen</li>
+            <li>Nieuwsgierig vragen stellen, niet overtuigen</li>
+          </ul>
+          <div class="drieslag-example">
+            <strong>Voorbeeld:</strong> Na de aankondiging van de reorganisatie &mdash; hoe pik je signalen van onrust op? Niet via een enquete, maar door 3 koffiegesprekken deze week.
+          </div>
+        </div>
+        <!-- Pijl -->
+        <div class="drieslag-arrow">&#10132;</div>
+        <!-- Stap 2: Seizing -->
+        <div class="drieslag-card seizing">
+          <div class="drieslag-num">2</div>
+          <div class="drieslag-icon">&#9889;</div>
+          <h4>Grijpen</h4>
+          <div class="drieslag-sub">Seizing &middot; Incubation &middot; Experiment</div>
+          <div class="drieslag-question">"Wat kunnen we klein testen?"</div>
+          <ul class="drieslag-actions">
+            <li>Hypothese formuleren en toetsen</li>
+            <li>Rapid prototyping: klein, snel, goedkoop</li>
+            <li>Meten wat je wilt leren, niet wat je wilt bewijzen</li>
+          </ul>
+          <div class="drieslag-example">
+            <strong>Voorbeeld (CRM):</strong> Hypothese: &lsquo;Sales reps gebruiken het CRM niet omdat ze de meerwaarde niet zien.&rsquo; Test: 2 reps bijhouden in 1 week. Meet: aantal records + hun ervaring. Succes = zij zien zelf het voordeel.
+          </div>
+        </div>
+        <!-- Pijl -->
+        <div class="drieslag-arrow">&#10132;</div>
+        <!-- Stap 3: Transforming -->
+        <div class="drieslag-card transforming">
+          <div class="drieslag-num">3</div>
+          <div class="drieslag-icon">&#127793;</div>
+          <h4>Verankeren</h4>
+          <div class="drieslag-sub">Transforming &middot; Acceleration &middot; Spread</div>
+          <div class="drieslag-question">"Hoe laten we het groeien?"</div>
+          <ul class="drieslag-actions">
+            <li>Niet top-down uitrollen, maar <em>pull</em> cre&euml;ren</li>
+            <li>Laat succes zich organisch verspreiden</li>
+            <li>Pas structuren en cultuur aan op wat werkt</li>
+          </ul>
+          <div class="drieslag-example">
+            <strong>Voorbeeld:</strong> De 2 sales reps vertellen collega's wat ze ontdekten. Anderen willen het ook proberen. Het CRM-gebruik groeit bottom-up, niet door een management-decree.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═ ELEMENT 3: Experiment-trapeze ═ -->
+    <div style="margin-bottom:40px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">De experiment-trapeze</h3>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Niet elk experiment is even diep. Kies het juiste niveau (Werner &amp; Le-Brun, naar Donella Meadows).</p>
+      <div class="trapeze">
+        <div class="trapeze-level level-1">
+          <div class="trapeze-badge">Niveau 1</div>
+          <div class="trapeze-content">
+            <h4>Parameters aanpassen</h4>
+            <p>Snelle, goedkope aanpassingen aan bestaande processen. Direct zichtbaar effect, maar beperkte impact.</p>
+            <div class="trapeze-ex"><strong>Voorbeeld (Export):</strong> Verander het aantal goedkeurders voor exportdocumenten van 11 naar 2. Meet: doorlooptijd en foutenpercentage na 2 weken.</div>
+          </div>
+        </div>
+        <div class="trapeze-level level-2">
+          <div class="trapeze-badge">Niveau 2</div>
+          <div class="trapeze-content">
+            <h4>De motor tunen</h4>
+            <p>Feedback loops veranderen. Meer moeite, groter effect. Hervormt hoe het systeem zichzelf corrigeert.</p>
+            <div class="trapeze-ex"><strong>Voorbeeld (Adviesproces VO):</strong> Organiseer wekelijkse intervisie waarin docenten elkaars adviesgesprekken bespreken. De feedback loop verschuift van &lsquo;individueel oordeel&rsquo; naar &lsquo;collectief leren&rsquo;.</div>
+          </div>
+        </div>
+        <div class="trapeze-level level-3">
+          <div class="trapeze-badge">Niveau 3</div>
+          <div class="trapeze-content">
+            <h4>Het DNA herschrijven</h4>
+            <p>Het mentale model veranderen. De diepste en moeilijkste interventie, maar met het grootste effect.</p>
+            <div class="trapeze-ex"><strong>Voorbeeld (CRM):</strong> Verschuif de kernvraag van &lsquo;Hoe dwingen we CRM-gebruik af?&rsquo; naar &lsquo;Hoe maken we klantinzicht zo waardevol dat mensen het systeem willen gebruiken?&rsquo;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═ ELEMENT 4: Double-loop reflectie ═ -->
+    <div style="margin-bottom:40px;">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">Single-loop vs double-loop leren</h3>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Het verschil tussen &lsquo;het probleem fixen&rsquo; en &lsquo;het denken veranderen&rsquo; (Werner &amp; Le-Brun, 2025).</p>
+      <div class="loop-diagram">
+        <div class="loop-card single">
+          <div class="loop-label">Single-loop</div>
+          <div class="loop-flow">
+            <span class="loop-step">Actie</span>
+            <span class="loop-arr">&#10132;</span>
+            <span class="loop-step">Resultaat</span>
+            <span class="loop-arr">&#10132;</span>
+            <span class="loop-step">Fix</span>
+          </div>
+          <p><em>"Het CRM wordt niet gebruikt. Maak het verplicht."</em></p>
+        </div>
+        <div class="loop-card double">
+          <div class="loop-label">Double-loop</div>
+          <div class="loop-flow">
+            <span class="loop-step">Actie</span>
+            <span class="loop-arr">&#10132;</span>
+            <span class="loop-step">Resultaat</span>
+            <span class="loop-arr">&#10132;</span>
+            <span class="loop-step highlight">Aanname?</span>
+            <span class="loop-arr">&#10132;</span>
+            <span class="loop-step highlight">Herkaderen</span>
+          </div>
+          <p><em>"Waarom gebruiken ze het niet? Welke aanname klopt niet? Hoe veranderen we het systeem?"</em></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═ OPDRACHT ═ -->
     <div class="opdracht">
-      <h4>Ontwerp twee experimenten</h4>
-      <p>Jullie plan ligt in de prullenbak. Ontwerp op de achterkant van je A3 twee kleine experimenten die je <strong>volgende week</strong> al zou kunnen uitvoeren:</p>
-      <ul>
-        <li><strong>Discovery Test:</strong> Wat is de kleinste, goedkoopste manier om te 'sensen' wat er nu echt aan de hand is? (Bijv: 3 snelle koffie-interviews i.p.v. een grote enquete).</li>
-        <li><strong>Incubation Test:</strong> Bedenk een "Trojaans Paard". Wat is het allerkleinste experiment om nieuwe aannames te valideren zonder formele goedkeuring? (Bijv: Een formulier testen met 2 key-users i.p.v. een brede IT-uitrol).</li>
-      </ul>
+      <h4>Jullie ontsnapping</h4>
+      <p style="margin-bottom:12px;">Beantwoord deze twee vragen op de achterkant van jullie A3:</p>
+      <ol>
+        <li style="margin-bottom:10px;"><strong>Wat is de aanname onder jullie gesneuvelde plan?</strong><br><span style="color:var(--slate);font-size:13px;">Formuleer: &ldquo;Wij gingen ervan uit dat ___&rdquo;</span></li>
+        <li><strong>Hoe zouden jullie die aanname kunnen toetsen &mdash; met welke interventie?</strong><br><span style="color:var(--slate);font-size:13px;">Gebruik de drieslag (Waarnemen &rarr; Grijpen &rarr; Verankeren) en de experiment-trapeze om een concreet experiment te ontwerpen.</span></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -1380,33 +1645,33 @@ const envelopData = {
   willen: {
     title: 'De "Willen" Illusie',
     subtitle: 'Organisatorische Onzekerheid',
-    nood: 'Er gonzen plotseling hardnekkige geruchten door de organisatie over een mogelijke overname of grote reorganisatie. De psychologische onveiligheid schiet omhoog. De groep medewerkers die jullie zojuist wilden betrekken is nu in de overlevingsstand geschoten. Ze sluiten zich volledig af voor nieuwe initiatieven en vertonen irrationele weerstand tegen jullie veranderverhaal.',
-    gesneuveld: 'De interventie die jullie hadden gepland om draagvlak te cre\u00EBren werkt niet meer. Medewerkers zijn bang voor hun baan en zien elke benadering als bedreiging. Ze klappen volledig dicht.',
-    challenge: 'Wie is in jullie specifieke project de groep die nu in de weerstand schiet? Wat betekent dit voor jullie veranderplan?',
+    nood: 'De directie heeft zojuist officieel bekendgemaakt dat er een reorganisatie of overname aankomt. Medewerkers zijn onzeker over wat dit betekent voor hun functie en baan. De groep die jullie wilden betrekken is in de overlevingsstand geschoten. Ze sluiten zich af voor nieuwe initiatieven en vertonen weerstand tegen jullie veranderverhaal \u2014 niet uit onwil, maar uit zelfbescherming.',
+    gesneuveld: 'Medewerkers zijn bang voor hun baan en zien elke benadering als bedreiging. Ze klappen volledig dicht. Jullie interventie om draagvlak te cre\u00EBren loopt vast op een muur van wantrouwen.',
+    challenge: 'Wie is in jullie project de groep die nu dichtslaat? Hoe be\u00EFnvloedt dat de rest van jullie veranderplan?',
     correctAnswers: ['organizational', 'market']
   },
   moeten: {
     title: 'Het "Moeten" Vacu\u00FCm',
     subtitle: 'Markt/Context Onzekerheid',
     nood: 'De directie heeft vanochtend besloten dat vanwege tegenvallende kwartaalcijfers een ander project absolute topprioriteit krijgt. Jullie project is gedegradeerd tot een \u2018nice to have\u2019. De interne druk of externe noodzaak die jullie wilden gebruiken om de verandering door te drukken, is zojuist volledig verdampt.',
-    gesneuveld: 'De urgentie die jullie wilden inzetten is verdampt. Jullie sponsor trekt zijn handen af van het project omdat zijn eigen prioriteiten zijn verschoven. Jullie hebben geen \u2018stok\u2019 meer om mee te slaan.',
-    challenge: 'Welke manager of sponsor trekt nu zijn/haar handen van jullie project af? Hoe overleeft jullie project zonder prioriteit?',
+    gesneuveld: 'De urgentie die jullie wilden inzetten is verdampt. Jullie sponsor heeft andere prioriteiten en het project staat niet meer op de agenda. Zonder steun van bovenaf heeft jullie verandering geen mandaat meer.',
+    challenge: 'Wie in jullie organisatie bepaalt de prioriteiten? Wat gebeurt er als die persoon wegvalt?',
     correctAnswers: ['market', 'resource', 'organizational']
   },
   kunnen: {
     title: 'De "Kunnen" Blokkade',
     subtitle: 'Resourcing Onzekerheid',
     nood: 'De afdeling control heeft per direct alle budgetten bevroren en uren-allocaties ingetrokken. De tijd en het geld voor jullie interventies zijn met 80% gekort. Je mag de geplande dure of tijdrovende middelen NIET meer inzetten.',
-    gesneuveld: 'De middelen die jullie nodig hadden zijn weg. De geplande aanpak is onbetaalbaar geworden. Medewerkers mogen niet van hun werk gehaald worden. Jullie plan kan de prullenbak in.',
-    challenge: 'Welke specifieke actie uit jullie plan is nu onbetaalbaar of onuitvoerbaar geworden?',
+    gesneuveld: 'Jullie geplande aanpak is onbetaalbaar geworden. Het budget is bevroren, medewerkers mogen niet van hun werk gehaald worden, en externe inhuur is uitgesloten.',
+    challenge: 'Welke onderdelen van jullie plan kosten het meest? Wat blijft er over als je die wegstreept?',
     correctAnswers: ['resource', 'organizational']
   },
   proces: {
     title: 'De "Proces" Schok',
     subtitle: 'Technologische/Systeem Onzekerheid',
     nood: 'Een belangrijke randvoorwaarde voor jullie project is fundamenteel veranderd. Er is een nieuwe wet aangenomen of er is plotseling een generatieve AI-tool doorgevoerd die jullie huidige werkwijze eigenlijk deels overbodig maakt. Het proces dat jullie proberen te implementeren, voelt in \u00E9\u00E9n klap verouderd.',
-    gesneuveld: 'Het proces dat jullie wilden verbeteren is in \u00E9\u00E9n klap verouderd. De nieuwe werkelijkheid maakt jullie oorspronkelijke aanpak irrelevant.',
-    challenge: 'Wat is de \u2018game changer\u2019 in jullie branche die de basis onder jullie project wegslaat?',
+    gesneuveld: 'Het proces dat jullie wilden verbeteren is in \u00E9\u00E9n klap verouderd. De nieuwe technologie of regelgeving maakt jullie oorspronkelijke aanpak irrelevant.',
+    challenge: 'Welke ontwikkeling in jullie branche zou dezelfde impact kunnen hebben? Hoe kwetsbaar is jullie aanpak voor technologische verandering?',
     correctAnswers: ['technical', 'market']
   }
 };
@@ -1579,8 +1844,12 @@ const a3Data = {
 };
 
 // ─── QUIZ LOGICA ─────────────────────
+function toggleUncCard(el) {
+  el.classList.toggle('selected');
+}
+
 function checkQuiz() {
-  const checked = Array.from(document.querySelectorAll('#quizOptions input:checked')).map(i => i.value);
+  const checked = Array.from(document.querySelectorAll('#quizOptions .unc-card.selected')).map(c => c.dataset.value);
   const feedback = document.getElementById('quizFeedback');
 
   if (checked.length === 0) {
