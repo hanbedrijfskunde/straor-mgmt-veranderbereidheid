@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop 7 — Escape Room: Interventies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1e3a5f;
+  --primary-light: #2d5a8e;
+  --primary-dark: #152a45;
+  --primary-50: #f0f5fa;
+  --primary-100: #dae5f2;
+  --primary-200: #b5cce6;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --coral: #dc2626;
+  --coral-light: #fee2e2;
+  --success: #16a34a;
+  --success-light: #dcfce7;
+  --slate: #64748b;
+  --slate-light: #f1f5f9;
+  --off-white: #f8fafc;
+  --white: #FFFFFF;
+  --text: #1a202c;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(30,58,95,0.08);
+  --shadow-hover: 0 8px 32px rgba(30,58,95,0.14);
+
+  /* Kotter kleuren */
+  --kotter-blue: #4a7ab5;
+  --kotter-blue-light: #d6e4f5;
+  --kotter-green: #16a34a;
+  --kotter-green-light: #dcfce7;
+  --kotter-red: #b91c1c;
+  --kotter-red-light: #fee2e2;
+
+  /* DINAMO kleuren */
+  --willen: #7c3aed;
+  --willen-light: #ede9fe;
+  --moeten: #0891b2;
+  --moeten-light: #e0f7fa;
+  --kunnen: #16a34a;
+  --kunnen-light: #dcfce7;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: var(--off-white);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; line-height: 1.15; }
+
+/* ─── HERO ─────────────────────────────── */
+.hero {
+  background: var(--primary);
+  color: var(--white);
+  padding: 70px 40px 60px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(45,90,142,0.35) 0%, transparent 55%),
+    radial-gradient(circle at 10% 80%, rgba(30,58,95,0.25) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 40px;
+  padding: 5px 14px;
+  font-size: 12px; font-weight: 500;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 24px;
+}
+.hero-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--coral); display: block; }
+.hero h1 {
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: 8px;
+}
+.hero h1 em { font-style: normal; color: var(--primary-light); }
+.hero-sub {
+  font-size: 18px; color: rgba(255,255,255,0.65);
+  max-width: 600px; margin-bottom: 36px;
+  font-weight: 300;
+}
+.hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.hero-meta-item { display: flex; flex-direction: column; gap: 2px; }
+.hero-meta-label {
+  font-size: 12px; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+.hero-meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); }
+
+/* ─── NAV ─────────────────────────────── */
+.nav-bar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+.nav-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; gap: 4px; align-items: center;
+  overflow-x: auto;
+}
+.reset-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 600;
+  padding: 6px 12px; margin-left: auto;
+  border: 1px solid var(--coral); background: none;
+  color: var(--coral); border-radius: 6px;
+  cursor: pointer; white-space: nowrap;
+  transition: all .2s;
+}
+.reset-btn:hover { background: var(--coral); color: var(--white); }
+.nav-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600;
+  padding: 12px 16px;
+  border: none; background: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+}
+.nav-btn:hover { color: var(--primary); }
+.nav-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+.nav-btn.locked { opacity: .3; cursor: not-allowed; }
+.nav-btn.locked:hover { color: var(--text-muted); }
+
+/* ─── SECTION ─────────────────────────── */
+.section { padding: 60px 40px; }
+.section-inner { max-width: 900px; margin: 0 auto; }
+.section-tag {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+.section h2 {
+  font-size: clamp(20px, 3.5vw, 30px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: -.015em;
+}
+.section-intro {
+  font-size: 14px;
+  color: var(--slate);
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+.room-section { animation: fadeIn .3s ease; }
+.room-section.visible { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ─── OPDRACHT ─────────────────────────── */
+.opdracht {
+  background: var(--slate-light);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+}
+.opdracht h4 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+.opdracht ol, .opdracht ul {
+  padding-left: 20px;
+  font-size: 14px; color: var(--slate);
+  line-height: 1.8;
+}
+
+
+/* ─── DINAMO INTERVENTIEMATRIX ──────────── */
+.matrix-section { background: white; }
+.matrix-container {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.matrix-header {
+  background: var(--primary);
+  padding: 18px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.matrix-title { font-size: 14px; font-weight: 600; color: white; }
+.matrix-hint { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+.matrix-table { width: 100%; border-collapse: collapse; }
+.matrix-table th {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 14px 20px;
+  border-bottom: 2px solid var(--border);
+  background: var(--slate-light);
+}
+.matrix-table td {
+  padding: 12px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+  transition: background .15s;
+}
+.matrix-table tr:hover td { background: var(--primary-50); }
+
+.matrix-group-header td {
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.matrix-group-header.willen td { color: var(--willen); background: var(--willen-light); }
+.matrix-group-header.moeten td { color: var(--moeten); background: var(--moeten-light); }
+.matrix-group-header.kunnen td { color: var(--kunnen); background: var(--kunnen-light); }
+
+.strategy-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 13px; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px;
+}
+.strategy-chip.willen { background: var(--willen-light); color: var(--willen); }
+.strategy-chip.moeten { background: var(--moeten-light); color: var(--moeten); }
+.strategy-chip.kunnen { background: var(--kunnen-light); color: var(--kunnen); }
+
+.dvd-chip {
+  font-size: 12px; font-weight: 600;
+  padding: 3px 10px; border-radius: 14px;
+  display: inline-block;
+}
+.dvd-chip.denken { background: #dbeafe; color: #1e40af; }
+.dvd-chip.voelen { background: #fce7f3; color: #be185d; }
+.dvd-chip.doen { background: #dcfce7; color: #166534; }
+
+/* ─── KOTTER TRAP ──────────────────────── */
+
+.kotter-staircase {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.kotter-phase-label {
+  font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 8px 0 6px;
+  margin-top: 8px;
+}
+.kotter-phase-label.climate { color: var(--kotter-blue); }
+.kotter-phase-label.engage { color: var(--kotter-green); }
+.kotter-phase-label.sustain { color: #ef4444; }
+
+.kotter-step {
+  display: flex; align-items: center; gap: 16px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  transition: all .2s;
+  cursor: default;
+}
+.kotter-step:hover { transform: translateX(6px); }
+.kotter-step .step-num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800;
+  flex-shrink: 0;
+}
+.kotter-step .step-text { font-size: 15px; font-weight: 600; }
+.kotter-step .step-desc {
+  font-size: 12px; font-weight: 400;
+  opacity: .7; margin-top: 2px;
+}
+
+.kotter-step.climate { background: rgba(74,122,181,0.15); }
+.kotter-step.climate .step-num { background: var(--kotter-blue); color: white; }
+.kotter-step.climate .step-text { color: var(--kotter-blue-light); }
+
+.kotter-step.engage { background: rgba(22,163,74,0.12); }
+.kotter-step.engage .step-num { background: var(--kotter-green); color: white; }
+.kotter-step.engage .step-text { color: var(--kotter-green-light); }
+
+.kotter-step.sustain { background: rgba(185,28,28,0.15); }
+.kotter-step.sustain .step-num { background: var(--kotter-red); color: white; }
+.kotter-step.sustain .step-text { color: var(--kotter-red-light); }
+
+/* ─── ENVELOPPEN ───────────────────────── */
+.envelope-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.envelope-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--border);
+  transition: all .25s;
+  cursor: pointer;
+}
+.envelope-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+.envelope-card.open .envelope-body { display: block; }
+.envelope-top {
+  background: var(--coral);
+  color: white;
+  padding: 20px 24px;
+  position: relative;
+}
+.envelope-top::after {
+  content: '';
+  position: absolute; bottom: -12px; left: 50%;
+  transform: translateX(-50%);
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 12px solid var(--coral);
+}
+.envelope-num {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  opacity: .7;
+  margin-bottom: 4px;
+}
+.envelope-top h4 { font-size: 16px; font-weight: 700; }
+.envelope-subtitle { font-size: 12px; opacity: .8; margin-top: 2px; }
+.envelope-body {
+  display: none;
+  padding: 28px 24px 24px;
+  font-size: 14px;
+  color: var(--slate);
+  line-height: 1.7;
+}
+.envelope-body h5 {
+  font-size: 13px; font-weight: 700;
+  color: var(--coral);
+  margin: 16px 0 6px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.envelope-body h5:first-child { margin-top: 0; }
+.envelope-body .challenge {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border-left: 4px solid var(--coral);
+  background: var(--coral-light);
+  font-size: 13px; color: var(--coral);
+  line-height: 1.6;
+  font-weight: 500;
+}
+.envelope-toggle {
+  display: flex; align-items: center; justify-content: center;
+  padding: 10px;
+  font-size: 12px; font-weight: 600;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  transition: background .15s;
+}
+.envelope-toggle:hover { background: var(--slate-light); }
+.envelope-card.open .envelope-toggle .toggle-text::after { content: 'Sluiten'; }
+.envelope-card:not(.open) .envelope-toggle .toggle-text::after { content: 'Open envelop'; }
+
+
+/* ─── A3 TEMPLATE ──────────────────────── */
+.a3-template {
+  margin-top: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  background: white;
+}
+.a3-header {
+  background: var(--primary);
+  padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+}
+.a3-title { font-size: 14px; font-weight: 600; color: white; }
+.a3-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.a3-tab {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 600;
+  padding: 5px 14px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: all .2s;
+}
+.a3-tab:hover { background: rgba(255,255,255,0.1); color: white; }
+.a3-tab.active {
+  background: white; color: var(--primary);
+  border-color: white;
+}
+.a3-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  min-height: 280px;
+}
+.a3-col {
+  padding: 20px 24px;
+  border-right: 1px solid var(--border);
+}
+.a3-col:last-child { border-right: none; }
+.a3-col-header {
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.a3-col-step {
+  font-size: 11px; font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: 12px;
+}
+.a3-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px; margin-top: 14px;
+}
+.a3-label:first-child { margin-top: 0; }
+.a3-value {
+  font-size: 14px; color: var(--text);
+  line-height: 1.6;
+  min-height: 22px;
+}
+.a3-value.placeholder {
+  color: var(--border);
+  border-bottom: 1px dashed var(--border);
+  font-style: italic;
+  font-size: 13px;
+}
+.a3-chip {
+  display: inline-block;
+  font-size: 13px; font-weight: 600;
+  padding: 3px 12px; border-radius: 16px;
+  margin-top: 2px;
+}
+.a3-chip.willen { background: #dcfce7; color: #16a34a; }
+.a3-chip.moeten { background: #fef3c7; color: #d97706; }
+.a3-chip.kunnen { background: #fee2e2; color: #dc2626; }
+.a3-chip.denken { background: #dbeafe; color: #1e40af; }
+.a3-chip.voelen { background: #fce7f3; color: #be185d; }
+.a3-chip.doen { background: #dcfce7; color: #166534; }
+
+.a3-kotter-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.a3-kotter-item:last-child { border-bottom: none; }
+.a3-kotter-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--kotter-blue);
+  color: white;
+  font-size: 11px; font-weight: 800;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+.a3-kotter-label {
+  font-size: 12px; font-weight: 700;
+  color: var(--primary);
+}
+.a3-kotter-value {
+  font-size: 13px; color: var(--slate);
+  line-height: 1.6;
+  margin-top: 4px;
+  padding-left: 28px;
+}
+.a3-kotter-value.placeholder {
+  color: var(--border);
+  border-bottom: 1px dashed var(--border);
+  font-style: italic;
+}
+.a3-casus-banner {
+  padding: 10px 24px;
+  background: var(--slate-light);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px; color: var(--slate);
+  line-height: 1.5;
+}
+.a3-casus-banner strong { color: var(--primary); }
+
+/* ─── DIMENSIE & FACTOR KNOPPEN ────────── */
+.dim-buttons, .factor-buttons {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.dim-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600;
+  padding: 7px 16px; border-radius: 20px;
+  border: 2px solid transparent;
+  cursor: pointer; transition: all .2s;
+}
+.dim-btn:hover { transform: translateY(-1px); }
+.dim-btn.willen { background: #dcfce7; color: #16a34a; border-color: #86efac; }
+.dim-btn.willen:hover, .dim-btn.willen.active { background: #16a34a; color: white; border-color: #16a34a; }
+.dim-btn.moeten { background: #fef3c7; color: #d97706; border-color: #fde68a; }
+.dim-btn.moeten:hover, .dim-btn.moeten.active { background: #d97706; color: white; border-color: #d97706; }
+.dim-btn.kunnen { background: #fee2e2; color: #dc2626; border-color: #fca5a5; }
+.dim-btn.kunnen:hover, .dim-btn.kunnen.active { background: #dc2626; color: white; border-color: #dc2626; }
+
+.factor-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 500;
+  padding: 5px 12px; border-radius: 16px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--text);
+  cursor: pointer; transition: all .2s;
+}
+.factor-btn:hover { background: var(--slate-light); transform: translateY(-1px); }
+.factor-btn.active { font-weight: 700; }
+.factor-btn.active.willen { background: #16a34a; color: white; border-color: #16a34a; }
+.factor-btn.active.moeten { background: #d97706; color: white; border-color: #d97706; }
+.factor-btn.active.kunnen { background: #dc2626; color: white; border-color: #dc2626; }
+
+.next-room-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 700;
+  padding: 12px 24px; border-radius: 10px;
+  border: none;
+  background: var(--coral);
+  color: white;
+  cursor: pointer;
+  transition: all .2s;
+  width: 100%;
+  animation: pulseBtn 2s infinite;
+}
+.next-room-btn:hover { background: #b91c1c; transform: translateY(-1px); }
+@keyframes pulseBtn {
+  0%,100% { box-shadow: 0 0 0 0 rgba(220,38,38,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(220,38,38,0); }
+}
+
+/* ─── WACHTWOORD MODAL ─────────────────── */
+.pw-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 300;
+  display: none;
+  align-items: center; justify-content: center;
+}
+.pw-overlay.visible { display: flex; }
+.pw-modal {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.3);
+  padding: 36px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  animation: modalIn .3s ease;
+}
+@keyframes modalIn { from { opacity:0; transform:scale(.9) translateY(20px); } to { opacity:1; transform:none; } }
+.pw-modal h3 {
+  font-size: 20px; font-weight: 700;
+  color: var(--coral);
+  margin-bottom: 8px;
+}
+.pw-modal p {
+  font-size: 14px; color: var(--slate);
+  margin-bottom: 20px; line-height: 1.6;
+}
+.pw-input {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px; font-weight: 600;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+  transition: border-color .2s;
+  outline: none;
+}
+.pw-input:focus { border-color: var(--primary); }
+.pw-input.error { border-color: var(--coral); animation: shake .4s; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+.pw-error-msg {
+  font-size: 13px; color: var(--coral);
+  margin-top: 8px; min-height: 20px;
+}
+.pw-submit {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 700;
+  padding: 12px 24px; border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: all .2s;
+  width: 100%;
+  margin-top: 12px;
+}
+.pw-submit:hover { background: var(--primary-light); }
+.pw-close {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 500;
+  background: none; border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  margin-top: 12px;
+  padding: 6px;
+}
+.pw-close:hover { color: var(--text); }
+
+/* ─── UNCERTAINTY GRID ──────────────────── */
+.uncertainty-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.unc-card {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: white;
+}
+.unc-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800;
+  flex-shrink: 0;
+}
+.unc-label { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.unc-desc { font-size: 13px; color: var(--slate); line-height: 1.5; }
+
+/* ─── QUIZ ─────────────────────────────── */
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-option {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+  transition: all .15s;
+  font-size: 14px; color: var(--text);
+  line-height: 1.5;
+}
+.quiz-option:hover { border-color: var(--primary-200); background: var(--primary-50); }
+.quiz-option input[type="checkbox"] { display: none; }
+.quiz-check {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .15s;
+}
+.quiz-option input:checked ~ .quiz-check {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.quiz-option input:checked ~ .quiz-check::after {
+  content: '\2713';
+  color: white;
+  font-size: 14px; font-weight: 700;
+}
+.quiz-option input:checked ~ span:last-child { font-weight: 600; }
+.quiz-feedback {
+  min-height: 24px;
+  margin: 12px 0 4px;
+  font-size: 14px; font-weight: 600;
+  line-height: 1.5;
+}
+.quiz-feedback.success { color: var(--success); }
+.quiz-feedback.error { color: var(--coral); }
+.quiz-submit-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 700;
+  padding: 12px 28px; border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: all .2s;
+}
+.quiz-submit-btn:hover { background: var(--primary-light); }
+.quiz-submit-btn:disabled { opacity: .4; cursor: not-allowed; }
+
+@media (max-width: 768px) {
+  .uncertainty-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── LOCKDOWN REVEAL CARD ─────────────── */
+.lockdown-reveal {
+  display: none;
+  margin-top: 24px;
+  animation: fadeIn .5s ease;
+}
+.lockdown-reveal.visible { display: block; }
+
+@media (max-width: 768px) {
+  .a3-grid { grid-template-columns: 1fr; }
+  .a3-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .a3-col:last-child { border-bottom: none; }
+}
+
+/* ─── FOOTER ───────────────────────────── */
+.footer {
+  background: var(--primary-dark);
+  color: rgba(255,255,255,0.4);
+  padding: 32px 40px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* ─── RESPONSIVE ───────────────────────── */
+@media (max-width: 768px) {
+  .hero { padding: 50px 20px 40px; }
+  .section { padding: 40px 20px; }
+  .nav-bar { padding: 0 20px; }
+  .matrix-table { font-size: 13px; }
+  .matrix-table th, .matrix-table td { padding: 10px 14px; }
+
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO (compact) ═══ -->
+<section class="hero" style="padding:40px 40px 30px;">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span></span> Escape Room Editie</div>
+    <h1>Workshop 7: <em>Interventies</em></h1>
+    <p class="hero-sub" style="margin-bottom:0;">Van Incrementeel Veranderen naar Strategische Innovatie.</p>
+  </div>
+</section>
+
+<!-- ═══ KAMER NAV ═══ -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-btn active unlocked" data-room="intro" onclick="navigateRoom('intro')">Kamer 0: Introductie</button>
+    <button class="nav-btn locked" data-room="plan" onclick="navigateRoom('plan')">Kamer 1: Het Plan</button>
+    <button class="nav-btn locked" data-room="lockdown" onclick="navigateRoom('lockdown')">Kamer 2: Lockdown</button>
+    <button class="nav-btn locked" data-room="ontsnapping" onclick="navigateRoom('ontsnapping')">Kamer 3: Ontsnapping</button>
+    <button class="nav-btn locked" data-room="debrief" onclick="navigateRoom('debrief')">Kamer 4: Debriefing</button>
+    <button class="reset-btn" onclick="resetProgress()">&#x21bb; Reset</button>
+  </div>
+</nav>
+
+<!-- ═══ KAMER 0: INTRODUCTIE ═══ -->
+<section class="section room-section visible" id="room-intro">
+  <div class="section-inner">
+    <h2>Kamer 0: Introductie</h2>
+
+      <!-- DINAMO 6.0 figuur -->
+      <div style="max-width:720px;margin:32px auto 0;display:flex;flex-direction:column;gap:0;">
+        <!-- Header -->
+        <div style="background:var(--primary);color:white;text-align:center;padding:16px 20px;border-radius:var(--radius) var(--radius) 0 0;">
+          <div style="font-size:12px;text-transform:uppercase;letter-spacing:.08em;opacity:.7;margin-bottom:4px;">Theory of Planned Behavior (Ajzen)</div>
+          <div style="font-size:20px;font-weight:700;">DINAMO 6.0</div>
+          <div style="font-size:14px;opacity:.8;margin-top:2px;">14 schalen &mdash; veranderbereidheid in kaart</div>
+        </div>
+        <!-- Willen -->
+        <div style="border:2px solid #16a34a;border-top:none;padding:20px 24px;background:#f0fdf4;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="background:#16a34a;color:white;font-weight:700;font-size:14px;padding:4px 14px;border-radius:20px;">Willen</span>
+            <span style="font-size:14px;color:#16a34a;font-style:italic;">"Wil ik deze verandering?"</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #86efac;">Gevolgen voor het werk</span>
+            <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #86efac;">Emoties</span>
+            <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #86efac;">Meerwaarde</span>
+            <span class="scale-chip" style="background:#dcfce7;color:#16a34a;border-color:#86efac;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #86efac;">Betrokkenheid</span>
+          </div>
+        </div>
+        <!-- Moeten -->
+        <div style="border:2px solid #d97706;border-top:none;padding:20px 24px;background:#fffbeb;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="background:#d97706;color:white;font-weight:700;font-size:14px;padding:4px 14px;border-radius:20px;">Moeten</span>
+            <span style="font-size:14px;color:#d97706;font-style:italic;">"Moet ik wel mee veranderen?"</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fde68a;">Interne druk</span>
+            <span class="scale-chip" style="background:#fef3c7;color:#d97706;border-color:#fde68a;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fde68a;">Externe noodzaak</span>
+          </div>
+        </div>
+        <!-- Kunnen -->
+        <div style="border:2px solid #dc2626;border-top:none;padding:20px 24px;background:#fef2f2;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="background:#dc2626;color:white;font-weight:700;font-size:14px;padding:4px 14px;border-radius:20px;">Kunnen</span>
+            <span style="font-size:14px;color:#dc2626;font-style:italic;">"Kan ik deze verandering aan?"</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fca5a5;">Kennis &amp; ervaring</span>
+            <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fca5a5;">Aansturing</span>
+            <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fca5a5;">Informatie</span>
+            <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fca5a5;">Verandervermogen</span>
+            <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fca5a5;">Timing</span>
+            <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fca5a5;">Beheersbaarheid</span>
+            <span class="scale-chip" style="background:#fee2e2;color:#dc2626;border-color:#fca5a5;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #fca5a5;">Complexiteit</span>
+          </div>
+        </div>
+        <!-- Vertrouwen -->
+        <div style="border:2px solid var(--primary);border-top:none;padding:20px 24px;background:var(--primary-50);border-radius:0 0 var(--radius) var(--radius);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="background:var(--primary);color:white;font-weight:700;font-size:14px;padding:4px 14px;border-radius:20px;">Vertrouwen</span>
+            <span style="font-size:12px;color:var(--primary);background:var(--primary-100);padding:2px 10px;border-radius:10px;font-weight:600;">nieuw in v6.0</span>
+            <span style="font-size:14px;color:var(--primary);font-style:italic;">"Vertrouw ik de leiding?"</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="scale-chip" style="background:#f0f5fa;color:#1e3a5f;border-color:#b5cce6;font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid #b5cce6;">Vertrouwen in leiderschap</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flow: Veranderbereidheid → Gedrag → Resultaat -->
+      <div style="max-width:720px;margin:32px auto 0;position:relative;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;">
+          <div style="flex:0 0 auto;background:var(--primary);color:white;padding:18px 28px;border-radius:var(--radius);text-align:center;font-weight:700;font-size:18px;box-shadow:var(--shadow);">
+            Veranderbereidheid
+          </div>
+          <div style="flex:0 0 auto;display:flex;align-items:center;padding:0 6px;">
+            <div style="width:40px;height:2px;background:var(--primary);"></div>
+            <div style="width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid var(--primary);"></div>
+          </div>
+          <div style="flex:0 0 auto;background:#64748b;color:white;padding:18px 28px;border-radius:var(--radius);text-align:center;font-weight:700;font-size:18px;box-shadow:var(--shadow);">
+            Gedrag
+          </div>
+          <div style="flex:0 0 auto;display:flex;align-items:center;padding:0 6px;">
+            <div style="width:40px;height:2px;background:#64748b;"></div>
+            <div style="width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid #64748b;"></div>
+          </div>
+          <div style="flex:0 0 auto;background:#94a3b8;color:white;padding:18px 28px;border-radius:var(--radius);text-align:center;font-weight:700;font-size:18px;box-shadow:var(--shadow);">
+            Resultaat
+          </div>
+        </div>
+      </div>
+
+    <!-- Interventiematrix (inline in kamer 0) -->
+    <div style="margin-top:40px;">
+      <h3 style="font-size:20px;font-weight:700;margin-bottom:14px;color:var(--primary);">DINAMO-Interventiematrix</h3>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KAMER 1: HET PLAN ═══ -->
+<section class="section room-section" id="room-plan" style="display:none;">
+  <div class="section-inner">
+    <h2>Kamer 1: Het Schijnveilige Plan</h2>
+    <div class="opdracht">
+      <h4>Opdracht</h4>
+      <ol>
+        <li>Pak je DINAMO-nulmeting erbij. Wat is de grootste rode vlag? (Is het Willen, Moeten of Kunnen?)</li>
+        <li>Kies via de DINAMO-Interventiematrix de juiste strategie (bijv. Prioriteit = 'Meerwaarde', dus Strategie = 'Overtuigen' &rarr; Denken).</li>
+        <li>Plaats deze interventie in Kotter's eerste stappen (1. Urgentie, 2. Coalitie, 3. Visie). Hoe ga je dit exact uitvoeren bij jullie organisatie? Schrijf jullie Masterplan op een A3-vel.</li>
+      </ol>
+    </div>
+
+    <!-- A3 Masterplan Template -->
+      <div class="a3-template" id="a3Template">
+        <div class="a3-header">
+          <span class="a3-title">A3 Masterplan Template</span>
+          <div class="a3-tabs">
+            <button class="a3-tab active" onclick="loadA3('leeg')">Leeg</button>
+            <button class="a3-tab" onclick="loadA3('crm')">Vb 1: CRM-adoptie</button>
+            <button class="a3-tab" onclick="loadA3('export')">Vb 8: Exportdocs</button>
+            <button class="a3-tab" onclick="loadA3('advies')">Vb 9: Adviesproces VO</button>
+          </div>
+        </div>
+        <div class="a3-casus-banner" id="a3Banner">
+          <strong>Leeg template</strong> &mdash; Vul in op basis van jullie eigen DINAMO-nulmeting en opdrachtgever.
+        </div>
+        <div class="a3-grid">
+          <!-- Kolom 1: DINAMO Rode Vlag (interactief) -->
+          <div class="a3-col" id="a3-col-stap1">
+            <div class="a3-col-header">Stap 1</div>
+            <div class="a3-col-step">DINAMO Rode Vlag</div>
+            <div class="a3-label">Dimensie</div>
+            <div class="a3-value" id="a3-dimensie">
+              <div class="dim-buttons" id="dimButtons">
+                <button class="dim-btn willen" onclick="selectDimensie('willen')">Willen</button>
+                <button class="dim-btn moeten" onclick="selectDimensie('moeten')">Moeten</button>
+                <button class="dim-btn kunnen" onclick="selectDimensie('kunnen')">Kunnen</button>
+              </div>
+            </div>
+            <div class="a3-label">Specifieke factor</div>
+            <div class="a3-value" id="a3-factor">
+              <div class="factor-buttons" id="factorButtons">
+                <span class="a3-value placeholder">Kies eerst een dimensie...</span>
+              </div>
+            </div>
+            <div class="a3-label">Waarom is dit de rode vlag?</div>
+            <div class="a3-value" id="a3-waarom"><span class="a3-value placeholder">Beschrijf het kernprobleem...</span></div>
+            <!-- Knop naar volgende kamer -->
+            <div id="nextRoomBtn" style="display:none; margin-top:20px;">
+              <button class="next-room-btn" onclick="showPasswordModal()">Naar Kamer 2: De Lockdown &#10140;</button>
+            </div>
+          </div>
+          <!-- Kolom 2: Interventiestrategie -->
+          <div class="a3-col">
+            <div class="a3-col-header">Stap 2</div>
+            <div class="a3-col-step">Interventiestrategie</div>
+            <div class="a3-label">Strategie (uit matrix)</div>
+            <div class="a3-value" id="a3-strategie"><span class="a3-value placeholder">Bijv. Overtuigen, Coachen...</span></div>
+            <div class="a3-label">Type</div>
+            <div class="a3-value" id="a3-type"><span class="a3-value placeholder">Denken / Voelen / Doen?</span></div>
+            <div class="a3-label">Concreet: wat ga je doen?</div>
+            <div class="a3-value" id="a3-concreet"><span class="a3-value placeholder">Beschrijf de interventie...</span></div>
+          </div>
+          <!-- Kolom 3: Kotter Stappen -->
+          <div class="a3-col">
+            <div class="a3-col-header">Stap 3</div>
+            <div class="a3-col-step">Kotter's eerste stappen</div>
+            <div class="a3-kotter-item">
+              <span class="a3-kotter-num">1</span>
+              <span class="a3-kotter-label">Create urgency</span>
+              <div class="a3-kotter-value" id="a3-k1"><span class="a3-kotter-value placeholder">Hoe creeer je urgentie?</span></div>
+            </div>
+            <div class="a3-kotter-item">
+              <span class="a3-kotter-num">2</span>
+              <span class="a3-kotter-label">Form a powerful coalition</span>
+              <div class="a3-kotter-value" id="a3-k2"><span class="a3-kotter-value placeholder">Wie betrek je in de coalitie?</span></div>
+            </div>
+            <div class="a3-kotter-item">
+              <span class="a3-kotter-num">3</span>
+              <span class="a3-kotter-label">Create a vision for change</span>
+              <div class="a3-kotter-value" id="a3-k3"><span class="a3-kotter-value placeholder">Wat is jullie verandervisie?</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- ═══ KAMER 2: LOCKDOWN ═══ -->
+<section class="section room-section" id="room-lockdown" style="display:none;">
+  <div class="section-inner">
+    <h2>Kamer 2: De Lockdown</h2>
+    <div class="lockdown-reveal visible" id="lockdownReveal"></div>
+
+    <!-- Vier dimensies van onzekerheid -->
+    <div class="uncertainty-block" style="margin-top:32px;">
+      <h3 style="font-size:20px;font-weight:700;color:var(--primary);margin-bottom:6px;">De vier dimensies van onzekerheid</h3>
+      <p style="font-size:14px;color:var(--slate);margin-bottom:20px;">Strategische verandering mislukt zelden door één incident. Volgens O'Connor &amp; Meyer (2026) zijn er vier fundamentele bronnen van onzekerheid die elk veranderplan kunnen breken:</p>
+
+      <div class="uncertainty-grid">
+        <div class="unc-card">
+          <div class="unc-icon" style="background:#ede9fe;color:#7c3aed;">O</div>
+          <div>
+            <div class="unc-label">Organizational uncertainty</div>
+            <div class="unc-desc">Interne weerstand, verlies van draagvlak, politieke verschuivingen, psychologische onveiligheid</div>
+          </div>
+        </div>
+        <div class="unc-card">
+          <div class="unc-icon" style="background:#fef3c7;color:#d97706;">M</div>
+          <div>
+            <div class="unc-label">Market uncertainty</div>
+            <div class="unc-desc">Verschuivende prioriteiten, veranderende marktcontext, wegvallende urgentie</div>
+          </div>
+        </div>
+        <div class="unc-card">
+          <div class="unc-icon" style="background:#fee2e2;color:#dc2626;">R</div>
+          <div>
+            <div class="unc-label">Resource uncertainty</div>
+            <div class="unc-desc">Bevroren budgetten, wegvallende capaciteit, ingetrokken uren en middelen</div>
+          </div>
+        </div>
+        <div class="unc-card">
+          <div class="unc-icon" style="background:#dbeafe;color:#1e40af;">T</div>
+          <div>
+            <div class="unc-label">Technical uncertainty</div>
+            <div class="unc-desc">Nieuwe technologie, veranderde wet-/regelgeving, verouderde processen</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz -->
+    <div class="opdracht" style="margin-top:24px;">
+      <h4>Welke dimensie(s) van onzekerheid spelen een rol in jullie rode kaart?</h4>
+      <p style="margin-bottom:16px;">Denk breed: een incident kan meerdere onderliggende oorzaken hebben. Vink alle dimensies aan die jullie herkennen.</p>
+      <div class="quiz-options" id="quizOptions">
+        <label class="quiz-option">
+          <input type="checkbox" name="unc" value="organizational">
+          <span class="quiz-check"></span>
+          <span><strong>Organizational</strong> — speelt interne weerstand of politiek een rol?</span>
+        </label>
+        <label class="quiz-option">
+          <input type="checkbox" name="unc" value="market">
+          <span class="quiz-check"></span>
+          <span><strong>Market</strong> — verschuift de markt, context of prioriteit?</span>
+        </label>
+        <label class="quiz-option">
+          <input type="checkbox" name="unc" value="resource">
+          <span class="quiz-check"></span>
+          <span><strong>Resource</strong> — vallen middelen, budget of capaciteit weg?</span>
+        </label>
+        <label class="quiz-option">
+          <input type="checkbox" name="unc" value="technical">
+          <span class="quiz-check"></span>
+          <span><strong>Technical</strong> — verandert de technologie of regelgeving?</span>
+        </label>
+      </div>
+      <div class="quiz-feedback" id="quizFeedback"></div>
+      <button class="quiz-submit-btn" id="quizSubmitBtn" onclick="checkQuiz()">Controleer</button>
+      <div id="quizNextBtn" style="display:none; margin-top:16px;">
+        <button class="next-room-btn" onclick="goToRoom3()">Naar Kamer 3: De Ontsnapping &#10140;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KAMER 3: ONTSNAPPING ═══ -->
+<section class="section room-section" id="room-ontsnapping" style="display:none;">
+  <div class="section-inner">
+    <h2>Kamer 3: De Ontsnapping</h2>
+    <div class="opdracht">
+      <h4>Ontwerp twee experimenten</h4>
+      <p>Jullie plan ligt in de prullenbak. Ontwerp op de achterkant van je A3 twee kleine experimenten die je <strong>volgende week</strong> al zou kunnen uitvoeren:</p>
+      <ul>
+        <li><strong>Discovery Test:</strong> Wat is de kleinste, goedkoopste manier om te 'sensen' wat er nu echt aan de hand is? (Bijv: 3 snelle koffie-interviews i.p.v. een grote enquete).</li>
+        <li><strong>Incubation Test:</strong> Bedenk een "Trojaans Paard". Wat is het allerkleinste experiment om nieuwe aannames te valideren zonder formele goedkeuring? (Bijv: Een formulier testen met 2 key-users i.p.v. een brede IT-uitrol).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KAMER 4: DEBRIEFING ═══ -->
+<section class="section room-section" id="room-debrief" style="display:none;">
+  <div class="section-inner">
+    <h2>Kamer 4: Debriefing</h2>
+    <div class="opdracht">
+      <h4>Reflectievragen</h4>
+      <ul>
+        <li>Hoe voelde het om jullie 'perfecte plan' te moeten loslaten?</li>
+        <li>Waarom was jullie Kotter-stap opeens niet meer relevant na de envelop?</li>
+        <li>Welk inzicht levert een klein experiment op dat een breed ingevulde DINAMO-matrix niet had kunnen geven?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Matrix tabel (verplaatst naar kamer 0 via JS) -->
+<div id="matrix-source" style="display:none;">
+  <div class="matrix-container">
+      <div class="matrix-header">
+        <span class="matrix-title">DINAMO-Interventiematrix</span>
+        <span class="matrix-hint">Klik op een rij voor details</span>
+      </div>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="width:30%">DINAMO-factor</th>
+            <th style="width:35%">Interventiestrategie</th>
+            <th style="width:20%">Denken, voelen, doen</th>
+            <th style="width:15%">Prio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="matrix-group-header willen"><td colspan="4">Willen</td></tr>
+          <tr class="matrix-row" data-group="willen">
+            <td>Gevolgen voor het werk</td>
+            <td><span class="strategy-chip willen">Onderhandelen</span></td>
+            <td><span class="dvd-chip denken">Denken</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="willen">
+            <td>Emoties</td>
+            <td><span class="strategy-chip willen">Coachen</span></td>
+            <td><span class="dvd-chip voelen">Voelen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="willen">
+            <td>Meerwaarde</td>
+            <td><span class="strategy-chip willen">Overtuigen</span></td>
+            <td><span class="dvd-chip denken">Denken</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="willen">
+            <td>Betrokkenheid</td>
+            <td><span class="strategy-chip willen">Participeren</span></td>
+            <td><span class="dvd-chip voelen">Voelen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-group-header moeten"><td colspan="4">Moeten</td></tr>
+          <tr class="matrix-row" data-group="moeten">
+            <td>Interne druk</td>
+            <td><span class="strategy-chip moeten">Mobiliseren</span></td>
+            <td><span class="dvd-chip doen">Doen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="moeten">
+            <td>Externe noodzaak</td>
+            <td><span class="strategy-chip moeten">Aantonen</span></td>
+            <td><span class="dvd-chip denken">Denken</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-group-header kunnen"><td colspan="4">Kunnen</td></tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Kennis en ervaring</td>
+            <td><span class="strategy-chip kunnen">Opleiden</span></td>
+            <td><span class="dvd-chip doen">Doen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Aansturing</td>
+            <td><span class="strategy-chip kunnen">Plannen</span></td>
+            <td><span class="dvd-chip doen">Doen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Informatie</td>
+            <td><span class="strategy-chip kunnen">Informeren</span></td>
+            <td><span class="dvd-chip doen">Doen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Verandervermogen</td>
+            <td><span class="strategy-chip kunnen">Ontwikkelen</span></td>
+            <td><span class="dvd-chip denken">Denken</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Beheersbaarheid</td>
+            <td><span class="strategy-chip kunnen">Verbinden</span></td>
+            <td><span class="dvd-chip denken">Denken</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Timing</td>
+            <td><span class="strategy-chip kunnen">Ondersteunen</span></td>
+            <td><span class="dvd-chip doen">Doen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Complexiteit</td>
+            <td><span class="strategy-chip kunnen">Vereenvoudigen</span></td>
+            <td><span class="dvd-chip denken">Denken</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+          <tr class="matrix-row" data-group="kunnen">
+            <td>Vertrouwen</td>
+            <td><span class="strategy-chip kunnen">Bewijzen</span></td>
+            <td><span class="dvd-chip voelen">Voelen</span></td>
+            <td><input type="checkbox" class="prio-check"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<!-- Kotter trap (verplaatst naar kamer 0 via JS) -->
+<div id="kotter-source" style="display:none;">
+  <div style="background:var(--primary);border-radius:var(--radius);padding:28px;margin-top:40px;">
+    <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:6px;">Kotter's 8 Stappen</h3>
+    <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:20px;">Het 8-stappenmodel, verdeeld in drie fasen.</p>
+    <div class="kotter-staircase">
+      <!-- Fase 1: Creating the climate for change -->
+      <div class="kotter-phase-label climate">Fase 1 &mdash; Creating the climate for change</div>
+      <div class="kotter-step climate">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-text">Create urgency</div>
+          <div class="step-desc">Creeer een gevoel van noodzaak voor verandering</div>
+        </div>
+      </div>
+      <div class="kotter-step climate">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-text">Form a powerful coalition</div>
+          <div class="step-desc">Bouw een leidende coalitie met voldoende macht en energie</div>
+        </div>
+      </div>
+      <div class="kotter-step climate">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-text">Create a vision for change</div>
+          <div class="step-desc">Ontwikkel een heldere visie en strategie</div>
+        </div>
+      </div>
+
+      <!-- Fase 2: Engaging & enabling the organisation -->
+      <div class="kotter-phase-label engage">Fase 2 &mdash; Engaging &amp; enabling the organisation</div>
+      <div class="kotter-step engage">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-text">Communicate the vision</div>
+          <div class="step-desc">Communiceer de verandervisie breed en consistent</div>
+        </div>
+      </div>
+      <div class="kotter-step engage">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-text">Empower action</div>
+          <div class="step-desc">Verwijder obstakels en geef mensen de ruimte om te handelen</div>
+        </div>
+      </div>
+      <div class="kotter-step engage">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-text">Create quick wins</div>
+          <div class="step-desc">Genereer zichtbare, korte-termijn successen</div>
+        </div>
+      </div>
+
+      <!-- Fase 3: Implementing & sustaining for change -->
+      <div class="kotter-phase-label sustain">Fase 3 &mdash; Implementing &amp; sustaining for change</div>
+      <div class="kotter-step sustain">
+        <div class="step-num">7</div>
+        <div>
+          <div class="step-text">Build on the change</div>
+          <div class="step-desc">Consolideer winst en produceer meer verandering</div>
+        </div>
+      </div>
+      <div class="kotter-step sustain">
+        <div class="step-num">8</div>
+        <div>
+          <div class="step-text">Make it stick</div>
+          <div class="step-desc">Veranker nieuwe benaderingen in de organisatiecultuur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WACHTWOORD MODAL ═══ -->
+<div class="pw-overlay" id="pwOverlay">
+  <div class="pw-modal">
+    <h3>Toegang tot Kamer 2</h3>
+    <p>Waar een wil is, is een weg. Wat moet dat moet. En dan moet het nog kunnen. Welke van de drie kies je?</p>
+    <input type="text" class="pw-input" id="pwInput" placeholder="Wachtwoord..." autocomplete="off">
+    <div class="pw-error-msg" id="pwError"></div>
+    <button class="pw-submit" onclick="checkPassword()">Ontgrendel</button>
+    <button class="pw-close" onclick="closePasswordModal()">Annuleren</button>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  Workshop 7: Interventies &mdash; Escape Room Editie &middot; STRAOR Management &middot; HBO Bedrijfskunde
+</div>
+
+
+<script>
+// ─── KAMER NAVIGATIE ──────────────────
+const roomOrder = ['intro', 'plan', 'lockdown', 'ontsnapping', 'debrief'];
+const roomIds = { intro: 'room-intro', plan: 'room-plan', lockdown: 'room-lockdown', ontsnapping: 'room-ontsnapping', debrief: 'room-debrief' };
+let currentRoom = 'intro';
+
+// Verplaats matrix en kotter naar kamer 0 bij laden
+document.addEventListener('DOMContentLoaded', () => {
+  const introSection = document.querySelector('#room-intro .section-inner');
+  const matrixSrc = document.getElementById('matrix-source');
+  const kotterSrc = document.getElementById('kotter-source');
+  if (matrixSrc && introSection) introSection.appendChild(matrixSrc.firstElementChild.cloneNode(true));
+  if (kotterSrc && introSection) introSection.appendChild(kotterSrc.firstElementChild.cloneNode(true));
+  // Init matrix row clicks
+  document.querySelectorAll('.matrix-row').forEach(row => {
+    row.addEventListener('click', () => row.classList.toggle('active'));
+  });
+
+  // Herstel state uit localStorage
+  const savedUnlocked = JSON.parse(localStorage.getItem('unlockedRooms') || '["intro","plan"]');
+  savedUnlocked.forEach(id => unlockRoom(id));
+
+  const savedRoom = localStorage.getItem('currentRoom');
+  if (savedRoom && savedUnlocked.includes(savedRoom)) {
+    // Herstel selectie voor lockdown kaart
+    const savedDim = localStorage.getItem('selectedDimensie');
+    const savedFactor = localStorage.getItem('selectedFactor');
+    if (savedDim) {
+      selectedDimensie = savedDim;
+      selectedFactor = savedFactor;
+      buildLockdownCard();
+    }
+    // Herstel quiz-status
+    if (localStorage.getItem('quizCompleted') === 'true') {
+      document.getElementById('quizSubmitBtn').disabled = true;
+      document.getElementById('quizNextBtn').style.display = 'block';
+      document.getElementById('quizFeedback').className = 'quiz-feedback success';
+      document.getElementById('quizFeedback').textContent = 'Goed gezien! Jullie hebben minstens \u00E9\u00E9n dimensie correct herkend.';
+    }
+    showRoom(savedRoom);
+  }
+});
+
+function resetProgress() {
+  if (!confirm('Weet je zeker dat je alle voortgang wilt resetten?')) return;
+  localStorage.removeItem('unlockedRooms');
+  localStorage.removeItem('currentRoom');
+  localStorage.removeItem('selectedDimensie');
+  localStorage.removeItem('selectedFactor');
+  location.reload();
+}
+
+function navigateRoom(id) {
+  const btn = document.querySelector(`.nav-btn[data-room="${id}"]`);
+  if (!btn || btn.classList.contains('locked')) return;
+  showRoom(id);
+}
+
+function showRoom(id) {
+  currentRoom = id;
+  localStorage.setItem('currentRoom', id);
+  // Hide all rooms
+  document.querySelectorAll('.room-section').forEach(s => s.style.display = 'none');
+  // Show target room
+  const target = document.getElementById(roomIds[id]);
+  if (target) target.style.display = '';
+  // Update nav
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`.nav-btn[data-room="${id}"]`);
+  if (btn) btn.classList.add('active');
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function unlockRoom(id) {
+  const btn = document.querySelector(`.nav-btn[data-room="${id}"]`);
+  if (btn) {
+    btn.classList.remove('locked');
+    btn.classList.add('unlocked');
+  }
+  // Persist unlock state
+  const unlocked = JSON.parse(localStorage.getItem('unlockedRooms') || '["intro","plan"]');
+  if (!unlocked.includes(id)) {
+    unlocked.push(id);
+    localStorage.setItem('unlockedRooms', JSON.stringify(unlocked));
+  }
+}
+
+// Unlock kamer 1 when kamer 0 is open (students can proceed)
+function unlockNextRoom() {
+  const idx = roomOrder.indexOf(currentRoom);
+  if (idx < roomOrder.length - 1) {
+    unlockRoom(roomOrder[idx + 1]);
+  }
+}
+
+// Auto-unlock kamer 1 since kamer 0 starts open
+unlockRoom('plan');
+
+// ─── DIMENSIE / FACTOR SELECTIE ───────
+const dimensieFactoren = {
+  willen: ['Gevolgen voor het werk', 'Emoties', 'Meerwaarde', 'Betrokkenheid'],
+  moeten: ['Interne druk', 'Externe noodzaak'],
+  kunnen: ['Kennis en ervaring', 'Aansturing', 'Informatie', 'Verandervermogen', 'Beheersbaarheid', 'Timing', 'Complexiteit', 'Vertrouwen']
+};
+
+// Mapping: factor → envelope data
+const envelopData = {
+  willen: {
+    title: 'De "Willen" Illusie',
+    subtitle: 'Organisatorische Onzekerheid',
+    nood: 'Er gonzen plotseling hardnekkige geruchten door de organisatie over een mogelijke overname of grote reorganisatie. De psychologische onveiligheid schiet omhoog. De groep medewerkers die jullie zojuist wilden betrekken is nu in de overlevingsstand geschoten. Ze sluiten zich volledig af voor nieuwe initiatieven en vertonen irrationele weerstand tegen jullie veranderverhaal.',
+    gesneuveld: 'De interventie die jullie hadden gepland om draagvlak te cre\u00EBren werkt niet meer. Medewerkers zijn bang voor hun baan en zien elke benadering als bedreiging. Ze klappen volledig dicht.',
+    challenge: 'Wie is in jullie specifieke project de groep die nu in de weerstand schiet? Wat betekent dit voor jullie veranderplan?',
+    correctAnswers: ['organizational', 'market']
+  },
+  moeten: {
+    title: 'Het "Moeten" Vacu\u00FCm',
+    subtitle: 'Markt/Context Onzekerheid',
+    nood: 'De directie heeft vanochtend besloten dat vanwege tegenvallende kwartaalcijfers een ander project absolute topprioriteit krijgt. Jullie project is gedegradeerd tot een \u2018nice to have\u2019. De interne druk of externe noodzaak die jullie wilden gebruiken om de verandering door te drukken, is zojuist volledig verdampt.',
+    gesneuveld: 'De urgentie die jullie wilden inzetten is verdampt. Jullie sponsor trekt zijn handen af van het project omdat zijn eigen prioriteiten zijn verschoven. Jullie hebben geen \u2018stok\u2019 meer om mee te slaan.',
+    challenge: 'Welke manager of sponsor trekt nu zijn/haar handen van jullie project af? Hoe overleeft jullie project zonder prioriteit?',
+    correctAnswers: ['market', 'resource', 'organizational']
+  },
+  kunnen: {
+    title: 'De "Kunnen" Blokkade',
+    subtitle: 'Resourcing Onzekerheid',
+    nood: 'De afdeling control heeft per direct alle budgetten bevroren en uren-allocaties ingetrokken. De tijd en het geld voor jullie interventies zijn met 80% gekort. Je mag de geplande dure of tijdrovende middelen NIET meer inzetten.',
+    gesneuveld: 'De middelen die jullie nodig hadden zijn weg. De geplande aanpak is onbetaalbaar geworden. Medewerkers mogen niet van hun werk gehaald worden. Jullie plan kan de prullenbak in.',
+    challenge: 'Welke specifieke actie uit jullie plan is nu onbetaalbaar of onuitvoerbaar geworden?',
+    correctAnswers: ['resource', 'organizational']
+  },
+  proces: {
+    title: 'De "Proces" Schok',
+    subtitle: 'Technologische/Systeem Onzekerheid',
+    nood: 'Een belangrijke randvoorwaarde voor jullie project is fundamenteel veranderd. Er is een nieuwe wet aangenomen of er is plotseling een generatieve AI-tool doorgevoerd die jullie huidige werkwijze eigenlijk deels overbodig maakt. Het proces dat jullie proberen te implementeren, voelt in \u00E9\u00E9n klap verouderd.',
+    gesneuveld: 'Het proces dat jullie wilden verbeteren is in \u00E9\u00E9n klap verouderd. De nieuwe werkelijkheid maakt jullie oorspronkelijke aanpak irrelevant.',
+    challenge: 'Wat is de \u2018game changer\u2019 in jullie branche die de basis onder jullie project wegslaat?',
+    correctAnswers: ['technical', 'market']
+  }
+};
+
+// Map factor → which envelope key to use
+const factorEnvelopMap = {
+  'Gevolgen voor het werk': 'willen',
+  'Emoties': 'willen',
+  'Meerwaarde': 'willen',
+  'Betrokkenheid': 'willen',
+  'Interne druk': 'moeten',
+  'Externe noodzaak': 'moeten',
+  'Kennis en ervaring': 'kunnen',
+  'Aansturing': 'kunnen',
+  'Informatie': 'kunnen',
+  'Verandervermogen': 'kunnen',
+  'Beheersbaarheid': 'kunnen',
+  'Timing': 'kunnen',
+  'Complexiteit': 'proces',
+  'Vertrouwen': 'kunnen'
+};
+
+let selectedDimensie = null;
+let selectedFactor = null;
+
+function selectDimensie(dim) {
+  selectedDimensie = dim;
+  selectedFactor = null;
+  // Update dim buttons
+  document.querySelectorAll('.dim-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.dim-btn.${dim}`).classList.add('active');
+  // Render factor buttons
+  const container = document.getElementById('factorButtons');
+  const factors = dimensieFactoren[dim];
+  container.innerHTML = factors.map(f =>
+    `<button class="factor-btn" onclick="selectFactor('${f}', '${dim}')">${f}</button>`
+  ).join('');
+  // Hide next button
+  document.getElementById('nextRoomBtn').style.display = 'none';
+}
+
+function selectFactor(factor, dim) {
+  selectedFactor = factor;
+  // Update factor buttons
+  document.querySelectorAll('.factor-btn').forEach(b => b.classList.remove('active', 'willen', 'moeten', 'kunnen'));
+  event.target.classList.add('active', dim);
+  // Show next room button
+  document.getElementById('nextRoomBtn').style.display = 'block';
+}
+
+// ─── WACHTWOORD MODAL ────────────────
+function showPasswordModal() {
+  document.getElementById('pwOverlay').classList.add('visible');
+  const input = document.getElementById('pwInput');
+  input.value = '';
+  input.classList.remove('error');
+  document.getElementById('pwError').textContent = '';
+  setTimeout(() => input.focus(), 100);
+}
+
+function closePasswordModal() {
+  document.getElementById('pwOverlay').classList.remove('visible');
+}
+
+function checkPassword() {
+  const input = document.getElementById('pwInput');
+  const val = input.value.trim().toLowerCase();
+  const aliases = { willen: ['willen','wil'], moeten: ['moeten','moet'], kunnen: ['kunnen','kan','kun'] };
+  if ((aliases[selectedDimensie] || [selectedDimensie]).includes(val)) {
+    closePasswordModal();
+    openLockdownWithCard();
+  } else {
+    input.classList.add('error');
+    document.getElementById('pwError').textContent = 'Verkeerd wachtwoord. Hint: wil, moet of kan?';
+    setTimeout(() => input.classList.remove('error'), 400);
+  }
+}
+
+// Enter key support
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && document.getElementById('pwOverlay').classList.contains('visible')) {
+    checkPassword();
+  }
+  if (e.key === 'Escape' && document.getElementById('pwOverlay').classList.contains('visible')) {
+    closePasswordModal();
+  }
+});
+
+function openLockdownWithCard() {
+  localStorage.setItem('selectedDimensie', selectedDimensie);
+  localStorage.setItem('selectedFactor', selectedFactor);
+  buildLockdownCard();
+  unlockRoom('lockdown');
+  showRoom('lockdown');
+}
+
+function buildLockdownCard() {
+  const envelopKey = factorEnvelopMap[selectedFactor] || selectedDimensie;
+  const env = envelopData[envelopKey];
+  if (!env) return;
+
+  const cardHTML = `
+    <div class="envelope-card open" style="pointer-events:none;">
+      <div class="envelope-top">
+        <div class="envelope-num">Jullie Rode Envelop</div>
+        <h4>${env.title}</h4>
+        <div class="envelope-subtitle">${env.subtitle}</div>
+      </div>
+      <div class="envelope-body" style="display:block;">
+        <h5>Noodsituatie</h5>
+        <p>${env.nood}</p>
+        <h5>Gesneuvelde interventie</h5>
+        <p>${env.gesneuveld}</p>
+        <div class="challenge">
+          <strong>Make it real (1 min):</strong> ${env.challenge}
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('lockdownReveal').innerHTML = cardHTML;
+}
+
+// ─── A3 TEMPLATE DATA ────────────────
+const a3Data = {
+  leeg: {
+    banner: '<strong>Leeg template</strong> &mdash; Vul in op basis van jullie eigen DINAMO-nulmeting en opdrachtgever.',
+    dim: null, factor: null,
+    waarom: '<span class="a3-value placeholder">Beschrijf het kernprobleem...</span>',
+    strategie: '<span class="a3-value placeholder">Bijv. Overtuigen, Coachen...</span>',
+    type: '<span class="a3-value placeholder">Denken / Voelen / Doen?</span>',
+    concreet: '<span class="a3-value placeholder">Beschrijf de interventie...</span>',
+    k1: '<span class="a3-kotter-value placeholder">Hoe cre\u00EBer je urgentie?</span>',
+    k2: '<span class="a3-kotter-value placeholder">Wie betrek je in de coalitie?</span>',
+    k3: '<span class="a3-kotter-value placeholder">Wat is jullie verandervisie?</span>'
+  },
+  crm: {
+    banner: '<strong>Voorbeeld 1: Adoptie van een nieuw CRM-systeem</strong> &mdash; Medewerkers gebruiken het CRM-systeem inconsistent of helemaal niet. Data is onbetrouwbaar, commerci\u00EBle sturing is beperkt.',
+    dim: 'willen', factor: 'Meerwaarde',
+    waarom: 'Salesmedewerkers ervaren het CRM als extra administratie zonder directe opbrengst. Ze houden hun eigen Excel-lijsten bij en zien het systeem als controle-instrument van management.',
+    strategie: '<span class="a3-chip willen">Overtuigen</span>',
+    type: '<span class="a3-chip denken">Denken</span>',
+    concreet: 'Organiseer een sessie waarin je concrete voorbeelden laat zien van deals die verloren gingen door ontbrekende klantdata. Toon hoe CRM-gebruik direct leidt tot betere leads en hogere conversie.',
+    k1: 'Presenteer data: "Vorig kwartaal zijn 12 leads verloren gegaan doordat klantinformatie niet gedeeld was. Dat is \u20AC180K aan gemiste omzet."',
+    k2: 'Identificeer 2-3 sales managers die het CRM al w\u00E9l actief gebruiken en aantoonbaar betere resultaten boeken. Zet hen in als ambassadeurs.',
+    k3: '<em>"\u00C9\u00E9n klantbeeld, betere deals"</em> &mdash; Met het CRM heeft iedereen real-time inzicht in de klant, waardoor we sneller en slimmer kunnen verkopen.'
+  },
+  export: {
+    banner: '<strong>Voorbeeld 8: Standaardisatie en automatisering van exportdocumentatie</strong> &mdash; Veel werk verloopt analoog en klantspecifiek ondanks nieuwe systemen. Dit leidt tot fouten in douanedocumenten en lange doorlooptijden.',
+    dim: 'kunnen', factor: 'Complexiteit',
+    waarom: 'Elke klant heeft andere eisen voor exportdocumentatie. Medewerkers hebben hun eigen werkwijzen ontwikkeld en weten niet hoe het nieuwe systeem hun specifieke situatie aankan. Ze vallen terug op analoge methoden.',
+    strategie: '<span class="a3-chip kunnen">Vereenvoudigen</span>',
+    type: '<span class="a3-chip denken">Denken</span>',
+    concreet: 'Breng de top-10 meest voorkomende documenttypen in kaart en cre\u00EBer gestandaardiseerde templates in het nieuwe systeem. Begin met de 3 eenvoudigste typen als pilot.',
+    k1: 'Toon het foutenpercentage en de bijbehorende boetes: "In Q3 zijn 47 documenten afgekeurd door de douane, wat leidde tot \u20AC23K aan boetes en 120 uur herbewerkingstijd."',
+    k2: 'Betrek de 2 meest ervaren documentspecialisten. Zij kennen alle uitzonderingen en kunnen meedenken over welke processen w\u00E9l te standaardiseren zijn.',
+    k3: '<em>"Gestandaardiseerd waar het kan, maatwerk waar het moet"</em> &mdash; 80% van de documenten volgt een vast stramien; alleen de uitzonderingen vragen handwerk.'
+  },
+  advies: {
+    banner: '<strong>Voorbeeld 9: Verbetering van het adviesproces bij profielvakkeuze (VO)</strong> &mdash; Docenten ervaren het geven van negatieve adviezen als lastig, leerlingen raken gedemotiveerd, adviezen sluiten niet aan bij latere prestaties.',
+    dim: 'willen', factor: 'Emoties',
+    waarom: 'Docenten vermijden confrontatie en geven vaker een positief dan realistisch advies. Dit leidt tot verkeerde profielkeuzes en uitval. Het adviesproces voelt als een oordeel in plaats van een kans.',
+    strategie: '<span class="a3-chip willen">Coachen</span>',
+    type: '<span class="a3-chip voelen">Voelen</span>',
+    concreet: 'Organiseer intervisiesessies waarin docenten samen oefenen met het voeren van adviesgesprekken. Gebruik rollenspeloefeningen en reframe het advies van "afwijzing" naar "richting geven".',
+    k1: 'Deel de data: "38% van de leerlingen die vorig jaar een positief advies kreeg voor N&T, is binnen een jaar gewisseld. Dat kost hen motivatie en ons begeleidingstijd."',
+    k2: 'De decaan als trekker, aangevuld met 3 mentoren die al bekend staan om hun empathische maar eerlijke gespreksstijl.',
+    k3: '<em>"Elk advies is een kans, geen oordeel"</em> &mdash; We helpen leerlingen de juiste richting te vinden door eerlijk, onderbouwd en ondersteunend te adviseren.'
+  }
+};
+
+// ─── QUIZ LOGICA ─────────────────────
+function checkQuiz() {
+  const checked = Array.from(document.querySelectorAll('#quizOptions input:checked')).map(i => i.value);
+  const feedback = document.getElementById('quizFeedback');
+
+  if (checked.length === 0) {
+    feedback.className = 'quiz-feedback error';
+    feedback.textContent = 'Vink minstens \u00E9\u00E9n dimensie aan.';
+    return;
+  }
+
+  // Get correct answers for current envelope
+  const envelopKey = factorEnvelopMap[selectedFactor] || selectedDimensie;
+  const correct = envelopData[envelopKey]?.correctAnswers || [];
+
+  // Check if at least 1 checked answer is correct
+  const hasCorrect = checked.some(c => correct.includes(c));
+
+  if (hasCorrect) {
+    feedback.className = 'quiz-feedback success';
+    feedback.textContent = 'Goed gezien! Jullie hebben minstens \u00E9\u00E9n dimensie correct herkend.';
+    document.getElementById('quizSubmitBtn').disabled = true;
+    document.getElementById('quizNextBtn').style.display = 'block';
+    // Persist quiz completion
+    localStorage.setItem('quizCompleted', 'true');
+  } else {
+    feedback.className = 'quiz-feedback error';
+    feedback.textContent = 'Geen van jullie antwoorden klopt. Lees de rode kaart nog eens en denk na: welk type onzekerheid speelt hier \u00E9cht?';
+  }
+}
+
+function goToRoom3() {
+  unlockRoom('ontsnapping');
+  unlockRoom('debrief');
+  showRoom('ontsnapping');
+}
+
+function loadA3(key) {
+  const d = a3Data[key];
+  // Update tabs
+  document.querySelectorAll('.a3-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  // Update banner and other fields
+  document.getElementById('a3Banner').innerHTML = d.banner;
+  document.getElementById('a3-waarom').innerHTML = d.waarom;
+  document.getElementById('a3-strategie').innerHTML = d.strategie;
+  document.getElementById('a3-type').innerHTML = d.type;
+  document.getElementById('a3-concreet').innerHTML = d.concreet;
+  document.getElementById('a3-k1').innerHTML = d.k1;
+  document.getElementById('a3-k2').innerHTML = d.k2;
+  document.getElementById('a3-k3').innerHTML = d.k3;
+
+  // Reset dimensie/factor interactive state
+  if (d.dim) {
+    // Set dimensie and show factors for example
+    selectedDimensie = d.dim;
+    selectedFactor = d.factor;
+    // Update dim buttons
+    document.querySelectorAll('.dim-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.dim-btn.' + d.dim).classList.add('active');
+    // Render factor buttons with active one
+    const container = document.getElementById('factorButtons');
+    const factors = dimensieFactoren[d.dim];
+    container.innerHTML = factors.map(f =>
+      '<button class="factor-btn' + (f === d.factor ? ' active ' + d.dim : '') + '" onclick="selectFactor(\'' + f + '\', \'' + d.dim + '\')">' + f + '</button>'
+    ).join('');
+    document.getElementById('nextRoomBtn').style.display = 'block';
+  } else {
+    // Reset to empty interactive state
+    selectedDimensie = null;
+    selectedFactor = null;
+    document.querySelectorAll('.dim-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('factorButtons').innerHTML = '<span class="a3-value placeholder">Kies eerst een dimensie...</span>';
+    document.getElementById('nextRoomBtn').style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
