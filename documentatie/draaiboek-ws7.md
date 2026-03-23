@@ -3,142 +3,199 @@
 **Thema:** Van Incrementeel Veranderen naar Strategische Innovatie
 **Duur:** 90 minuten
 **Doelgroep:** HBO Bachelor studenten Bedrijfskunde
-**Concept:** De Rode Envelop van Onzekerheid (Escape Room metafoor)
+**Concept:** Escape Room — studenten doorlopen vier kamers op een interactieve website. Elke kamer heeft een activiteit en een sleutel om verder te komen.
+**Website:** `[URL invullen]` — studenten openen deze op hun eigen laptop/tablet
 
 ---
 
 ## Voorbereiding & Benodigdheden
 
-- **Presentatie:** Slides met o.a. het DINAMO-model, de DINAMO-interventiematrix en het 8-stappenmodel van Kotter.
-- **Aftelklok:** Een online timer/wekker (zichtbaar op het grote scherm via de beamer).
-- **De Rode Enveloppen:** Print de 4 'Disruptiekaarten' (zie bijlage in dit document) uit en stop ze in opvallende, liefst felrode enveloppen. Zorg dat je voor elk projectgroepje (of duo) één willekeurige envelop hebt.
-- **Papier/Post-its:** A3-vellen en stiften voor de studenten om hun plannen op te tekenen.
+- **Escaperoom-website** getest en werkend op de beamer + studenten-apparaten
+- **Timer-tool** (extern, zichtbaar op beamer)
+- **Optioneel:** A3-vellen en stiften als fysiek alternatief voor het Masterplan (Kamer 1)
+- **Geen fysieke enveloppen nodig** — alle rode kaarten staan op de website
 
 ---
 
 ## Tijdsblokkenschema (90 minuten)
 
-### 0:00 - 0:10 | Introductie: De Spelregels (10 min)
+### 0:00–0:10 | Kamer 0: Introductie (10 min)
 
-**Doel:** De kaders van de les schetsen en de studenten in de actiestand zetten.
+**Doel:** Kaders schetsen, studenten in actiestand zetten, escaperoom-website introduceren.
 
-**Actie Docent:**
+**Actie docent:**
 
-- Verwelkom de studenten en blik kort terug op week 6 (DINAMO-scan).
-- Toon de DINAMO-Interventiematrix en het Kotter model op de slides.
+- Verwelkom de studenten en blik kort terug op week 6 (DINAMO-nulmeting).
+- Laat studenten de website openen op hun laptop.
+- Wijs op de drie modellen in Kamer 0: het DINAMO 6.0 model, de DINAMO-Interventiematrix en Kotter's 8 stappen.
+- Geef studenten 2-3 minuten om deze modellen door te nemen.
 
-> **Spreektekst:** "Welkom bij de Escape Room 'Interventies'. Vandaag gaan we de overstap maken van theorie naar praktijk. We hebben 90 minuten. Jullie zitten momenteel opgesloten in deze casus. De enige manier om de beoordeling voor deze module te 'overleven', is door straks te ontsnappen met een waterdicht, toekomstbestendig veranderplan voor jullie eigen opdrachtgever. We beginnen in Kamer 1: Het Plan."
-
----
-
-### 0:10 - 0:35 | Kamer 1: Het Schijnveilige Plan (25 min)
-
-**Doel:** Studenten ontwerpen een klassiek, incrementeel veranderplan op basis van logische aannames en theorie.
-
-**Opdracht voor studenten:**
-
-1. Pak je DINAMO-nulmeting erbij. Wat is de grootste rode vlag? (Is het Willen, Moeten of Kunnen?)
-2. Kies via de DINAMO-Interventiematrix de juiste strategie (bijv. Prioriteit = 'Meerwaarde', dus Strategie = 'Overtuigen' → Denken).
-3. Plaats deze interventie in Kotter's eerste stappen (1. Urgentie, 2. Coalitie, 3. Visie). Hoe ga je dit exact uitvoeren bij jullie organisatie? Schrijf jullie Masterplan op een A3-vel.
-
-**Actie Docent:** Zet de wekker op 25 minuten. Loop rond en stimuleer ze om heel stellig en concreet te zijn. Laat ze in de waan dat dit perfecte, lineaire plan het einddoel van de les is.
+> **Spreektekst:** "Welkom bij de Escape Room 'Interventies'. Vandaag maken we de overstap van theorie naar praktijk. Open de website op je laptop — je ziet daar drie modellen die je nodig hebt. We hebben 90 minuten en vier kamers te gaan. De enige manier om eruit te komen is door jullie veranderplan te laten overleven. We beginnen in Kamer 1: Het Plan."
 
 ---
 
-### 0:35 - 0:50 | Kamer 2: De Lockdown (15 min)
+### 0:10–0:35 | Kamer 1: Het Plan (25 min)
 
-**Doel:** Het lineaire 'projectdenken' doorbreken door de randvoorwaarden van hun project weg te slaan met strategische onzekerheid.
+**Doel:** Studenten ontwerpen een klassiek, lineair veranderplan op basis van hun DINAMO-nulmeting en Kotter's model.
 
-**Actie Docent:**
+**Wat studenten doen op de site:**
 
-- Zodra de wekker gaat: sla (spreekwoordelijk) alarm. Zet het scherm op rood of pauzeer de wekker theatraal.
+1. Openen Kamer 1 via de navigatiebalk
+2. Kiezen een DINAMO-dimensie (Willen, Moeten of Kunnen) en vervolgens een specifieke factor
+3. Vullen het A3 Masterplan-template in (of gebruiken een fysiek A3-vel):
+   - Kernprobleem en gekozen strategie (uit de interventiematrix)
+   - Type interventie (Denken/Voelen/Doen)
+   - Concrete interventie-beschrijving
+   - Kotter stap 1: Urgentie creëren
+   - Kotter stap 2: Coalitie vormen
+   - Kotter stap 3: Visie formuleren
+4. Kunnen voorbeelden bekijken via de knoppen (CRM, Exportdocumentatie, Adviesproces)
+5. Na het kiezen van dimensie en factor verschijnt de knop naar Kamer 2
 
-> **Spreektekst:** "Lockdown! Terwijl jullie plannen maakten, is de echte wereld doorgegaan. Een perfect plan op papier is waardeloos als de context verandert. Geen enkel strategisch plan overleeft de eerste ontmoeting met de realiteit."
+**Sleutel naar Kamer 2:** Wachtwoord = de gekozen dimensie (willen, moeten of kunnen)
 
-- Deel aan elk groepje gesloten Rode Enveloppen uit.
+**Actie docent:**
 
-> **Spreektekst vervolg:** "Open je envelop. Dit is jullie nieuwe realiteit. Jullie hebben precies 1 minuut de tijd om de tekst te lezen en te bepalen wat dit voor JULLIE specifieke casus betekent. Welke persoon in jullie opdrachtgever schiet in paniek? Welk budget is weg? Jullie masterplan ligt zojuist in de prullenbak."
-
-**De "Make it Real" Pitch (10 min):** Wijs willekeurig 3 of 4 groepjes aan. Zij moeten in maximaal 60 seconden plenair de zaal vertellen: Wat was de schok, en waarom is hun Kotter-plan zojuist genadeloos vastgelopen? (Houd de energie hier hoog en het tempo moordend).
-
----
-
-### 0:50 - 1:15 | Kamer 3: De Ontsnapping (25 min)
-
-**Doel:** De mindset shift maken van 'implementeren' naar strategische innovatie (Discovery & Incubation).
-
-**Actie Docent:**
-
-- Leg kort uit waarom hun plan brak: Kotter is gemaakt voor een voorspelbare, beheersbare wereld (incrementeel). In een onzekere wereld moet je niet plannen, maar experimenteren en leren (strategische innovatie).
-- Introduceer de begrippen **Discovery** (ontdekken/sensen) en **Incubation** (klein testen).
-
-**Opdracht voor studenten (De Ontsnapping):**
-
-> **Spreektekst:** "Jullie mogen niet terug naar de theorieboeken om een nieuw bureau-plan te maken. Jullie gaan ontsnappen door wendbaar te worden. Ontwerp nu, op de achterkant van je A3, twee kleine experimenten die je VOLGENDE WEEK al zou kunnen uitvoeren om om te gaan met de nieuwe onzekerheid uit de envelop:"
-
-- **Discovery Test:** Wat is de kleinste, goedkoopste manier om te 'sensen' wat er nu écht aan de hand is in jullie organisatie? (Bijv: 3 snelle koffie-interviews in plaats van een grote enquête).
-- **Incubation Test:** Bedenk een "Trojaans Paard". Wat is het allerkleinste experiment om de nieuwe aannames te valideren zonder dat je formele goedkeuring of groot budget nodig hebt? (Bijv: Een nieuw formulier testen met 2 key-users in plaats van een brede IT-uitrol).
-
-**Actie Docent:** Begeleid de studenten om hun experimenten zo klein en praktisch mogelijk te maken. Daag uit: "Kan dit nog goedkoper?", "Kan dit in halve dag tijd?"
+- Zet de timer op 25 minuten.
+- Loop rond en stimuleer studenten om concreet en stellig te zijn. Laat ze in de waan dat dit lineaire plan het einddoel is.
+- Daag uit: "Wie is je coalitie precies? Wanneer doe je dit? Hoeveel kost het?"
 
 ---
 
-### 1:15 - 1:30 | Plenaire Terugkoppeling & Debriefing (15 min)
+### 0:35–0:55 | Kamer 2: De Lockdown (20 min)
 
-**Doel:** Reflectie op de leeruitkomst (het verschil tussen incrementele projecten en emergente verandering).
+**Doel:** Het lineaire plandenken doorbreken door studenten te confronteren met strategische onzekerheid. Studenten leren de vier dimensies van onzekerheid herkennen (O'Connor & Meyer).
 
-**Actie Docent:**
+**Actie docent:**
 
-- Laat 2 of 3 groepjes hun "Ontsnapping" (hun Discovery & Incubation experiment) presenteren.
+- Zodra de timer afgaat: theatrale onderbreking.
 
-**Reflectievragen voor de zaal:**
+> **Spreektekst:** "Lockdown! Terwijl jullie plannen maakten, is de echte wereld doorgegaan. Geen enkel strategisch plan overleeft de eerste ontmoeting met de realiteit. Open Kamer 2 op de website."
 
-- Hoe voelde het om jullie 'perfecte plan' te moeten loslaten?
-- Waarom was jullie Kotter-stap (bijv. coalitie vormen) opeens niet meer relevant na de envelop?
-- Welk inzicht levert een klein experiment (zoals 3 informele gesprekjes) jullie op, dat een breed ingevulde DINAMO-matrix jullie niet had kunnen geven?
+**Wat studenten doen op de site:**
 
-**Afsluiting:** Link dit aan hun rol als junior organisatieadviseur (Leeruitkomst B). Een goede adviseur schrijft niet alleen strakke rapporten, maar manoeuvreert wendbaar in een complexe omgeving door middel van portfolio-denken en kleine interventies.
+1. Zien 14 mogelijke verstoringen, georganiseerd in tabs per DINAMO-dimensie (Willen / Moeten / Kunnen)
+2. **Kiezen zelf** het incident dat het meest plausibel is voor hun eigen vraagstuk
+3. Lezen de noodsituatie en het effect op hun plan
+4. Beantwoorden de reflectievraag bij de kaart
+5. **Uncertainty quiz:** classificeren hun rode kaart naar O'Connor & Meyer's vier dimensies van onzekerheid:
+   - Organizational uncertainty (interne weerstand, draagvlak, politiek)
+   - Market uncertainty (verschuivende prioriteiten, context)
+   - Resource uncertainty (budget, capaciteit, middelen)
+   - Technical uncertainty (technologie, regelgeving, processen)
+6. Minstens 1 dimensie correct aanvinken → portal naar Kamer 3 opent
 
----
+**Sleutel naar Kamer 3:** Minstens één correcte uncertainty-dimensie aanvinken in de quiz.
 
-## Bijlage: De 4 Disruptiekaarten
+> **Spreektekst na keuze:** "Jullie hebben bewust gekozen voor een verstoring die jullie het meest realistisch vinden. Dat is precies het punt: onzekerheid is niet willekeurig — het komt altijd uit een van vier voorspelbare bronnen."
 
-*(Knip deze uit en stop ze in de rode enveloppen)*
-
-### Envelop 1: De "Willen" Illusie (Organisatorische Onzekerheid)
-
-**Noodsituatie:** Er gonzen plotseling hardnekkige geruchten door de organisatie over een mogelijke overname of grote reorganisatie. De psychologische onveiligheid schiet omhoog. De groep medewerkers die jullie zojuist wilden betrekken is nu in de overlevingsstand geschoten. Ze sluiten zich volledig af voor nieuwe initiatieven en vertonen irrationele weerstand tegen jullie veranderverhaal.
-
-**Voorbeeld gesneuvelde interventie:** Jullie kozen uit de matrix voor 'Coachen' om 'Emoties' te stroomlijnen. Omdat medewerkers nu bang zijn voor hun baan door de geruchten, zien ze jullie coachingsgesprekken plotseling als een stiekem beoordelingsgesprek van HR. Ze klappen volledig dicht. Het plan is nutteloos.
-
-**Jullie 'Make it real' uitdaging (Bedenk in 1 minuut):** Wie is in jullie specifieke project de groep die nu in de weerstand schiet? Wat betekent dit voor de coalitie (Kotter stap 2) die jullie aan het bouwen waren?
-
----
-
-### Envelop 2: Het "Moeten" Vacuüm (Markt/Context Onzekerheid)
-
-**Verschuiving van Prioriteiten:** De directie heeft vanochtend besloten dat vanwege tegenvallende kwartaalcijfers een ander project absolute topprioriteit krijgt. Jullie project is gedegradeerd tot een 'nice to have'. De interne druk of externe noodzaak (DINAMO) die jullie wilden gebruiken om de verandering door te drukken, is zojuist volledig verdampt.
-
-**Voorbeeld gesneuvelde interventie:** Jullie kozen uit de matrix voor 'Mobiliseren' van de 'Interne druk' door een stevige kick-off te plannen met de afdelingsmanager. De afdelingsmanager weigert deze echter plotseling te geven, omdat zijn eigen bonus nu afhangt van het andere project. Jullie hebben geen 'stok' meer om mee te slaan.
-
-**Jullie 'Make it real' uitdaging (Bedenk in 1 minuut):** Welke manager of sponsor in jullie casus trekt nu zijn/haar handen van jullie project af? Hoe overleeft jullie project als het opeens geen 'Moeten' prioriteit meer heeft?
+**Optioneel plenair moment (5 min):** Wijs 2-3 groepjes aan. Zij delen in 30 seconden: welk incident kozen ze en waarom?
 
 ---
 
-### Envelop 3: De "Kunnen" Blokkade (Resourcing Onzekerheid)
+### 0:55–1:20 | Kamer 3: De Ontsnapping (25 min)
 
-**Budget Freeze!** De afdeling control heeft per direct alle budgetten bevroren en uren-allocaties ingetrokken in verband met een tegenvallend kwartaal. De tijd en het geld voor jullie geplande 'Kunnen' interventies zijn met 80% gekort. Je mag de geplande dure of tijdrovende middelen NIET meer inzetten.
+**Doel:** De mindset-verschuiving van incrementeel plannen naar strategisch innoveren. Studenten leren denken in experimenten, niet in uitrolplannen.
 
-**Voorbeeld gesneuvelde interventie:** Jullie kozen uit de matrix voor 'Opleiden' om het gebrek aan 'Kennis en ervaring' aan te pakken via een 3-daagse training. Door de budget freeze mag je de externe trainer niet betalen, en medewerkers mogen niet zolang van hun werk gehaald worden (declarabele uren). Jullie trainingsplan kan de prullenbak in.
+**Actie docent:**
 
-**Jullie 'Make it real' uitdaging (Bedenk in 1 minuut):** Welke specifieke actie uit jullie plan (bij Kotter stap 3 of 4) is nu onbetaalbaar of onuitvoerbaar geworden door puur tijdgebrek of geldgebrek?
+- Korte introductie (2 min):
+
+> **Spreektekst:** "Jullie plan is gesneuveld. Maar de vraag is: waarom? Niet omdat jullie slecht planden, maar omdat jullie planden in een wereld die niet voorspelbaar is. In Kamer 3 leren jullie een andere manier van denken. Niet plannen en uitrollen, maar waarnemen, experimenteren en laten groeien."
+
+**Wat studenten doen op de site:**
+
+1. **Tutorial doorlopen** (zelfstandig, 10 min):
+   - *Twee Werelden*: vergelijkingstabel Blikken Man (incrementeel) vs. Octopus (strategisch) — studenten herkennen hun Masterplan in de linkerkolom
+   - *Drieslag*: Sensing → Seizing → Transforming (met concrete voorbeelden uit de rode kaarten)
+   - *Experiment-trapeze*: drie niveaus van experimenteren (parameters aanpassen → motor tunen → DNA herschrijven)
+   - *Double-loop learning*: single-loop fixt het probleem, double-loop bevraagt de aanname
+2. **Organisatiescan** (10 min): zes dimensies scoren op de schaal Blikken Man ↔ Octopus:
+   - Signalen, Initiatief, Leiderschap, Infrastructuur, Evaluatie, Veranderhouding
+   - Resulteert in een radardiagram
+   - Reflectie schrijven over de zwakste dimensie
+3. **Escape Toets** (5 min): vijf meerkeuzevragen over de tutorial-inhoud
+   - Minstens 4 van de 5 correct → Kamer 4 opent
+
+**Sleutel naar Kamer 4:** Minstens 4 van de 5 Escape Toets-vragen correct beantwoorden.
+
+**Actie docent:**
+
+- Loop rond tijdens de organisatiescan. Help studenten eerlijk te scoren ("Zou een medewerker bij jullie opdrachtgever echt een experiment starten zonder toestemming?")
+- Studenten die vastlopen bij de Escape Toets: verwijs ze terug naar de tutorial
 
 ---
 
-### Envelop 4: De "Proces" Schok (Technologische/Systeem Onzekerheid)
+### 1:20–1:30 | Kamer 4: Debriefing (10 min)
 
-**Spelregels gewijzigd:** Een belangrijke randvoorwaarde voor jullie project is zojuist fundamenteel veranderd. Er is een nieuwe wet aangenomen of er is plotseling een generatieve AI-tool of software-update doorgevoerd die jullie huidige werkwijze eigenlijk deels overbodig maakt. Het proces dat jullie proberen te implementeren, voelt in één klap verouderd of irrelevant.
+**Doel:** Reflectie op de leerervaring en vertaling naar de eigen opdracht.
 
-**Voorbeeld gesneuvelde interventie:** Jullie kozen uit de matrix voor 'Vereenvoudigen' van de 'Complexiteit' door een strak nieuw stroomschema en handboek van 40 pagina's te schrijven. De zojuist doorgevoerde software-update automatiseert echter 80% van deze stappen. Jouw handboek en stroomschema kloppen niet meer met de nieuwe werkelijkheid.
+**Actie docent:**
 
-**Jullie 'Make it real' uitdaging (Bedenk in 1 minuut):** Wat is de 'game changer' of disruptie in jullie specifieke branche die de basis onder jullie originele project wegslaat?
+- Plenaire terugkoppeling. De zes reflectievragen staan op de site (Kamer 4), gegroepeerd per kamer-overgang.
+
+**Reflectievragen:**
+
+*Kamer 1 → 2: Het plan dat brak*
+1. Jullie kozen bewust een verstoring. Waarom precies dít incident?
+2. Welke aanname in jullie Masterplan bleek het kwetsbaarst?
+
+
+*Kamer 2 → 3: Van onzekerheid naar strategie*
+
+3. Herkennen jullie het type onzekerheid ook bij jullie opdrachtgever?
+4. Waar scoorde jullie organisatie het meest Blikken Man? Hoe verklaart dat de kwetsbaarheid?
+
+
+*Overkoepelend: de paradigmaverschuiving*
+
+5. Wat is het belangrijkste verschil tussen jullie Masterplan en de manier van denken uit Kamer 3?
+6. Welke concrete eerste stap zouden jullie morgen kunnen zetten om meer als Octopus te werken?
+
+> **Afsluiting:** "Wat jullie vandaag hebben ervaren is de kern van jullie rol als junior organisatieadviseur. Een goede adviseur schrijft niet alleen strakke rapporten, maar manoeuvreert wendbaar in een complexe omgeving. Jullie leren niet alleen verandering te plannen, maar ook om te gaan met de onzekerheid die elk plan onderuit kan halen."
+
+---
+
+## Bijlage A: Overzicht Rode Kaarten (14 stuks)
+
+Referentie voor de docent — alle kaarten staan op de website.
+
+### Willen
+
+| Factor | Titel | Kern |
+|--------|-------|------|
+| Gevolgen voor het werk | De Functie-angst | Uitlekken dat verandering leidt tot verdwijnen van functies |
+| Emoties | De Publieke Breuk | Informele leider keert zich publiekelijk tegen het project |
+| Meerwaarde | Het Tegenbewijs | Vergelijkbaar project elders leverde teleurstellende resultaten |
+| Betrokkenheid | De Schijnparticipatie | Medewerkers ontdekken dat besluit al genomen was vóór hun inspraak |
+
+### Moeten
+
+| Factor | Titel | Kern |
+|--------|-------|------|
+| Interne druk | De Stille Aftocht | Sponsor vertrekt, niemand neemt project over |
+| Externe noodzaak | De Ingetrokken Wet | Regelgeving die verandering noodzakelijk maakte is uitgesteld |
+
+### Kunnen
+
+| Factor | Titel | Kern |
+|--------|-------|------|
+| Kennis & ervaring | De Vertrokken Expert | Enige expert heeft ontslag genomen |
+| Aansturing | Het Leiderschapsvacuüm | Projectleider overgeplaatst, geen opvolger |
+| Informatie | De Data-leugen | Data onder de analyse blijkt onjuist |
+| Verandervermogen | De Verandermoeheid | Organisatie zit in drie andere verandertrajecten |
+| Beheersbaarheid | De Scope Creep | Project verdrievoudigd in omvang zonder extra middelen |
+| Timing | De Deadline-squeeze | Directie wil resultaten drie maanden eerder |
+| Vertrouwen | Het Gelekte Memo | Intern memo onthult dat MT zelf twijfelt |
+| Complexiteit | De AI-disruptie | AI-tool maakt het te verbeteren proces overbodig |
+
+## Bijlage B: Vier Dimensies van Onzekerheid (O'Connor & Meyer)
+
+| Dimensie | Beschrijving | Voorbeeld rode kaart |
+|----------|-------------|---------------------|
+| **Organizational** | Interne weerstand, verlies van draagvlak, politieke verschuivingen | De Publieke Breuk, De Schijnparticipatie, Het Gelekte Memo |
+| **Market** | Verschuivende prioriteiten, veranderende context, wegvallende urgentie | De Ingetrokken Wet, Het Tegenbewijs, De Deadline-squeeze |
+| **Resource** | Bevroren budgetten, wegvallende capaciteit, vertrokken medewerkers | De Stille Aftocht, De Vertrokken Expert, De Scope Creep |
+| **Technical** | Nieuwe technologie, veranderde regelgeving, verouderde processen | De AI-disruptie, De Data-leugen |
+
+*Bron: O'Connor & Meyer (2026). The Eight Core Principles of Strategic Innovation.*

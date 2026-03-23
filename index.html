@@ -105,7 +105,7 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
   letter-spacing: -.02em;
   margin-bottom: 8px;
 }
-.hero h1 em { font-style: normal; color: var(--primary-light); }
+.hero h1 em { font-style: normal; color: #7eb8e0; }
 .hero-sub {
   font-size: 18px; color: rgba(255,255,255,0.65);
   max-width: 600px; margin-bottom: 36px;
@@ -296,10 +296,10 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
   font-size: 16px; font-weight: 800;
   flex-shrink: 0;
 }
-.kotter-step .step-text { font-size: 15px; font-weight: 600; }
+.kotter-step .step-text { font-size: 16px; font-weight: 600; }
 .kotter-step .step-desc {
-  font-size: 12px; font-weight: 400;
-  opacity: .7; margin-top: 2px;
+  font-size: 14px; font-weight: 400;
+  color: rgba(255,255,255,0.85); margin-top: 2px;
 }
 
 .kotter-step.climate { background: rgba(74,122,181,0.15); }
@@ -846,13 +846,47 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
   .loop-diagram { grid-template-columns: 1fr; }
 }
 
-/* ─── LOCKDOWN REVEAL CARD ─────────────── */
-.lockdown-reveal {
-  display: none;
-  margin-top: 24px;
-  animation: fadeIn .5s ease;
+/* ─── RODE KAART TABS & GRID ──────────── */
+.rc-tabs {
+  display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
 }
-.lockdown-reveal.visible { display: block; }
+.rc-tab {
+  padding: 8px 18px; border-radius: 20px;
+  font-size: 14px; font-weight: 600;
+  border: 2px solid var(--border); background: white; color: var(--text);
+  cursor: pointer; transition: all .2s;
+}
+.rc-tab:hover { border-color: var(--coral); color: var(--coral); }
+.rc-tab.active { background: var(--coral); color: white; border-color: var(--coral); }
+.rc-tab.willen.active { background: #16a34a; border-color: #16a34a; }
+.rc-tab.moeten.active { background: #d97706; border-color: #d97706; }
+.rc-tab.kunnen.active { background: #dc2626; border-color: #dc2626; }
+
+.rc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px; margin-bottom: 24px;
+}
+.rc-mini {
+  padding: 16px; border-radius: var(--radius);
+  border: 2px solid var(--border); background: white;
+  cursor: pointer; transition: all .2s;
+}
+.rc-mini:hover { border-color: var(--coral); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.rc-mini.selected { border-color: var(--coral); background: #fff5f5; box-shadow: 0 0 0 3px rgba(239,68,68,.15); }
+.rc-mini-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.rc-mini-factor {
+  display: inline-block; font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 10px;
+  background: var(--slate-light); color: var(--slate);
+  margin-bottom: 6px;
+}
+.rc-mini-summary { font-size: 13px; color: var(--slate); line-height: 1.5; }
+
+.rc-detail {
+  display: none; margin-top: 24px; animation: fadeIn .5s ease;
+}
+.rc-detail.visible { display: block; }
 
 @media (max-width: 768px) {
   .a3-grid { grid-template-columns: 1fr; }
@@ -877,6 +911,122 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
   .matrix-table { font-size: 13px; }
   .matrix-table th, .matrix-table td { padding: 10px 14px; }
 
+}
+
+/* ─── KAMER 3: SCENES ──────────────────── */
+.scene-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.scene-tab {
+  padding: 8px 18px; border-radius: 20px;
+  font-size: 13px; font-weight: 600;
+  border: 2px solid var(--border); background: white; color: var(--text);
+  cursor: pointer; transition: all .2s;
+}
+.scene-tab:hover { border-color: var(--primary); color: var(--primary); }
+.scene-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+.scene-block { margin-bottom: 36px; }
+.scene-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.scene-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--primary); color: white;
+  font-size: 14px; font-weight: 700; flex-shrink: 0;
+}
+.scene-title { font-size: 16px; font-weight: 700; color: var(--primary); }
+.scene-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 12px; }
+.scene-col { padding: 20px; border-radius: var(--radius); font-size: 14px; line-height: 1.7; }
+.scene-col.tinman { background: #f9fafb; border: 1px solid #e5e7eb; color: #6b7280; }
+.scene-col.octopus { background: var(--primary-50); border: 1px solid var(--primary-200); }
+.scene-col-tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 10px; margin-bottom: 10px;
+}
+.scene-col.tinman .scene-col-tag { background: #e5e7eb; color: #6b7280; }
+.scene-col.octopus .scene-col-tag { background: var(--primary); color: white; }
+.scene-labels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.scene-label { font-size: 12px; font-weight: 600; padding: 8px 12px; border-radius: 8px; line-height: 1.5; }
+.scene-label.tinman { background: #f3f4f6; color: #9ca3af; }
+.scene-label.octopus { background: var(--primary-100); color: var(--primary); }
+.scene-cap {
+  text-align: center; font-size: 12px; font-weight: 700;
+  color: var(--primary); letter-spacing: .05em; text-transform: uppercase;
+  margin: 8px 0 0;
+}
+.synthese-box {
+  background: var(--primary); color: white;
+  padding: 28px; border-radius: var(--radius); margin: 40px 0;
+}
+.synthese-box p { font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.9); margin-bottom: 16px; }
+.synthese-box ul { list-style: none; padding: 0; margin: 0; }
+.synthese-box li {
+  font-size: 14px; color: rgba(255,255,255,0.85);
+  padding: 4px 0 4px 24px; position: relative;
+}
+.synthese-box li::before { content: '\2713'; position: absolute; left: 0; color: #86efac; font-weight: 700; }
+
+/* ─── ORGANISATIESCAN ──────────────────── */
+.scan-item { margin-bottom: 24px; }
+.scan-dim { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.scan-ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--slate); margin-bottom: 6px; gap: 16px; }
+.scan-ends span { max-width: 45%; line-height: 1.4; }
+.scan-ends span:last-child { text-align: right; }
+.scan-slider {
+  width: 100%; -webkit-appearance: none; appearance: none;
+  height: 8px; border-radius: 4px;
+  background: linear-gradient(to right, #e5e7eb, var(--primary-200));
+  outline: none;
+}
+.scan-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--primary); cursor: pointer;
+  border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.scan-slider::-moz-range-thumb {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--primary); cursor: pointer;
+  border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.scan-ticks {
+  display: flex; justify-content: space-between;
+  padding: 0 10px; margin-top: 2px;
+}
+.scan-ticks span {
+  font-size: 11px; color: var(--text-muted); font-weight: 600;
+  width: 20px; text-align: center;
+}
+.radar-wrap { display: flex; justify-content: center; margin: 24px 0; }
+.scan-reflection {
+  width: 100%; padding: 12px 16px; border-radius: var(--radius);
+  border: 1px solid var(--border); font-family: 'Inter', sans-serif;
+  font-size: 14px; line-height: 1.6; resize: vertical;
+}
+.scan-reflection:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(30,58,95,0.1); }
+
+/* ─── ESCAPE TOETS ─────────────────────── */
+.escape-quiz { margin-top: 40px; padding-top: 32px; border-top: 2px solid var(--border); }
+.eq-q { margin-bottom: 24px; }
+.eq-q > p { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+.eq-opts { display: flex; flex-direction: column; gap: 6px; }
+.eq-opt {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 14px; border-radius: 8px;
+  border: 1px solid var(--border); cursor: pointer;
+  transition: all .15s; font-size: 13px; line-height: 1.5;
+}
+.eq-opt:hover { border-color: var(--primary-200); background: var(--primary-50); }
+.eq-opt input[type="radio"] { margin-top: 2px; flex-shrink: 0; }
+.eq-opt.correct { border-color: var(--success); background: var(--success-light); pointer-events: none; }
+.eq-opt.wrong { border-color: var(--coral); background: var(--coral-light); opacity: 0.7; pointer-events: none; }
+.escape-result {
+  padding: 16px 20px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 600; margin-top: 16px; display: none;
+}
+.escape-result.pass { background: var(--success-light); color: var(--success); border: 1px solid var(--success); display: block; }
+.escape-result.fail { background: var(--coral-light); color: var(--coral); border: 1px solid var(--coral); display: block; }
+
+@media (max-width: 768px) {
+  .scene-grid, .scene-labels { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1003,7 +1153,7 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 <!-- ═══ KAMER 1: HET PLAN ═══ -->
 <section class="section room-section" id="room-plan" style="display:none;">
   <div class="section-inner">
-    <h2>Kamer 1: Het Schijnveilige Plan</h2>
+    <h2>Kamer 1: Het Plan</h2>
     <div class="opdracht">
       <h4>Opdracht</h4>
       <ol>
@@ -1093,12 +1243,26 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 <section class="section room-section" id="room-lockdown" style="display:none;">
   <div class="section-inner">
     <h2>Kamer 2: De Lockdown</h2>
-    <div class="lockdown-reveal visible" id="lockdownReveal"></div>
+    <p style="font-size:15px;color:var(--slate);max-width:680px;margin-bottom:8px;">De werkelijkheid slaat toe. Hieronder zie je mogelijke verstoringen die jullie veranderplan kunnen breken.</p>
+    <p style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:24px;">Kies het incident dat het meest plausibel is voor jullie eigen vraagstuk.</p>
+
+    <!-- Dimensie-tabs -->
+    <div class="rc-tabs" id="rcTabs">
+      <button class="rc-tab willen active" onclick="showRcTab('willen')">Willen</button>
+      <button class="rc-tab moeten" onclick="showRcTab('moeten')">Moeten</button>
+      <button class="rc-tab kunnen" onclick="showRcTab('kunnen')">Kunnen</button>
+    </div>
+
+    <!-- Kaartgrid -->
+    <div class="rc-grid" id="rcGrid"></div>
+
+    <!-- Detail panel (gekozen rode kaart) -->
+    <div class="rc-detail" id="rcDetail"></div>
 
     <!-- Quiz: dimensies van onzekerheid -->
-    <div class="opdracht" style="margin-top:32px;">
+    <div class="opdracht" id="quizSection" style="display:none; margin-top:32px;">
       <p>Strategische verandering mislukt zelden door &eacute;&eacute;n incident. Volgens O'Connor &amp; Meyer (2026) zijn er vier fundamentele bronnen van onzekerheid die elk veranderplan kunnen breken.</p>
-      <h4 style="margin-top:16px;">Welke dimensie(s) van onzekerheid spelen een rol in jullie rode kaart?</h4>
+      <h4 style="margin-top:16px;">Welke dimensie(s) van onzekerheid spelen een rol in dit incident?</h4>
       <p style="margin-bottom:16px;">Denk breed: een incident kan meerdere onderliggende oorzaken hebben. Klik op alle dimensies die jullie herkennen.</p>
 
       <div class="uncertainty-grid" id="quizOptions">
@@ -1145,14 +1309,19 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 <section class="section room-section" id="room-ontsnapping" style="display:none;">
   <div class="section-inner">
     <h2>Kamer 3: De Ontsnapping</h2>
-    <p style="font-size:15px;color:var(--slate);max-width:680px;margin-bottom:32px;">Jullie lineaire Kotter-plan is gesneuveld op onzekerheid. Tijd om anders te leren denken. Niet plannen en uitrollen, maar <strong>waarnemen, experimenteren en laten groeien</strong>.</p>
+    <p style="font-size:15px;color:var(--slate);max-width:680px;margin-bottom:8px;">Jullie plan is gesneuveld. Maar lag dat aan het plan &mdash; of aan het type organisatie?</p>
+    <p style="font-size:15px;color:var(--slate);max-width:680px;margin-bottom:32px;">Twee organisaties hebben exact hetzelfde probleem. De ene is een <strong>Blikken Man</strong>, de andere een <strong>Octopus</strong>. Kijk wat er gebeurt.</p>
 
-    <!-- ═ ELEMENT 1: Twee Werelden tabel ═ -->
+    <div id="sceneTabs" class="scene-tabs" style="display:none;"></div>
+    <div id="sceneContent"></div>
+    <div id="syntheseContent"></div>
+
+    <!-- ═ Twee Werelden tabel ═ -->
     <div style="margin-bottom:40px;">
       <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">Twee werelden</h3>
-      <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Herken jullie Masterplan in de linkerkolom. De rechterkolom is waar jullie naartoe moeten.</p>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Het verschil samengevat.</p>
       <div class="two-worlds-table">
-        <div class="tw-header tw-left">Tin Man / Incrementeel</div>
+        <div class="tw-header tw-left">Blikken Man / Incrementeel</div>
         <div class="tw-header tw-right">Octopus / Strategisch</div>
 
         <div class="tw-row-label">Doelstelling</div>
@@ -1179,141 +1348,129 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
         <div class="tw-cell tw-left">On-time delivery, kosten, winstbijdrage</div>
         <div class="tw-cell tw-right">Portfolio-gezondheid, nieuwe domeinen, geleerde lessen</div>
       </div>
-      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;font-style:italic;">Bronnen: Werner &amp; Le-Brun (2025), O'Connor &amp; Meyer (2026), Warner &amp; W&auml;ger (2019)</p>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:8px;font-style:italic;">Bronnen: Werner &amp; Le-Brun (2025), O&rsquo;Connor &amp; Meyer (2026), Warner &amp; W&auml;ger (2019)</p>
     </div>
 
-    <!-- ═ ELEMENT 2: Drieslag Sensing → Seizing → Transforming ═ -->
+    <!-- ═ Organisatiescan ═ -->
     <div style="margin-bottom:40px;">
-      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">De drieslag: van waarnemen tot verankeren</h3>
-      <p style="font-size:13px;color:var(--slate);margin-bottom:20px;">Drie capabilities die elkaar opvolgen en versterken.</p>
-      <div class="drieslag-flow">
-        <!-- Stap 1: Sensing -->
-        <div class="drieslag-card sensing">
-          <div class="drieslag-num">1</div>
-          <div class="drieslag-icon">&#128065;</div>
-          <h4>Waarnemen</h4>
-          <div class="drieslag-sub">Sensing &middot; Discovery &middot; Curiosity</div>
-          <div class="drieslag-question">"Wat gebeurt er &eacute;cht?"</div>
-          <ul class="drieslag-actions">
-            <li>Signalen oppikken bij medewerkers en klanten</li>
-            <li>Scenario's verkennen, niet voorspellen</li>
-            <li>Nieuwsgierig vragen stellen, niet overtuigen</li>
-          </ul>
-          <div class="drieslag-example">
-            <strong>Voorbeeld:</strong> Na de aankondiging van de reorganisatie &mdash; hoe pik je signalen van onrust op? Niet via een enquete, maar door 3 koffiegesprekken deze week.
-          </div>
-        </div>
-        <!-- Pijl -->
-        <div class="drieslag-arrow">&#10132;</div>
-        <!-- Stap 2: Seizing -->
-        <div class="drieslag-card seizing">
-          <div class="drieslag-num">2</div>
-          <div class="drieslag-icon">&#9889;</div>
-          <h4>Grijpen</h4>
-          <div class="drieslag-sub">Seizing &middot; Incubation &middot; Experiment</div>
-          <div class="drieslag-question">"Wat kunnen we klein testen?"</div>
-          <ul class="drieslag-actions">
-            <li>Hypothese formuleren en toetsen</li>
-            <li>Rapid prototyping: klein, snel, goedkoop</li>
-            <li>Meten wat je wilt leren, niet wat je wilt bewijzen</li>
-          </ul>
-          <div class="drieslag-example">
-            <strong>Voorbeeld (CRM):</strong> Hypothese: &lsquo;Sales reps gebruiken het CRM niet omdat ze de meerwaarde niet zien.&rsquo; Test: 2 reps bijhouden in 1 week. Meet: aantal records + hun ervaring. Succes = zij zien zelf het voordeel.
-          </div>
-        </div>
-        <!-- Pijl -->
-        <div class="drieslag-arrow">&#10132;</div>
-        <!-- Stap 3: Transforming -->
-        <div class="drieslag-card transforming">
-          <div class="drieslag-num">3</div>
-          <div class="drieslag-icon">&#127793;</div>
-          <h4>Verankeren</h4>
-          <div class="drieslag-sub">Transforming &middot; Acceleration &middot; Spread</div>
-          <div class="drieslag-question">"Hoe laten we het groeien?"</div>
-          <ul class="drieslag-actions">
-            <li>Niet top-down uitrollen, maar <em>pull</em> cre&euml;ren</li>
-            <li>Laat succes zich organisch verspreiden</li>
-            <li>Pas structuren en cultuur aan op wat werkt</li>
-          </ul>
-          <div class="drieslag-example">
-            <strong>Voorbeeld:</strong> De 2 sales reps vertellen collega's wat ze ontdekten. Anderen willen het ook proberen. Het CRM-gebruik groeit bottom-up, niet door een management-decree.
-          </div>
-        </div>
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">Organisatiescan</h3>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:20px;">Beoordeel jullie opdrachtgever op zes dimensies. Waar staat de organisatie op de schaal van Blikken Man tot Octopus?</p>
+
+      <div class="scan-item">
+        <div class="scan-dim">1. Signalen</div>
+        <div class="scan-ends"><span>Problemen pas zichtbaar via rapportages</span><span>Medewerkers pikken signalen zelf op</span></div>
+        <input type="range" class="scan-slider" min="1" max="5" value="1" step="1" data-dim="0" oninput="updateRadar()" list="scanTicks">
+        <div class="scan-ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-dim">2. Initiatief</div>
+        <div class="scan-ends"><span>Idee&euml;n door goedkeuringsproces</span><span>Experiment starten op eigen initiatief</span></div>
+        <input type="range" class="scan-slider" min="1" max="5" value="1" step="1" data-dim="1" oninput="updateRadar()" list="scanTicks">
+        <div class="scan-ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-dim">3. Leiderschap</div>
+        <div class="scan-ends"><span>Management beslist en delegeert</span><span>Management faciliteert en beschermt</span></div>
+        <input type="range" class="scan-slider" min="1" max="5" value="1" step="1" data-dim="2" oninput="updateRadar()" list="scanTicks">
+        <div class="scan-ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-dim">4. Infrastructuur</div>
+        <div class="scan-ends"><span>ICT gericht op stabiliteit</span><span>ICT biedt sandbox en snelle opschaling</span></div>
+        <input type="range" class="scan-slider" min="1" max="5" value="1" step="1" data-dim="3" oninput="updateRadar()" list="scanTicks">
+        <div class="scan-ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-dim">5. Evaluatie</div>
+        <div class="scan-ends"><span>Fouten afgestraft of stilgehouden</span><span>Constructieve feedback &mdash; falen mag</span></div>
+        <input type="range" class="scan-slider" min="1" max="5" value="1" step="1" data-dim="4" oninput="updateRadar()" list="scanTicks">
+        <div class="scan-ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+      <div class="scan-item">
+        <div class="scan-dim">6. Veranderhouding</div>
+        <div class="scan-ends"><span>Verandering is een project</span><span>Continu verbeteren is normaal</span></div>
+        <input type="range" class="scan-slider" min="1" max="5" value="1" step="1" data-dim="5" oninput="updateRadar()" list="scanTicks">
+        <div class="scan-ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+
+      <datalist id="scanTicks">
+        <option value="1"></option>
+        <option value="2"></option>
+        <option value="3"></option>
+        <option value="4"></option>
+        <option value="5"></option>
+      </datalist>
+
+      <div class="radar-wrap">
+        <canvas id="radarCanvas" width="540" height="460"></canvas>
+        <p style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:4px;">1 = Blikken Man &middot; 5 = Octopus</p>
+      </div>
+
+      <div class="opdracht" style="margin-top:20px;">
+        <h4>Reflectie</h4>
+        <p style="margin-bottom:8px;">Kies de dimensie waar jullie opdrachtgever het meest Blikken Man scoort. Wat zou er concreet moeten veranderen om op die dimensie meer Octopus te worden?</p>
+        <textarea class="scan-reflection" id="scanReflection" rows="4" placeholder="Schrijf hier jullie reflectie..."></textarea>
       </div>
     </div>
 
-    <!-- ═ ELEMENT 3: Experiment-trapeze ═ -->
-    <div style="margin-bottom:40px;">
-      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">De experiment-trapeze</h3>
-      <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Niet elk experiment is even diep. Kies het juiste niveau (Werner &amp; Le-Brun, naar Donella Meadows).</p>
-      <div class="trapeze">
-        <div class="trapeze-level level-1">
-          <div class="trapeze-badge">Niveau 1</div>
-          <div class="trapeze-content">
-            <h4>Parameters aanpassen</h4>
-            <p>Snelle, goedkope aanpassingen aan bestaande processen. Direct zichtbaar effect, maar beperkte impact.</p>
-            <div class="trapeze-ex"><strong>Voorbeeld (Export):</strong> Verander het aantal goedkeurders voor exportdocumenten van 11 naar 2. Meet: doorlooptijd en foutenpercentage na 2 weken.</div>
+    <!-- ═ Escape Toets ═ -->
+    <div class="escape-quiz">
+      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">Escape Toets</h3>
+      <p style="font-size:13px;color:var(--slate);margin-bottom:20px;">Beantwoord de vragen om de escape-sleutel te verdienen. Minstens 4 van de 5 goed nodig.</p>
+
+      <div id="escapeQuestions">
+        <div class="eq-q" data-correct="b">
+          <p>1. Wat is het fundamentele verschil tussen een Blikken Man en een Octopus-organisatie?</p>
+          <div class="eq-opts">
+            <label class="eq-opt"><input type="radio" name="eq1" value="a"> Een Octopus heeft betere veranderplannen</label>
+            <label class="eq-opt"><input type="radio" name="eq1" value="b"> Een Octopus is ingericht op voortdurende verandering</label>
+            <label class="eq-opt"><input type="radio" name="eq1" value="c"> Een Octopus heeft meer budget voor verandering</label>
+            <label class="eq-opt"><input type="radio" name="eq1" value="d"> Een Octopus heeft minder hi&euml;rarchie</label>
           </div>
         </div>
-        <div class="trapeze-level level-2">
-          <div class="trapeze-badge">Niveau 2</div>
-          <div class="trapeze-content">
-            <h4>De motor tunen</h4>
-            <p>Feedback loops veranderen. Meer moeite, groter effect. Hervormt hoe het systeem zichzelf corrigeert.</p>
-            <div class="trapeze-ex"><strong>Voorbeeld (Adviesproces VO):</strong> Organiseer wekelijkse intervisie waarin docenten elkaars adviesgesprekken bespreken. De feedback loop verschuift van &lsquo;individueel oordeel&rsquo; naar &lsquo;collectief leren&rsquo;.</div>
+        <div class="eq-q" data-correct="b">
+          <p>2. Waarom ontdekte de Octopus-organisatie het probleem veel eerder?</p>
+          <div class="eq-opts">
+            <label class="eq-opt"><input type="radio" name="eq2" value="a"> Ze hadden betere data-analyse tools</label>
+            <label class="eq-opt"><input type="radio" name="eq2" value="b"> Medewerkers pikten signalen op en deelden ze uit zichzelf</label>
+            <label class="eq-opt"><input type="radio" name="eq2" value="c"> Het management hield beter toezicht</label>
+            <label class="eq-opt"><input type="radio" name="eq2" value="d"> Ze hadden meer klantcontact</label>
           </div>
         </div>
-        <div class="trapeze-level level-3">
-          <div class="trapeze-badge">Niveau 3</div>
-          <div class="trapeze-content">
-            <h4>Het DNA herschrijven</h4>
-            <p>Het mentale model veranderen. De diepste en moeilijkste interventie, maar met het grootste effect.</p>
-            <div class="trapeze-ex"><strong>Voorbeeld (CRM):</strong> Verschuif de kernvraag van &lsquo;Hoe dwingen we CRM-gebruik af?&rsquo; naar &lsquo;Hoe maken we klantinzicht zo waardevol dat mensen het systeem willen gebruiken?&rsquo;</div>
+        <div class="eq-q" data-correct="c">
+          <p>3. Wat maakte het experiment van de Octopus effectief?</p>
+          <div class="eq-opts">
+            <label class="eq-opt"><input type="radio" name="eq3" value="a"> Ze hadden vooraf toestemming van het management</label>
+            <label class="eq-opt"><input type="radio" name="eq3" value="b"> Ze gebruikten dure externe consultants</label>
+            <label class="eq-opt"><input type="radio" name="eq3" value="c"> Ze testten klein, snel en goedkoop met bestaande middelen</label>
+            <label class="eq-opt"><input type="radio" name="eq3" value="d"> Ze hadden een uitgebreide businesscase geschreven</label>
+          </div>
+        </div>
+        <div class="eq-q" data-correct="c">
+          <p>4. Waarom raakte de disruptie alleen de Blikken Man?</p>
+          <div class="eq-opts">
+            <label class="eq-opt"><input type="radio" name="eq4" value="a"> De Octopus had de disruptie precies voorspeld</label>
+            <label class="eq-opt"><input type="radio" name="eq4" value="b"> De Octopus had een noodplan klaarliggen</label>
+            <label class="eq-opt"><input type="radio" name="eq4" value="c"> De Octopus had geen groot project om te verstoren &mdash; experimenteren was normale bedrijfsvoering</label>
+            <label class="eq-opt"><input type="radio" name="eq4" value="d"> De Octopus had meer financi&euml;le reserves</label>
+          </div>
+        </div>
+        <div class="eq-q" data-correct="b">
+          <p>5. Wat is het verschil tussen single-loop en double-loop leren?</p>
+          <div class="eq-opts">
+            <label class="eq-opt"><input type="radio" name="eq5" value="a"> Single-loop is voor individuen, double-loop voor teams</label>
+            <label class="eq-opt"><input type="radio" name="eq5" value="b"> Single-loop fixt het probleem, double-loop bevraagt de aanname &aacute;chter het probleem</label>
+            <label class="eq-opt"><input type="radio" name="eq5" value="c"> Double-loop kost twee keer zoveel tijd als single-loop</label>
+            <label class="eq-opt"><input type="radio" name="eq5" value="d"> Single-loop is voor operationele problemen, double-loop alleen voor strategische</label>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ═ ELEMENT 4: Double-loop reflectie ═ -->
-    <div style="margin-bottom:40px;">
-      <h3 style="font-size:18px;font-weight:700;color:var(--primary);margin-bottom:4px;">Single-loop vs double-loop leren</h3>
-      <p style="font-size:13px;color:var(--slate);margin-bottom:16px;">Het verschil tussen &lsquo;het probleem fixen&rsquo; en &lsquo;het denken veranderen&rsquo; (Werner &amp; Le-Brun, 2025).</p>
-      <div class="loop-diagram">
-        <div class="loop-card single">
-          <div class="loop-label">Single-loop</div>
-          <div class="loop-flow">
-            <span class="loop-step">Actie</span>
-            <span class="loop-arr">&#10132;</span>
-            <span class="loop-step">Resultaat</span>
-            <span class="loop-arr">&#10132;</span>
-            <span class="loop-step">Fix</span>
-          </div>
-          <p><em>"Het CRM wordt niet gebruikt. Maak het verplicht."</em></p>
-        </div>
-        <div class="loop-card double">
-          <div class="loop-label">Double-loop</div>
-          <div class="loop-flow">
-            <span class="loop-step">Actie</span>
-            <span class="loop-arr">&#10132;</span>
-            <span class="loop-step">Resultaat</span>
-            <span class="loop-arr">&#10132;</span>
-            <span class="loop-step highlight">Aanname?</span>
-            <span class="loop-arr">&#10132;</span>
-            <span class="loop-step highlight">Herkaderen</span>
-          </div>
-          <p><em>"Waarom gebruiken ze het niet? Welke aanname klopt niet? Hoe veranderen we het systeem?"</em></p>
-        </div>
+      <button class="next-room-btn" id="escapeCheckBtn" onclick="checkEscapeQuiz()">Controleer antwoorden</button>
+      <div id="escapeResult" class="escape-result"></div>
+      <div id="escapeKeyReveal" style="display:none;margin-top:20px;text-align:center;">
+        <button class="next-room-btn" onclick="goToRoom4()">Naar Kamer 4: Debriefing &#10140;</button>
       </div>
-    </div>
-
-    <!-- ═ OPDRACHT ═ -->
-    <div class="opdracht">
-      <h4>Jullie ontsnapping</h4>
-      <p style="margin-bottom:12px;">Beantwoord deze twee vragen op de achterkant van jullie A3:</p>
-      <ol>
-        <li style="margin-bottom:10px;"><strong>Wat is de aanname onder jullie gesneuvelde plan?</strong><br><span style="color:var(--slate);font-size:13px;">Formuleer: &ldquo;Wij gingen ervan uit dat ___&rdquo;</span></li>
-        <li><strong>Hoe zouden jullie die aanname kunnen toetsen &mdash; met welke interventie?</strong><br><span style="color:var(--slate);font-size:13px;">Gebruik de drieslag (Waarnemen &rarr; Grijpen &rarr; Verankeren) en de experiment-trapeze om een concreet experiment te ontwerpen.</span></li>
-      </ol>
     </div>
   </div>
 </section>
@@ -1324,10 +1481,23 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
     <h2>Kamer 4: Debriefing</h2>
     <div class="opdracht">
       <h4>Reflectievragen</h4>
+
+      <p style="font-size:13px;font-weight:600;color:var(--coral);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;">Kamer 1 &rarr; 2: Het plan dat brak</p>
       <ul>
-        <li>Hoe voelde het om jullie 'perfecte plan' te moeten loslaten?</li>
-        <li>Waarom was jullie Kotter-stap opeens niet meer relevant na de envelop?</li>
-        <li>Welk inzicht levert een klein experiment op dat een breed ingevulde DINAMO-matrix niet had kunnen geven?</li>
+        <li style="margin-bottom:10px;">Jullie kozen in Kamer 2 bewust een verstoring die het meest plausibel was voor jullie vraagstuk. <strong>Waarom kozen jullie precies d&iacute;t incident?</strong></li>
+        <li style="margin-bottom:10px;">Welke aanname in jullie Masterplan bleek het <strong>kwetsbaarst</strong> voor de verstoring die jullie kozen?</li>
+      </ul>
+
+      <p style="font-size:13px;font-weight:600;color:var(--coral);text-transform:uppercase;letter-spacing:.04em;margin:20px 0 8px;">Kamer 2 &rarr; 3: Van onzekerheid naar strategie</p>
+      <ul>
+        <li style="margin-bottom:10px;">Jullie classificeerden de verstoring als een bepaald type onzekerheid. <strong>Herkennen jullie dit type onzekerheid ook in de echte situatie bij jullie opdrachtgever?</strong></li>
+        <li style="margin-bottom:10px;">Waar scoorde jullie organisatie het meest &lsquo;Blikken Man&rsquo; op de organisatiescan? <strong>Hoe verklaart dat de kwetsbaarheid voor de verstoring?</strong></li>
+      </ul>
+
+      <p style="font-size:13px;font-weight:600;color:var(--coral);text-transform:uppercase;letter-spacing:.04em;margin:20px 0 8px;">Overkoepelend: de paradigmaverschuiving</p>
+      <ul>
+        <li style="margin-bottom:10px;">Wat is het <strong>belangrijkste verschil</strong> tussen jullie Masterplan uit Kamer 1 en de manier van denken die jullie in Kamer 3 hebben geleerd?</li>
+        <li style="margin-bottom:10px;">Welke <strong>concrete eerste stap</strong> zouden jullie morgen kunnen zetten om meer als een Octopus te werken binnen jullie opdracht?</li>
       </ul>
     </div>
   </div>
@@ -1446,7 +1616,7 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 <div id="kotter-source" style="display:none;">
   <div style="background:var(--primary);border-radius:var(--radius);padding:28px;margin-top:40px;">
     <h3 style="font-size:20px;font-weight:700;color:white;margin-bottom:6px;">Kotter's 8 Stappen</h3>
-    <p style="font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:20px;">Het 8-stappenmodel, verdeeld in drie fasen.</p>
+    <p style="font-size:15px;color:rgba(255,255,255,0.85);margin-bottom:20px;">Het 8-stappenmodel, verdeeld in drie fasen.</p>
     <div class="kotter-staircase">
       <!-- Fase 1: Creating the climate for change -->
       <div class="kotter-phase-label climate">Fase 1 &mdash; Creating the climate for change</div>
@@ -1558,22 +1728,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const savedRoom = localStorage.getItem('currentRoom');
   if (savedRoom && savedUnlocked.includes(savedRoom)) {
-    // Herstel selectie voor lockdown kaart
+    // Herstel selectie voor lockdown
     const savedDim = localStorage.getItem('selectedDimensie');
     const savedFactor = localStorage.getItem('selectedFactor');
     if (savedDim) {
       selectedDimensie = savedDim;
       selectedFactor = savedFactor;
-      buildLockdownCard();
+    }
+    // Herstel rode kaart selectie
+    const savedRedCard = localStorage.getItem('selectedRedCard');
+    if (savedRedCard) {
+      const card = rodeKaarten.find(k => k.id === savedRedCard);
+      if (card) {
+        selectedRedCard = card;
+        // Init tabs en toon juiste dimensie
+        showRcTab(card.dimensie);
+        selectRedCard(card.id);
+      }
+    } else if (savedUnlocked.includes('lockdown')) {
+      showRcTab('willen');
     }
     // Herstel quiz-status
     if (localStorage.getItem('quizCompleted') === 'true') {
+      document.getElementById('quizSection').style.display = selectedRedCard ? 'block' : 'none';
       document.getElementById('quizSubmitBtn').disabled = true;
       document.getElementById('quizNextBtn').style.display = 'block';
       document.getElementById('quizFeedback').className = 'quiz-feedback success';
       document.getElementById('quizFeedback').textContent = 'Goed gezien! Jullie hebben minstens \u00E9\u00E9n dimensie correct herkend.';
     }
     showRoom(savedRoom);
+    if (savedRoom === 'ontsnapping') initKamer3();
   }
 });
 
@@ -1583,6 +1767,10 @@ function resetProgress() {
   localStorage.removeItem('currentRoom');
   localStorage.removeItem('selectedDimensie');
   localStorage.removeItem('selectedFactor');
+  localStorage.removeItem('selectedRedCard');
+  localStorage.removeItem('quizCompleted');
+  localStorage.removeItem('selectedA3');
+  localStorage.removeItem('escapeQuizCompleted');
   location.reload();
 }
 
@@ -1640,59 +1828,144 @@ const dimensieFactoren = {
   kunnen: ['Kennis en ervaring', 'Aansturing', 'Informatie', 'Verandervermogen', 'Beheersbaarheid', 'Timing', 'Complexiteit', 'Vertrouwen']
 };
 
-// Mapping: factor → envelope data
-const envelopData = {
-  willen: {
-    title: 'De "Willen" Illusie',
-    subtitle: 'Organisatorische Onzekerheid',
-    nood: 'De directie heeft zojuist officieel bekendgemaakt dat er een reorganisatie of overname aankomt. Medewerkers zijn onzeker over wat dit betekent voor hun functie en baan. De groep die jullie wilden betrekken is in de overlevingsstand geschoten. Ze sluiten zich af voor nieuwe initiatieven en vertonen weerstand tegen jullie veranderverhaal \u2014 niet uit onwil, maar uit zelfbescherming.',
-    gesneuveld: 'Medewerkers zijn bang voor hun baan en zien elke benadering als bedreiging. Ze klappen volledig dicht. Jullie interventie om draagvlak te cre\u00EBren loopt vast op een muur van wantrouwen.',
-    challenge: 'Wie is in jullie project de groep die nu dichtslaat? Hoe be\u00EFnvloedt dat de rest van jullie veranderplan?',
+// ─── RODE KAARTEN DATA (14 stuks, één per factor) ───
+const rodeKaarten = [
+  // WILLEN
+  {
+    id: 'gevolgen', dimensie: 'willen', factor: 'Gevolgen voor het werk',
+    title: 'De Functie-angst',
+    summary: 'Het lekt uit dat de verandering leidt tot het verdwijnen van functies.',
+    nood: 'Er lekt uit dat jullie veranderproject leidt tot het verdwijnen van minimaal drie functies. Niemand weet welke functies het betreft. Medewerkers zijn in paniek en praten alleen nog maar over hun eigen positie. Het werk aan jullie project staat volledig stil.',
+    gesneuveld: 'Niemand wil meer meewerken aan iets dat hun eigen baan kan kosten. Jullie interventie wordt gezien als het paard van Troje — bedoeld om reorganisatie te legitimeren.',
+    challenge: 'Welke functies in jullie organisatie zouden zich bedreigd voelen door jullie verandering?',
     correctAnswers: ['organizational', 'market']
   },
-  moeten: {
-    title: 'Het "Moeten" Vacu\u00FCm',
-    subtitle: 'Markt/Context Onzekerheid',
-    nood: 'De directie heeft vanochtend besloten dat vanwege tegenvallende kwartaalcijfers een ander project absolute topprioriteit krijgt. Jullie project is gedegradeerd tot een \u2018nice to have\u2019. De interne druk of externe noodzaak die jullie wilden gebruiken om de verandering door te drukken, is zojuist volledig verdampt.',
-    gesneuveld: 'De urgentie die jullie wilden inzetten is verdampt. Jullie sponsor heeft andere prioriteiten en het project staat niet meer op de agenda. Zonder steun van bovenaf heeft jullie verandering geen mandaat meer.',
-    challenge: 'Wie in jullie organisatie bepaalt de prioriteiten? Wat gebeurt er als die persoon wegvalt?',
-    correctAnswers: ['market', 'resource', 'organizational']
+  {
+    id: 'emoties', dimensie: 'willen', factor: 'Emoties',
+    title: 'De Publieke Breuk',
+    summary: 'Een gerespecteerde informele leider keert zich publiekelijk tegen het project.',
+    nood: 'Een gerespecteerde informele leider — iemand naar wie collega\'s echt luisteren — heeft in een teamoverleg openlijk afstand genomen van het project. "Dit is niet wat ons beloofd is. Ik doe hier niet meer aan mee." De emotionele lading verspreidt zich als een lopend vuurtje.',
+    gesneuveld: 'De informele leider heeft meer invloed dan jullie sponsor. Collega\'s volgen zijn voorbeeld en trekken zich terug. Jullie interventie heeft geen draagvlak meer op de werkvloer.',
+    challenge: 'Wie zijn de informele leiders in jullie organisatie? Wat als zij zich tegen jullie verandering keren?',
+    correctAnswers: ['organizational']
   },
-  kunnen: {
-    title: 'De "Kunnen" Blokkade',
-    subtitle: 'Resourcing Onzekerheid',
-    nood: 'De afdeling control heeft per direct alle budgetten bevroren en uren-allocaties ingetrokken. De tijd en het geld voor jullie interventies zijn met 80% gekort. Je mag de geplande dure of tijdrovende middelen NIET meer inzetten.',
-    gesneuveld: 'Jullie geplande aanpak is onbetaalbaar geworden. Het budget is bevroren, medewerkers mogen niet van hun werk gehaald worden, en externe inhuur is uitgesloten.',
-    challenge: 'Welke onderdelen van jullie plan kosten het meest? Wat blijft er over als je die wegstreept?',
+  {
+    id: 'meerwaarde', dimensie: 'willen', factor: 'Meerwaarde',
+    title: 'Het Tegenbewijs',
+    summary: 'Een vergelijkbaar project elders leverde teleurstellende resultaten op.',
+    nood: 'Een concurrerende organisatie die exact dezelfde verandering heeft doorgevoerd, publiceerde deze week hun evaluatie: de resultaten zijn teleurstellend. Hogere kosten, lagere tevredenheid, geen meetbaar effect. Het artikel circuleert al op jullie afdeling.',
+    gesneuveld: 'De "waarom zouden we dit doen?" is verdampt. Medewerkers wijzen naar het voorbeeld: "Zie je wel, het werkt niet." Jullie business case voelt niet meer geloofwaardig.',
+    challenge: 'Hoe onderbouwen jullie de meerwaarde van jullie verandering? Wat als die onderbouwing wegvalt?',
+    correctAnswers: ['market', 'technical']
+  },
+  {
+    id: 'betrokkenheid', dimensie: 'willen', factor: 'Betrokkenheid',
+    title: 'De Schijnparticipatie',
+    summary: 'Medewerkers ontdekken dat het besluit al was genomen vóór hun "inspraak".',
+    nood: 'Medewerkers ontdekken via een gelekt vergaderverslag dat het besluit over de verandering al was genomen vóórdat zij "mochten meedenken". De participatiesessies blijken een formaliteit te zijn geweest. Het vertrouwen in het proces is volledig weg.',
+    gesneuveld: 'Medewerkers voelen zich misbruikt als rubberstamp. Elke volgende bijeenkomst wordt geboycot of cynisch ondergaan. "Waarom zou ik meedenken als het toch al besloten is?"',
+    challenge: 'Hoe authentiek is de participatie in jullie project? Wat als medewerkers dat doorzien?',
+    correctAnswers: ['organizational']
+  },
+  // MOETEN
+  {
+    id: 'interne-druk', dimensie: 'moeten', factor: 'Interne druk',
+    title: 'De Stille Aftocht',
+    summary: 'De interne sponsor vertrekt en niemand neemt het project over.',
+    nood: 'Jullie interne sponsor — de manager die het project op de agenda hield — is gepromoveerd naar een andere divisie. Er is geen opvolger aangewezen. Het project staat op geen enkele agenda meer. Niemand vraagt ernaar, niemand stuurt erop.',
+    gesneuveld: 'Zonder sponsor heeft jullie verandering geen eigenaar meer. Vergaderingen worden afgezegd, budgetaanvragen blijven liggen, en collega\'s vragen: "Gaat dit project eigenlijk nog door?"',
+    challenge: 'Wie is jullie sponsor? Wat gebeurt er als die persoon morgen vertrekt?',
+    correctAnswers: ['organizational', 'resource']
+  },
+  {
+    id: 'externe-noodzaak', dimensie: 'moeten', factor: 'Externe noodzaak',
+    title: 'De Ingetrokken Wet',
+    summary: 'De wetgeving die de verandering noodzakelijk maakte is uitgesteld.',
+    nood: 'De nieuwe regelgeving die jullie verandering noodzakelijk maakte, is door de Tweede Kamer uitgesteld tot volgend jaar. De externe tijdsdruk is volledig weg. De directie ziet nu geen reden meer om dit jaar nog te investeren.',
+    gesneuveld: 'De urgentie die jullie wilden inzetten als hefboom is verdampt. "Het hoeft niet meer" is het nieuwe narratief. Jullie verandering staat niet meer bovenaan de prioriteitenlijst.',
+    challenge: 'Hoe afhankelijk is jullie project van externe druk? Wat blijft er over als die wegvalt?',
+    correctAnswers: ['market']
+  },
+  // KUNNEN
+  {
+    id: 'kennis', dimensie: 'kunnen', factor: 'Kennis en ervaring',
+    title: 'De Vertrokken Expert',
+    summary: 'De enige persoon die het nieuwe systeem begrijpt heeft ontslag genomen.',
+    nood: 'De enige medewerker die het nieuwe systeem of werkwijze écht begrijpt, heeft ontslag genomen. De kennis zit in het hoofd van één persoon en is nergens gedocumenteerd. Niemand kan het overnemen.',
+    gesneuveld: 'Jullie interventie hing af van specifieke expertise die nu letterlijk de deur is uitgelopen. Zonder die kennis weet niemand hoe het nieuwe systeem werkt of hoe de verandering technisch moet worden uitgevoerd.',
+    challenge: 'Van wiens kennis is jullie project afhankelijk? Wat als die persoon er morgen niet meer is?',
+    correctAnswers: ['resource', 'technical']
+  },
+  {
+    id: 'aansturing', dimensie: 'kunnen', factor: 'Aansturing',
+    title: 'Het Leiderschapsvacuüm',
+    summary: 'De projectleider is overgeplaatst, er is geen opvolger.',
+    nood: 'De projectleider die het dagelijks aanstuurde is per direct overgeplaatst naar een crisisproject elders in de organisatie. Er is geen opvolger benoemd. Het team kijkt naar elkaar, maar niemand pakt de regie.',
+    gesneuveld: 'Zonder aansturing valt het team uit elkaar. Iedereen wacht op iemand anders. Besluiten worden uitgesteld, acties blijven liggen, en het momentum is volledig weg.',
+    challenge: 'Hoe afhankelijk is jullie project van één sturende persoon? Wat als de aansturing wegvalt?',
+    correctAnswers: ['organizational', 'resource']
+  },
+  {
+    id: 'informatie', dimensie: 'kunnen', factor: 'Informatie',
+    title: 'De Data-leugen',
+    summary: 'De data waarop jullie analyse was gebaseerd blijkt niet te kloppen.',
+    nood: 'Een collega ontdekt dat de data waarop jullie nulmeting en business case zijn gebaseerd, fundamenteel onjuist is. De cijfers zijn verouderd, de steekproef was niet representatief, of er zat een berekeningsfout in. Jullie hele onderbouwing valt in duigen.',
+    gesneuveld: 'Jullie interventie was gebouwd op een fundament dat niet klopt. De urgentie die jullie presenteerden is gebaseerd op verkeerde cijfers. Stakeholders trekken hun steun in: "Als de basis niet klopt, waarom zouden we dan doorgaan?"',
+    challenge: 'Hoe robuust is de data onder jullie project? Wat als de cijfers niet kloppen?',
+    correctAnswers: ['technical', 'market']
+  },
+  {
+    id: 'verandervermogen', dimensie: 'kunnen', factor: 'Verandervermogen',
+    title: 'De Verandermoeheid',
+    summary: 'De organisatie zit midden in drie andere verandertrajecten.',
+    nood: 'De organisatie zit midden in drie andere grote verandertrajecten: een ERP-migratie, een reorganisatie van de klantenservice, en een compliance-traject. Medewerkers zeggen: "Niet nóg een project." De absorptiecapaciteit is op.',
+    gesneuveld: 'Jullie verandering is de vierde in de rij. Medewerkers zijn murw en cynisch. Ze verschijnen fysiek bij bijeenkomsten maar zijn mentaal afgehaakt. Elke nieuwe actie wordt ontvangen met een zucht.',
+    challenge: 'Hoeveel veranderprojecten lopen er tegelijkertijd in jullie organisatie? Hoeveel kan de organisatie aan?',
+    correctAnswers: ['organizational', 'resource']
+  },
+  {
+    id: 'beheersbaarheid', dimensie: 'kunnen', factor: 'Beheersbaarheid',
+    title: 'De Scope Creep',
+    summary: 'Het project is verdrievoudigd in omvang zonder extra middelen.',
+    nood: 'Stakeholders hebben in de afgelopen weken steeds meer wensen en eisen toegevoegd aan jullie project. Wat begon als een overzichtelijke interventie is uitgegroeid tot een monster: drie keer zoveel activiteiten, dezelfde deadline, hetzelfde budget. Niemand overziet het meer.',
+    gesneuveld: 'Het project is onbeheersbaar geworden. Jullie oorspronkelijke interventie is begraven onder extra eisen. Het team raakt verlamd doordat alles prioriteit heeft en daardoor niets prioriteit heeft.',
+    challenge: 'Hoe goed is de scope van jullie project afgebakend? Wie bewaakt de grenzen?',
     correctAnswers: ['resource', 'organizational']
   },
-  proces: {
-    title: 'De "Proces" Schok',
-    subtitle: 'Technologische/Systeem Onzekerheid',
-    nood: 'Een belangrijke randvoorwaarde voor jullie project is fundamenteel veranderd. Er is een nieuwe wet aangenomen of er is plotseling een generatieve AI-tool doorgevoerd die jullie huidige werkwijze eigenlijk deels overbodig maakt. Het proces dat jullie proberen te implementeren, voelt in \u00E9\u00E9n klap verouderd.',
-    gesneuveld: 'Het proces dat jullie wilden verbeteren is in \u00E9\u00E9n klap verouderd. De nieuwe technologie of regelgeving maakt jullie oorspronkelijke aanpak irrelevant.',
-    challenge: 'Welke ontwikkeling in jullie branche zou dezelfde impact kunnen hebben? Hoe kwetsbaar is jullie aanpak voor technologische verandering?',
+  {
+    id: 'timing', dimensie: 'kunnen', factor: 'Timing',
+    title: 'De Deadline-squeeze',
+    summary: 'De directie wil resultaten drie maanden eerder dan gepland.',
+    nood: 'De directie heeft besloten dat er vóór het einde van dit kwartaal al zichtbare resultaten moeten liggen — drie maanden eerder dan jullie hadden gepland. De reden: een aankomend board-overleg waarin het project wordt geëvalueerd.',
+    gesneuveld: 'Jullie zorgvuldig opgebouwde tijdlijn is onhaalbaar geworden. De stappen die jullie wilden zetten hebben simpelweg meer tijd nodig. Shortcuts nemen betekent kwaliteit inleveren.',
+    challenge: 'Welke stappen in jullie plan kosten de meeste tijd? Wat sneuvelt er als de deadline halveert?',
+    correctAnswers: ['resource', 'market']
+  },
+  {
+    id: 'vertrouwen', dimensie: 'kunnen', factor: 'Vertrouwen',
+    title: 'Het Gelekte Memo',
+    summary: 'Een intern memo onthult dat het management zelf twijfelt aan het project.',
+    nood: 'Een intern memo van het MT lekt uit. Daarin staat dat het management zelf twijfelt aan de haalbaarheid van het project, maar "het gezicht niet wil verliezen" door het te stoppen. De medewerkers lezen het en vertrouwen de leiding niet meer.',
+    gesneuveld: 'Als het management zelf niet gelooft in het project, waarom zouden medewerkers dan moeite doen? Het vertrouwen in de leiding — en daarmee in de verandering — is gebroken.',
+    challenge: 'Hoe geloofwaardig is de steun van het management voor jullie project? Wat als die steun geveinsd blijkt?',
+    correctAnswers: ['organizational']
+  },
+  {
+    id: 'complexiteit', dimensie: 'kunnen', factor: 'Complexiteit',
+    title: 'De AI-disruptie',
+    summary: 'Een AI-tool maakt het proces dat jullie wilden verbeteren overbodig.',
+    nood: 'Er is plotseling een generatieve AI-tool beschikbaar die precies het proces automatiseert dat jullie probeerden te verbeteren. De directie is enthousiast en wil direct overstappen. Jullie veranderproject — gericht op het verbeteren van het huidige proces — voelt in één klap verouderd.',
+    gesneuveld: 'Het proces dat jullie wilden optimaliseren wordt mogelijk volledig vervangen. Jullie interventie gaat over een werkwijze die straks misschien niet meer bestaat.',
+    challenge: 'Welke technologische ontwikkeling zou jullie project in één klap overbodig kunnen maken?',
     correctAnswers: ['technical', 'market']
   }
-};
+];
 
-// Map factor → which envelope key to use
-const factorEnvelopMap = {
-  'Gevolgen voor het werk': 'willen',
-  'Emoties': 'willen',
-  'Meerwaarde': 'willen',
-  'Betrokkenheid': 'willen',
-  'Interne druk': 'moeten',
-  'Externe noodzaak': 'moeten',
-  'Kennis en ervaring': 'kunnen',
-  'Aansturing': 'kunnen',
-  'Informatie': 'kunnen',
-  'Verandervermogen': 'kunnen',
-  'Beheersbaarheid': 'kunnen',
-  'Timing': 'kunnen',
-  'Complexiteit': 'proces',
-  'Vertrouwen': 'kunnen'
-};
+// Index rode kaarten per dimensie
+const rcByDimensie = { willen: [], moeten: [], kunnen: [] };
+rodeKaarten.forEach(k => rcByDimensie[k.dimensie].push(k));
+
+let selectedRedCard = null;
 
 let selectedDimensie = null;
 let selectedFactor = null;
@@ -1763,36 +2036,72 @@ document.addEventListener('keydown', e => {
 function openLockdownWithCard() {
   localStorage.setItem('selectedDimensie', selectedDimensie);
   localStorage.setItem('selectedFactor', selectedFactor);
-  buildLockdownCard();
   unlockRoom('lockdown');
   showRoom('lockdown');
+  // Init rode kaart tabs
+  showRcTab('willen');
 }
 
-function buildLockdownCard() {
-  const envelopKey = factorEnvelopMap[selectedFactor] || selectedDimensie;
-  const env = envelopData[envelopKey];
-  if (!env) return;
+// ─── RODE KAART TABS & SELECTIE ──────
+function showRcTab(dim) {
+  // Update tabs
+  document.querySelectorAll('.rc-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.rc-tab.${dim}`).classList.add('active');
+  // Render grid
+  const grid = document.getElementById('rcGrid');
+  const cards = rcByDimensie[dim];
+  grid.innerHTML = cards.map(k => `
+    <div class="rc-mini ${selectedRedCard && selectedRedCard.id === k.id ? 'selected' : ''}" data-id="${k.id}" onclick="selectRedCard('${k.id}')">
+      <div class="rc-mini-factor">${k.factor}</div>
+      <div class="rc-mini-title">${k.title}</div>
+      <div class="rc-mini-summary">${k.summary}</div>
+    </div>
+  `).join('');
+}
 
-  const cardHTML = `
+function selectRedCard(id) {
+  const card = rodeKaarten.find(k => k.id === id);
+  if (!card) return;
+  selectedRedCard = card;
+  localStorage.setItem('selectedRedCard', id);
+
+  // Update mini-card highlights
+  document.querySelectorAll('.rc-mini').forEach(el => {
+    el.classList.toggle('selected', el.dataset.id === id);
+  });
+
+  // Show detail panel
+  const detail = document.getElementById('rcDetail');
+  detail.innerHTML = `
     <div class="envelope-card open" style="pointer-events:none;">
       <div class="envelope-top">
-        <div class="envelope-num">Jullie Rode Envelop</div>
-        <h4>${env.title}</h4>
-        <div class="envelope-subtitle">${env.subtitle}</div>
+        <div class="envelope-num">${card.factor} — ${card.dimensie.charAt(0).toUpperCase() + card.dimensie.slice(1)}</div>
+        <h4>${card.title}</h4>
       </div>
       <div class="envelope-body" style="display:block;">
         <h5>Noodsituatie</h5>
-        <p>${env.nood}</p>
-        <h5>Gesneuvelde interventie</h5>
-        <p>${env.gesneuveld}</p>
+        <p>${card.nood}</p>
+        <h5>Effect op jullie plan</h5>
+        <p>${card.gesneuveld}</p>
         <div class="challenge">
-          <strong>Make it real (1 min):</strong> ${env.challenge}
+          <strong>Reflectie:</strong> ${card.challenge}
         </div>
       </div>
     </div>
   `;
+  detail.classList.add('visible');
 
-  document.getElementById('lockdownReveal').innerHTML = cardHTML;
+  // Show quiz & reset it
+  document.getElementById('quizSection').style.display = 'block';
+  resetQuiz();
+}
+
+function resetQuiz() {
+  document.querySelectorAll('#quizOptions .unc-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('quizFeedback').className = 'quiz-feedback';
+  document.getElementById('quizFeedback').textContent = '';
+  document.getElementById('quizSubmitBtn').disabled = false;
+  document.getElementById('quizNextBtn').style.display = 'none';
 }
 
 // ─── A3 TEMPLATE DATA ────────────────
@@ -1858,9 +2167,8 @@ function checkQuiz() {
     return;
   }
 
-  // Get correct answers for current envelope
-  const envelopKey = factorEnvelopMap[selectedFactor] || selectedDimensie;
-  const correct = envelopData[envelopKey]?.correctAnswers || [];
+  // Get correct answers for selected red card
+  const correct = selectedRedCard?.correctAnswers || [];
 
   // Check if at least 1 checked answer is correct
   const hasCorrect = checked.some(c => correct.includes(c));
@@ -1880,11 +2188,16 @@ function checkQuiz() {
 
 function goToRoom3() {
   unlockRoom('ontsnapping');
-  unlockRoom('debrief');
   showRoom('ontsnapping');
+  initKamer3();
+}
+
+function goToRoom4() {
+  showRoom('debrief');
 }
 
 function loadA3(key) {
+  localStorage.setItem('selectedA3', key);
   const d = a3Data[key];
   // Update tabs
   document.querySelectorAll('.a3-tab').forEach(t => t.classList.remove('active'));
@@ -1921,6 +2234,339 @@ function loadA3(key) {
     document.querySelectorAll('.dim-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('factorButtons').innerHTML = '<span class="a3-value placeholder">Kies eerst een dimensie...</span>';
     document.getElementById('nextRoomBtn').style.display = 'none';
+  }
+}
+
+// ─── KAMER 3: SCENE DATA ────────────────
+const sceneData = {
+  crm: {
+    title: 'CRM-adoptie',
+    orgA: 'CRM Corp A',
+    orgB: 'CRM Corp B',
+    scenes: [
+      {
+        num: 1, title: 'Het Signaal',
+        tinman: 'Kwartaalcijfers laten zien dat klanttevredenheid daalt. Het MT plant een strategiesessie over 6 weken. Er wordt een projectgroep samengesteld. Er komt een onderzoeksopdracht.',
+        octopus: 'Een accountmanager hoort bij drie klantbezoeken achter elkaar dezelfde klacht: \u201CIk moet steeds opnieuw mijn verhaal doen.\u201D Ze deelt dit in het weekoverleg. Een collega herkent het patroon. Ze besluiten samen vijf klantgesprekken in te plannen deze week \u2014 geen opdracht, eigen initiatief.',
+        tinLabel: 'Signalen worden pas zichtbaar in formele rapportages',
+        octLabel: 'Mensen pikken signalen op en handelen uit zichzelf',
+        cap: 'Sensing / Waarnemen'
+      },
+      {
+        num: 2, title: 'De Reactie',
+        tinman: 'Na 3 maanden analyse ligt er een businesscase van 40 pagina\u2019s. Budget aangevraagd: \u20AC180.000. Implementatiepartner geselecteerd. Uitrol gepland over 9 maanden. Iedereen wacht op goedkeuring.',
+        octopus: 'De twee collega\u2019s hebben een idee: wat als we de klanthistorie zichtbaar maken in \u00E9\u00E9n scherm? Ze bouwen in twee weken een prototype met behulp van AI. Drie collega\u2019s testen mee. Het kost niets behalve tijd. Ze leren: het probleem zit niet in het CRM, maar in hoe het team informatie deelt.',
+        tinLabel: 'Verandering is een project: businesscase, goedkeuring, uitrol',
+        octLabel: 'Iemand test een idee, klein en snel, met bestaande middelen',
+        cap: 'Seizing / Grijpen'
+      },
+      {
+        num: 3, title: 'De Klap',
+        tinman: 'Budget freeze. \u20AC180.000 bevroren. 3 maanden werk de prullenbak in. Geen werkend alternatief. Het team is gedemoraliseerd. Terug naar af.',
+        octopus: 'Budget freeze? Welke budget freeze? Het team had geen \u20AC180.000 project lopen. Hun experimenten draaiden op bestaande middelen en eigen tijd. Er valt niets te bevriezen.<br><br>Sterker nog: de tegenvallende kwartaalcijfers die bij Corp A tot een budget freeze leidden, had Corp B al maanden eerder opgepikt als signaal. Ze waren al aan het bijsturen. Management had experimenten beschermd als onderdeel van de normale bedrijfsvoering. ICT had een sandbox beschikbaar als standaard faciliteit. Ze waren niet bezig met \u201Ceen veranderproject\u201D. Ze waren gewoon aan het werk.',
+        tinLabel: 'Verandering is een kwetsbaar project \u2014 als het budget stopt, stopt alles',
+        octLabel: 'Er is geen project om te stoppen \u2014 experimenteren is hoe we werken',
+        cap: 'Transforming / Verankeren'
+      }
+    ],
+    synthese: 'Dezelfde klantklachten. Maar alleen bij Corp A was er een budget freeze nodig om het project te stoppen \u2014 want alleen Corp A h\u00E1d een project. Corp B had geen veranderproject. Ze hadden een manier van werken.'
+  },
+  export: {
+    title: 'Exportdocumentatie',
+    orgA: 'Export Corp A',
+    orgB: 'Export Corp B',
+    scenes: [
+      {
+        num: 1, title: 'Het Signaal',
+        tinman: 'Een compliance-audit toont 47 afgekeurde douanedocumenten in Q3, met \u20AC23K aan boetes. Het MT plant een verbetertraject. Er wordt een projectgroep samengesteld met een externe consultant.',
+        octopus: 'Een ervaren documentspecialist merkt dat collega\u2019s steeds dezelfde fouten maken bij bepaalde klanttypen. Ze legt bij de koffie een lijstje aan met twee collega\u2019s. Ze ontdekken: 80% van de fouten zit bij dezelfde 3 documenttypen. Ze besluiten die week zelf uit te zoeken waarom.',
+        tinLabel: 'Fouten worden pas zichtbaar via audits en boetes',
+        octLabel: 'Vakmensen herkennen patronen en onderzoeken het zelf',
+        cap: 'Sensing / Waarnemen'
+      },
+      {
+        num: 2, title: 'De Reactie',
+        tinman: 'Na 4 maanden analyse: een nieuw gestandaardiseerd systeem met 40 templates. Implementatiekosten \u20AC95.000. Uitrol over 6 maanden. Iedereen moet de nieuwe werkwijze volgen, ongeacht hun klantspecifieke situatie.',
+        octopus: 'De documentspecialist maakt met twee collega\u2019s een simpel template voor het meest voorkomende documenttype. Ze testen het een week bij 5 zendingen. Het werkt \u2014 maar ze ontdekken ook dat het probleem niet de templates zijn, maar dat collega\u2019s niet weten welke velden de douane controleert. Ze maken een one-pager. Kosten: een paar uur.',
+        tinLabel: 'Alles standaardiseren in \u00E9\u00E9n groot project',
+        octLabel: '\u00C9\u00E9n type testen, leren, bijsturen',
+        cap: 'Seizing / Grijpen'
+      },
+      {
+        num: 3, title: 'De Klap',
+        tinman: 'Nieuwe EU-regelgeving wijzigt de douane-eisen fundamenteel. Het hele systeem met 40 templates klopt niet meer. \u20AC95.000 en 4 maanden werk de prullenbak in. Terug naar af.',
+        octopus: 'Nieuwe EU-regelgeving? De documentspecialist volgt de vakbladen en had maanden geleden al gesignaleerd dat er iets aan zat te komen. Het team had al klein getest hoe de nieuwe eisen eruitzien.<br><br>En zelfs als het een verrassing was geweest: ze hadden \u00E9\u00E9n template per keer gebouwd. Aanpassen kost een middag. Ze zijn gewend aan het idee dat regels veranderen \u2014 want dat doen regels.',
+        tinLabel: '40 templates in \u00E9\u00E9n klap waardeloos',
+        octLabel: 'Regelgeving verandert altijd \u2014 we bouwen daarom klein en iteratief',
+        cap: 'Transforming / Verankeren'
+      }
+    ],
+    synthese: 'Dezelfde fouten in de douanedocumenten. Maar alleen bij Corp A was er een systeem van \u20AC95.000 dat in \u00E9\u00E9n klap waardeloos werd. Corp B had geen groot systeem. Ze bouwden template voor template, leerden van elke iteratie, en pasten zich aan toen de regels veranderden.'
+  },
+  advies: {
+    title: 'Adviesproces VO',
+    orgA: 'School A',
+    orgB: 'School B',
+    scenes: [
+      {
+        num: 1, title: 'Het Signaal',
+        tinman: 'Uitvalcijfers na profielkeuze zijn alarmerend: 38% van de N&T-leerlingen wisselt binnen een jaar. De directie vraagt de decaan een rapport te schrijven. Er komt een werkgroep.',
+        octopus: 'Een mentor merkt dat drie van haar leerlingen na de profielkeuze vastlopen. Ze bespreekt het met een collega-mentor bij de koffie: \u201CIk denk dat mijn adviesgesprekken te voorzichtig zijn.\u201D De collega herkent het: \u201CIk ook \u2014 ik durf geen negatief advies te geven.\u201D Ze besluiten volgende week bij elkaars gesprekken mee te luisteren.',
+        tinLabel: 'Uitvalcijfers worden geanalyseerd in een rapport',
+        octLabel: 'Mentoren herkennen het patroon en onderzoeken het samen',
+        cap: 'Sensing / Waarnemen'
+      },
+      {
+        num: 2, title: 'De Reactie',
+        tinman: 'De decaan schrijft een nieuw protocol voor adviesgesprekken (20 pagina\u2019s). Er wordt een externe trainer ingehuurd voor een studiedag. Kosten: \u20AC12.000. Planning: volgend semester.',
+        octopus: 'De twee mentoren wonen elkaars gesprekken bij. Ze ontdekken: het probleem is niet dat docenten niet durven, maar dat het advies voelt als een oordeel. Ze testen een nieuw format met drie leerlingen: \u201Cadvies als kans\u201D \u2014 niet \u201Cje kunt dit niet\u201D maar \u201Chier word je sterker.\u201D Na twee weken merken ze al verschil in hoe leerlingen reageren.',
+        tinLabel: 'Protocol schrijven, trainer inhuren, volgend semester starten',
+        octLabel: 'Twee collega\u2019s testen een nieuw format, deze week nog',
+        cap: 'Seizing / Grijpen'
+      },
+      {
+        num: 3, title: 'De Klap',
+        tinman: 'Halverwege het traject vertrekt de decaan \u2014 de sponsor van het project. Niemand neemt het protocol over. \u20AC12.000 aan training gehad, maar het zakt weg in de waan van de dag. De uitvalcijfers veranderen niet.',
+        octopus: 'De decaan vertrekt? Vervelend, maar de intervisie draait al. Het is geen project van de decaan \u2014 het is iets wat de mentoren z\u00E9lf doen omdat ze het verschil merken bij hun leerlingen.<br><br>Ze hoeven niemand toestemming te vragen om door te gaan. Twee sectieleiders zien de resultaten en willen het ook proberen. Het verspreidt zich organisch.',
+        tinLabel: 'Zonder sponsor stopt het project',
+        octLabel: 'Er is geen project om te stoppen \u2014 het is hoe we werken',
+        cap: 'Transforming / Verankeren'
+      }
+    ],
+    synthese: 'Dezelfde uitvalcijfers. Maar alleen bij School A was het vertrek van de decaan genoeg om alles te laten stoppen \u2014 want alleen School A had een \u201Cproject\u201D dat afhankelijk was van \u00E9\u00E9n sponsor. Bij School B was het geen project. Het was hoe de mentoren werkten.'
+  }
+};
+
+// ─── KAMER 3: RENDERING ─────────────────
+function initKamer3() {
+  const savedA3 = localStorage.getItem('selectedA3');
+  const validCases = ['crm', 'export', 'advies'];
+
+  if (validCases.includes(savedA3)) {
+    document.getElementById('sceneTabs').style.display = 'none';
+    renderScenes(savedA3);
+  } else {
+    const tabs = document.getElementById('sceneTabs');
+    tabs.style.display = 'flex';
+    tabs.innerHTML = validCases.map((key, i) =>
+      '<button class="scene-tab' + (i === 0 ? ' active' : '') + '" onclick="showSceneVariant(\'' + key + '\')">' + sceneData[key].title + '</button>'
+    ).join('');
+    renderScenes('crm');
+  }
+
+  updateRadar();
+
+  if (localStorage.getItem('escapeQuizCompleted') === 'true') {
+    document.getElementById('escapeCheckBtn').disabled = true;
+    document.getElementById('escapeResult').className = 'escape-result pass';
+    document.getElementById('escapeResult').textContent = 'Escape-sleutel verdiend!';
+    document.getElementById('escapeKeyReveal').style.display = 'block';
+    unlockRoom('debrief');
+  }
+}
+
+function showSceneVariant(key) {
+  document.querySelectorAll('.scene-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  renderScenes(key);
+}
+
+function renderScenes(key) {
+  const data = sceneData[key];
+  if (!data) return;
+
+  document.getElementById('sceneContent').innerHTML = data.scenes.map(s => '\
+    <div class="scene-block">\
+      <div class="scene-header">\
+        <div class="scene-num">' + s.num + '</div>\
+        <div class="scene-title">Sc\u00E8ne ' + s.num + ': ' + s.title + '</div>\
+      </div>\
+      <div class="scene-grid">\
+        <div class="scene-col tinman">\
+          <div class="scene-col-tag">Blikken Man \u2014 ' + data.orgA + '</div>\
+          <p>' + s.tinman + '</p>\
+        </div>\
+        <div class="scene-col octopus">\
+          <div class="scene-col-tag">Octopus \u2014 ' + data.orgB + '</div>\
+          <p>' + s.octopus + '</p>\
+        </div>\
+      </div>\
+      <div class="scene-labels">\
+        <div class="scene-label tinman">' + s.tinLabel + '</div>\
+        <div class="scene-label octopus">' + s.octLabel + '</div>\
+      </div>\
+      <div class="scene-cap">' + s.cap + '</div>\
+    </div>\
+  ').join('');
+
+  document.getElementById('syntheseContent').innerHTML = '\
+    <div class="synthese-box">\
+      <p>' + data.synthese + '</p>\
+      <p>Dat is het fundamentele verschil. Niet een beter plan, maar:</p>\
+      <ul>\
+        <li>Mensen pikken signalen op zonder dat iemand het vraagt</li>\
+        <li>Iemand mag een experiment starten zonder formele goedkeuring</li>\
+        <li>Management faciliteert en haalt barri\u00E8res weg</li>\
+        <li>ICT biedt sandboxing en kan snel opschalen</li>\
+        <li>Evaluatie is constructief \u2014 falen mag, niet leren niet</li>\
+        <li>Iedereen wil continu verbeteren</li>\
+      </ul>\
+    </div>\
+  ';
+}
+
+// ─── RADAR PLOT ─────────────────────────
+const scanLabels = ['Signalen', 'Initiatief', 'Leiderschap', 'Infrastructuur', 'Evaluatie', 'Veranderhouding'];
+
+function updateRadar() {
+  const canvas = document.getElementById('radarCanvas');
+  if (!canvas) return;
+  const sliders = document.querySelectorAll('.scan-slider');
+  const values = Array.from(sliders).map(function(s) { return parseInt(s.value); });
+  drawRadar(canvas, values, scanLabels);
+}
+
+function drawRadar(canvas, values, labels) {
+  var ctx = canvas.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var cssW = 540, cssH = 460;
+  canvas.width = cssW * dpr;
+  canvas.height = cssH * dpr;
+  canvas.style.width = cssW + 'px';
+  canvas.style.height = cssH + 'px';
+  ctx.scale(dpr, dpr);
+
+  var cx = cssW / 2, cy = cssH / 2, r = 130, n = values.length;
+  ctx.clearRect(0, 0, cssW, cssH);
+
+  // Grid rings
+  for (var level = 1; level <= 5; level++) {
+    var lr = (level / 5) * r;
+    ctx.beginPath();
+    for (var i = 0; i < n; i++) {
+      var a = (Math.PI * 2 * i / n) - Math.PI / 2;
+      var x = cx + lr * Math.cos(a);
+      var y = cy + lr * Math.sin(a);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.strokeStyle = level === 5 ? 'rgba(30,58,95,0.25)' : 'rgba(30,58,95,0.08)';
+    ctx.lineWidth = level === 5 ? 1.5 : 1;
+    ctx.stroke();
+  }
+
+  // Scale numbers along top axis
+  ctx.fillStyle = 'rgba(30,58,95,0.4)';
+  ctx.font = '500 10px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'bottom';
+  for (var level = 1; level <= 5; level++) {
+    var lr = (level / 5) * r;
+    ctx.fillText(level, cx, cy - lr - 3);
+  }
+
+  // Axes
+  for (var i = 0; i < n; i++) {
+    var a = (Math.PI * 2 * i / n) - Math.PI / 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + r * Math.cos(a), cy + r * Math.sin(a));
+    ctx.strokeStyle = 'rgba(30,58,95,0.12)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Data polygon
+  ctx.beginPath();
+  for (var i = 0; i < n; i++) {
+    var a = (Math.PI * 2 * i / n) - Math.PI / 2;
+    var vr = (values[i] / 5) * r;
+    var x = cx + vr * Math.cos(a);
+    var y = cy + vr * Math.sin(a);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(30,58,95,0.12)';
+  ctx.fill();
+  ctx.strokeStyle = '#1e3a5f';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Data points
+  for (var i = 0; i < n; i++) {
+    var a = (Math.PI * 2 * i / n) - Math.PI / 2;
+    var vr = (values[i] / 5) * r;
+    ctx.beginPath();
+    ctx.arc(cx + vr * Math.cos(a), cy + vr * Math.sin(a), 5, 0, Math.PI * 2);
+    ctx.fillStyle = '#1e3a5f';
+    ctx.fill();
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  // Labels
+  ctx.fillStyle = '#1e3a5f';
+  ctx.font = '600 12px Inter, sans-serif';
+  ctx.textBaseline = 'middle';
+  for (var i = 0; i < n; i++) {
+    var a = (Math.PI * 2 * i / n) - Math.PI / 2;
+    var lx = cx + (r + 38) * Math.cos(a);
+    var ly = cy + (r + 38) * Math.sin(a);
+    ctx.textAlign = Math.abs(Math.cos(a)) < 0.01 ? 'center' : Math.cos(a) > 0 ? 'left' : 'right';
+    ctx.fillText(labels[i], lx, ly);
+  }
+}
+
+// ─── ESCAPE QUIZ ────────────────────────
+function checkEscapeQuiz() {
+  var questions = document.querySelectorAll('.eq-q');
+  var correct = 0;
+  var allAnswered = true;
+
+  questions.forEach(function(q, i) {
+    var name = 'eq' + (i + 1);
+    var selected = document.querySelector('input[name="' + name + '"]:checked');
+    var correctVal = q.dataset.correct;
+
+    if (!selected) { allAnswered = false; return; }
+
+    q.querySelectorAll('.eq-opt').forEach(function(opt) {
+      var radio = opt.querySelector('input');
+      if (radio.value === correctVal) opt.classList.add('correct');
+      else if (radio.checked) opt.classList.add('wrong');
+    });
+
+    if (selected.value === correctVal) correct++;
+  });
+
+  if (!allAnswered) {
+    var result = document.getElementById('escapeResult');
+    result.className = 'escape-result fail';
+    result.textContent = 'Beantwoord eerst alle vragen.';
+    return;
+  }
+
+  var result = document.getElementById('escapeResult');
+  if (correct >= 4) {
+    result.className = 'escape-result pass';
+    result.textContent = correct + '/5 correct \u2014 Escape-sleutel verdiend!';
+    document.getElementById('escapeKeyReveal').style.display = 'block';
+    document.getElementById('escapeCheckBtn').disabled = true;
+    localStorage.setItem('escapeQuizCompleted', 'true');
+    unlockRoom('debrief');
+  } else {
+    result.className = 'escape-result fail';
+    result.textContent = correct + '/5 correct \u2014 je hebt minstens 4 nodig. Probeer opnieuw.';
+    setTimeout(function() {
+      questions.forEach(function(q) {
+        q.querySelectorAll('.eq-opt').forEach(function(opt) {
+          opt.classList.remove('correct', 'wrong');
+        });
+        q.querySelectorAll('input[type="radio"]').forEach(function(r) { r.checked = false; });
+      });
+      result.className = 'escape-result';
+    }, 3000);
   }
 }
 </script>
