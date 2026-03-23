@@ -198,4 +198,11 @@ Referentie voor de docent — alle kaarten staan op de website.
 | **Resource** | Bevroren budgetten, wegvallende capaciteit, vertrokken medewerkers | De Stille Aftocht, De Vertrokken Expert, De Scope Creep |
 | **Technical** | Nieuwe technologie, veranderde regelgeving, verouderde processen | De AI-disruptie, De Data-leugen |
 
-*Bron: O'Connor & Meyer (2026). The Eight Core Principles of Strategic Innovation.*
+## Bronnen
+
+- De Caluwé, L., & Vermaak, H. (2006). *Leren veranderen. Een handboek voor de veranderkundige* [Learning to change. A manual for change-experts].
+- Kotter, J. P. (2012). *Leading change* (2nd ed.). Harvard Business Review Press.
+- Metselaar, E. E., Cozijnsen, A. J., & Van Delft, P. (2016). *Van weerstand naar veranderbereidheid*. E.E. Metselaar Beheer B.V.
+- O'Connor, G., & Meyer, C. R. (2026). The eight core principles of strategic innovation. *MIT Sloan Management Review*, *67*(3).
+- Warner, K. S. R., & Wäger, M. (2019). Building dynamic capabilities for digital transformation: An ongoing process of strategic renewal. *Long Range Planning*, *52*(3), 326–349. https://doi.org/10.1016/j.lrp.2018.12.001
+- Werner, J., & Le-Brun, P. (2025). Become an octopus organization: How your company can adapt to a complex world. *Harvard Business Review*, *103*(6), 50–59.
