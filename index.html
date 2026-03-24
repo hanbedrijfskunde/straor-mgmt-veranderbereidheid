@@ -511,6 +511,21 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
   line-height: 1.5;
 }
 .a3-casus-banner strong { color: var(--primary); }
+.download-pdf-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 600;
+  padding: 8px 18px; border-radius: 20px;
+  border: 1px solid var(--primary);
+  background: white;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.download-pdf-btn:hover {
+  background: var(--primary);
+  color: white;
+}
 
 /* ─── DIMENSIE & FACTOR KNOPPEN ────────── */
 .dim-buttons, .factor-buttons {
@@ -1057,7 +1072,10 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
 <!-- ═══ KAMER 0: INTRODUCTIE ═══ -->
 <section class="section room-section visible" id="room-intro">
   <div class="section-inner">
-    <h2>Kamer 0: Introductie</h2>
+    <h2 style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+      Kamer 0: Introductie
+      <button class="download-pdf-btn" onclick="downloadIntroPDF()">&#128196; Download PDF</button>
+    </h2>
 
       <!-- DINAMO 6.0 figuur -->
       <div style="max-width:720px;margin:32px auto 0;display:flex;flex-direction:column;gap:0;">
@@ -1703,6 +1721,9 @@ h1,h2,h3,h4,h5 { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; lin
   Workshop 7: Interventies &mdash; Escape Room Editie &middot; STRAOR Management &middot; HBO Bedrijfskunde
 </div>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
 <script>
 // ─── KAMER NAVIGATIE ──────────────────
@@ -2568,6 +2589,240 @@ function checkEscapeQuiz() {
       result.className = 'escape-result';
     }, 3000);
   }
+}
+
+// ─── PDF DOWNLOAD KAMER 0 ───────────────────
+function downloadIntroPDF() {
+  var jsPDF = window.jspdf.jsPDF;
+  var doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+  var primary = [30, 58, 95];
+  var borderColor = [226, 232, 240];
+  var mutedText = [100, 116, 139];
+  var willenColor = [22, 163, 106];
+  var moetenColor = [217, 119, 6];
+  var kunnenColor = [220, 38, 38];
+  var pageW = 210;
+  var margin = 14;
+  var contentW = pageW - 2 * margin;
+
+  function addFooter() {
+    var pageCount = doc.internal.getNumberOfPages();
+    for (var i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(mutedText[0], mutedText[1], mutedText[2]);
+      doc.text('Workshop 7: Interventies \u2014 STRAOR Management \u00B7 HBO Bedrijfskunde', margin, 287);
+      doc.text('Pagina ' + i + ' / ' + pageCount, pageW - margin, 287, { align: 'right' });
+    }
+  }
+
+  // ════════════════════════════════════════
+  // PAGINA 1: DINAMO 6.0 + Interventiematrix
+  // ════════════════════════════════════════
+
+  // ── Header ──
+  doc.setFillColor(primary[0], primary[1], primary[2]);
+  doc.rect(0, 0, pageW, 24, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.setTextColor(255, 255, 255);
+  doc.text('DINAMO 6.0 \u2014 Veranderbereidheid in kaart', margin, 15);
+
+  // ── DINAMO Dimensies overzicht ──
+  var y = 32;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(12);
+  doc.setTextColor(primary[0], primary[1], primary[2]);
+  doc.text('Dimensies en schalen', margin, y);
+  y += 6;
+
+  var dimensions = [
+    { name: 'Willen', color: willenColor, bg: [220, 252, 231], q: '"Wil ik deze verandering?"', factors: ['Gevolgen voor het werk', 'Emoties', 'Meerwaarde', 'Betrokkenheid'] },
+    { name: 'Moeten', color: moetenColor, bg: [254, 243, 199], q: '"Moet ik wel mee veranderen?"', factors: ['Interne druk', 'Externe noodzaak'] },
+    { name: 'Kunnen', color: kunnenColor, bg: [254, 226, 226], q: '"Kan ik deze verandering aan?"', factors: ['Kennis & ervaring', 'Aansturing', 'Informatie', 'Verandervermogen', 'Timing', 'Beheersbaarheid', 'Complexiteit'] },
+    { name: 'Vertrouwen', color: primary, bg: [240, 245, 250], q: '"Vertrouw ik de leiding?"', factors: ['Vertrouwen in leiderschap'] }
+  ];
+
+  dimensions.forEach(function(dim) {
+    doc.setFillColor(dim.color[0], dim.color[1], dim.color[2]);
+    doc.roundedRect(margin, y, 28, 7, 2, 2, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.setTextColor(255, 255, 255);
+    doc.text(dim.name, margin + 14, y + 5, { align: 'center' });
+
+    doc.setFont('helvetica', 'italic');
+    doc.setFontSize(9);
+    doc.setTextColor(dim.color[0], dim.color[1], dim.color[2]);
+    doc.text(dim.q, margin + 32, y + 5);
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(mutedText[0], mutedText[1], mutedText[2]);
+    doc.text(dim.factors.join('  \u00B7  '), margin + 2, y + 12);
+    y += 18;
+  });
+
+  // ── Interventiematrix ──
+  y += 4;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(12);
+  doc.setTextColor(primary[0], primary[1], primary[2]);
+  doc.text('DINAMO-Interventiematrix', margin, y);
+  y += 4;
+
+  var matrixBody = [
+    [{ content: 'WILLEN', colSpan: 4, styles: { fillColor: [220, 252, 231], textColor: willenColor, fontStyle: 'bold', fontSize: 9 } }],
+    ['Gevolgen voor het werk', 'Onderhandelen', 'Denken', ''],
+    ['Emoties', 'Coachen', 'Voelen', ''],
+    ['Meerwaarde', 'Overtuigen', 'Denken', ''],
+    ['Betrokkenheid', 'Participeren', 'Voelen', ''],
+    [{ content: 'MOETEN', colSpan: 4, styles: { fillColor: [254, 243, 199], textColor: moetenColor, fontStyle: 'bold', fontSize: 9 } }],
+    ['Interne druk', 'Mobiliseren', 'Doen', ''],
+    ['Externe noodzaak', 'Aantonen', 'Denken', ''],
+    [{ content: 'KUNNEN', colSpan: 4, styles: { fillColor: [254, 226, 226], textColor: kunnenColor, fontStyle: 'bold', fontSize: 9 } }],
+    ['Kennis en ervaring', 'Opleiden', 'Doen', ''],
+    ['Aansturing', 'Plannen', 'Doen', ''],
+    ['Informatie', 'Informeren', 'Doen', ''],
+    ['Verandervermogen', 'Ontwikkelen', 'Denken', ''],
+    ['Beheersbaarheid', 'Verbinden', 'Denken', ''],
+    ['Timing', 'Ondersteunen', 'Doen', ''],
+    ['Complexiteit', 'Vereenvoudigen', 'Denken', ''],
+    ['Vertrouwen', 'Bewijzen', 'Voelen', '']
+  ];
+
+  doc.autoTable({
+    startY: y,
+    head: [['DINAMO-factor', 'Interventiestrategie', 'Denken / voelen / doen', 'Prio']],
+    body: matrixBody,
+    theme: 'grid',
+    headStyles: {
+      fillColor: primary,
+      textColor: 255,
+      fontStyle: 'bold',
+      fontSize: 9,
+      cellPadding: 4
+    },
+    columnStyles: {
+      0: { cellWidth: contentW * 0.30 },
+      1: { cellWidth: contentW * 0.30 },
+      2: { cellWidth: contentW * 0.25 },
+      3: { cellWidth: contentW * 0.15, halign: 'center' }
+    },
+    styles: {
+      font: 'helvetica',
+      fontSize: 9,
+      cellPadding: 3.5,
+      lineColor: borderColor,
+      lineWidth: 0.3,
+      overflow: 'linebreak',
+      valign: 'middle',
+      textColor: [30, 41, 59]
+    },
+    showHead: 'everyPage',
+    rowPageBreak: 'avoid',
+    margin: { left: margin, right: margin },
+    didParseCell: function(data) {
+      // Lege prio-kolom toont checkbox-teken
+      if (data.section === 'body' && data.column.index === 3 && data.cell.raw === '') {
+        data.cell.text = ['\u2610'];
+      }
+    }
+  });
+
+  // ════════════════════════════════════════
+  // PAGINA 2: KOTTER'S 8 STAPPEN
+  // ════════════════════════════════════════
+  doc.addPage();
+
+  // ── Header ──
+  doc.setFillColor(primary[0], primary[1], primary[2]);
+  doc.rect(0, 0, pageW, 24, 'F');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.setTextColor(255, 255, 255);
+  doc.text("Kotter's 8 Stappen voor Verandering", margin, 15);
+
+  var kotterY = 32;
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(10);
+  doc.setTextColor(mutedText[0], mutedText[1], mutedText[2]);
+  doc.text('Het 8-stappenmodel, verdeeld in drie fasen.', margin, kotterY);
+  kotterY += 6;
+
+  var climateColor = [34, 139, 34];
+  var engageColor = [30, 64, 175];
+  var sustainColor = [139, 92, 246];
+
+  var kotterBody = [
+    [{ content: 'FASE 1 \u2014 Creating the climate for change', colSpan: 3, styles: { fillColor: [220, 252, 231], textColor: climateColor, fontStyle: 'bold', fontSize: 9 } }],
+    ['1', 'Create urgency', 'Cre\u00EBer een gevoel van noodzaak voor verandering'],
+    ['2', 'Form a powerful coalition', 'Bouw een leidende coalitie met voldoende macht en energie'],
+    ['3', 'Create a vision for change', 'Ontwikkel een heldere visie en strategie'],
+    [{ content: 'FASE 2 \u2014 Engaging & enabling the organisation', colSpan: 3, styles: { fillColor: [219, 234, 254], textColor: engageColor, fontStyle: 'bold', fontSize: 9 } }],
+    ['4', 'Communicate the vision', 'Communiceer de verandervisie breed en consistent'],
+    ['5', 'Empower action', 'Verwijder obstakels en geef mensen de ruimte om te handelen'],
+    ['6', 'Create quick wins', 'Genereer zichtbare, korte-termijn successen'],
+    [{ content: 'FASE 3 \u2014 Implementing & sustaining for change', colSpan: 3, styles: { fillColor: [237, 233, 254], textColor: sustainColor, fontStyle: 'bold', fontSize: 9 } }],
+    ['7', 'Build on the change', 'Consolideer winst en produceer meer verandering'],
+    ['8', 'Make it stick', 'Veranker nieuwe benaderingen in de organisatiecultuur']
+  ];
+
+  doc.autoTable({
+    startY: kotterY,
+    head: [['#', 'Stap', 'Beschrijving']],
+    body: kotterBody,
+    theme: 'grid',
+    headStyles: {
+      fillColor: primary,
+      textColor: 255,
+      fontStyle: 'bold',
+      fontSize: 10,
+      cellPadding: 5
+    },
+    columnStyles: {
+      0: { cellWidth: 12, halign: 'center', fontStyle: 'bold' },
+      1: { cellWidth: 55, fontStyle: 'bold' },
+      2: { cellWidth: contentW - 67 }
+    },
+    styles: {
+      font: 'helvetica',
+      fontSize: 10,
+      cellPadding: 5,
+      lineColor: borderColor,
+      lineWidth: 0.3,
+      overflow: 'linebreak',
+      valign: 'middle',
+      textColor: [30, 41, 59]
+    },
+    showHead: 'everyPage',
+    rowPageBreak: 'avoid',
+    margin: { left: margin, right: margin }
+  });
+
+  // ── Bronvermelding ──
+  var refY = doc.lastAutoTable.finalY + 14;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.setTextColor(primary[0], primary[1], primary[2]);
+  doc.text('Bronnen', margin, refY);
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8);
+  doc.setTextColor(mutedText[0], mutedText[1], mutedText[2]);
+  var refs = [
+    'Kotter, J. P. (2012). Leading change (2nd ed.). Harvard Business Review Press.',
+    'Metselaar, E. E., Cozijnsen, A. J., & Van Delft, P. (2016). Van weerstand naar veranderbereidheid. E.E. Metselaar Beheer B.V.'
+  ];
+  refs.forEach(function(ref, i) {
+    doc.text('\u2022  ' + ref, margin, refY + 5 + (i * 5), { maxWidth: contentW });
+  });
+
+  // ── Footers op alle pagina's ──
+  addFooter();
+
+  doc.save('DINAMO-Interventiematrix-Kotter.pdf');
 }
 </script>
 
