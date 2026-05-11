@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draaiboek — De 9%-Kloof-Simulatie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="site-nav no-print">
+  <a class="brand" href="index.html">De 9%-Kloof-Simulatie<span class="brand-sub">Docent-pakket</span></a>
+  <ul>
+    <li><a href="index.html">Overzicht</a></li>
+    <li><a href="draaiboek.html" class="active">Draaiboek</a></li>
+    <li><a href="lrd.html">LRD</a></li>
+    <li><a href="dinamo-mapping.html">DINAMO-mapping</a></li>
+    <li><a href="coderingsformulier.html">Coderingsformulier</a></li>
+    <li><a href="reflectie-huiswerk.html">Reflectie &amp; huiswerk</a></li>
+    <li><a href="bronnen.html">Bronnen</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Draaiboek · 90 minuten · 9 tijdblokken</span>
+    <h1>Draaiboek — De 9%-Kloof-Simulatie</h1>
+    <p class="lead">
+      Sociale simulatie met meta-observatie. Studenten verdelen zich over drie rollen
+      (directie, medewerkers, observatoren) en doorlopen drie rondes van 12 minuten.
+      De debrief gebruikt observatie-codering als spiegel — de 9%-kloof wordt zichtbaar
+      in eigen gedrag.
+    </p>
+  </div>
+</header>
+
+<div class="container">
+
+<div class="print-bar no-print">
+  <button class="print-btn" onclick="window.print()">Print als PDF</button>
+</div>
+
+<section>
+  <h2>Voorbereiding &amp; benodigdheden</h2>
+
+  <h3>Voor de sessie</h3>
+  <ul>
+    <li><strong>Tafelopstelling</strong>: één directie-tafel (centraal), twee medewerkers-tafels (Engineering + Customer Success, links en rechts), buitenring stoelen voor observatoren.</li>
+    <li><strong>Briefings geprint en gevouwen</strong>. Eén envelop per rol, drie inhouden per rol (initieel + 2 updates). Zie <a href="briefings/directie.html">Directie</a>, <a href="briefings/engineering.html">Engineering</a>, <a href="briefings/customer-success.html">Customer Success</a>, <a href="briefings/observatoren.html">Observatoren</a>.</li>
+    <li><strong>Coderingsformulieren geprint</strong> — 3 stuks per observator. Zie <a href="coderingsformulier.html">Coderingsformulier</a>.</li>
+    <li><strong>Timer extern zichtbaar</strong> op beamer of fysieke klok.</li>
+    <li><strong>Whiteboard/flipover</strong> voor debrief-bevindingen.</li>
+    <li><strong>A6-kaartjes</strong> voor afsluiting (één per student).</li>
+    <li><strong>Pennen/markers</strong> — minimaal 1 per student.</li>
+  </ul>
+
+  <h3>Voorbereiding facilitator</h3>
+  <ul>
+    <li><a href="lrd.html#functie">LRD §4</a> doorlezen — drie kernlessen scherp hebben.</li>
+    <li>Eigen voorbeeld voorbereiden van een keer dat je in een directie-positie in een valkuil viel — voor de debrief-modeling.</li>
+    <li>LinkedIn-artikel-DATA-sidebar over de 9%-kloof paraat.</li>
+    <li>Briefings dichtgevouwen, niemand mag andere rollen lezen tot het einde.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Tijdsblokkenschema (90 minuten)</h2>
+
+  <details class="timeblock" id="blok-00-08" open>
+    <summary><span><span class="time-tag">0:00–0:08</span>Opening: De Cijfers <span class="muted small">(8 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Studenten in een diagnostische modus zetten. De cijfers introduceren als puzzel die straks via eigen gedrag wordt opgelost.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li>Luisteren, evt. korte vraag stellen.</li>
+        <li>Géén notitieblok openen — dit is een opwarmer.</li>
+      </ul>
+
+      <blockquote class="spreektekst">
+        <strong>Spreektekst:</strong> "Welkom. Voordat we beginnen één feit. <strong>78% van de bedrijven gebruikt AI in minstens één bedrijfsfunctie.</strong> Slechts 1% van de directies noemt de eigen implementatie 'volwassen'. Dat is de buitenste laag. Daaronder ligt een tweede getal dat me al een paar maanden bezighoudt. <strong>73% van de directies zegt: nieuwsgierigheid en verbeeldingskracht zijn kritisch voor onze organisatie.</strong> Dat is bijna iedereen. <strong>9% van de medewerkers ervaart dat hun leiders die eigenschappen ondersteunen.</strong> Bijna niemand. Hoe kan een gat van 64 procentpunten ontstaan tussen wat een directie zegt te willen en wat een medewerker dagelijks ervaart? Daar gaan we vandaag niet over praten — daar gaan we vandaag iets over <strong>zien</strong>. Als alles goed gaat, gaan jullie het zelf produceren."
+      </blockquote>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Cijfers op het bord schrijven (73% / 9%) — zichtbaar laten staan tot het einde.</li>
+        <li>Géén toelichting geven over Carucci of Reitz-Higgins — die termen komen pas in de debrief.</li>
+        <li><strong>Geen vragen beantwoorden</strong> over wat er nu komt: <em>"Dat zien jullie zo."</em></li>
+        <li>Doorgaan in de tijd. Acht minuten is acht minuten.</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> zelfverzekerd staan; cijfers letterlijk uitspreken; pauze laten na "9%".</div>
+        <div class="dont"><strong>Don'ts:</strong> niet uitleggen waarom de gap er is; niet stellig zijn over schuld of oorzaak.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Goed. We gaan in drie rollen werken. Ik leg ze nu uit."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-08-18">
+    <summary><span><span class="time-tag">0:08–0:18</span>Setup: Rolverdeling + Briefings <span class="muted small">(10 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Studenten in hun rol krijgen, briefings uitdelen, coderingsformulier introduceren bij observatoren.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li>Kiezen voorkeursrol (of accepteren toewijzing).</li>
+        <li>Lezen eigen briefing (4 min stille leestijd).</li>
+        <li>Nemen plaats in eigen rol-zone.</li>
+        <li>Observatoren bestuderen het coderingsformulier.</li>
+      </ul>
+
+      <blockquote class="spreektekst">
+        <strong>Spreektekst:</strong> "We hebben drie rollen. <strong>Directie</strong>: jullie zijn het MT van een installatiebedrijf van 80 mensen, en jullie hebben net een investering gedaan in AI-tooling. <strong>Medewerkers</strong>: twee teams van vier — Engineering en Customer Success. Jullie werk loopt door en er komt iets nieuws op jullie af. <strong>Observatoren</strong>: jullie kijken in stilte. Jullie krijgen het belangrijkste werk — een coderingsformulier waarmee jullie real-time zien wat er gebeurt. Wie wil welke rol?"
+      </blockquote>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Verdeel actief: bij groep van 18 → 4 directie / 4 Engineering / 4 CS / 6 observatoren. (Voor andere groottes zie <a href="lrd.html#rolverdeling">LRD §6</a>.)</li>
+        <li><strong>Stuur op tegen-comfortzone</strong>: studenten die graag praten → observator; rustige studenten → directie. Benoem dit expliciet en respectvol.</li>
+        <li>Deel de <strong>initiële briefings</strong> uit — gevouwen blijven als ze nog niet klaar zijn om te lezen.</li>
+        <li>Start een 4-min stille leestijd.</li>
+        <li>Loop rond bij observatoren — wijs hen op de tijdslijn-strook in het <a href="coderingsformulier.html">coderingsformulier</a>.</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> rolverdeling kort en bondig; geen onderhandeling per rol.</div>
+        <div class="dont"><strong>Don'ts:</strong> géén voorbeelden geven van wat de directie zou kunnen zeggen.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Tijd om te beginnen. Directie, jullie roepen de medewerkers bij elkaar. Observatoren, jullie pakken pen en formulier. Klok loopt over één minuut."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-18-30">
+    <summary><span><span class="time-tag">0:18–0:30</span>Ronde 1: De Kick-off <span class="muted small">(12 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Eerste presentatie van de directievisie; eerste reactie van medewerkers; eerste codering door observatoren.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li><strong>Directie</strong>: roept medewerkers bij elkaar (fysieke verplaatsing); presenteert AI-transformatie-visie; vraagt om commitment.</li>
+        <li><strong>Medewerkers</strong>: luisteren; reageren met eigen vragen, zorgen, verzet of enthousiasme — afhankelijk van wat hun briefing oproept.</li>
+        <li><strong>Observatoren</strong>: stil; coderen op formulier; tijdsmarkeringen plaatsen wanneer signalen optreden.</li>
+      </ul>
+
+      <blockquote class="spreektekst">
+        <strong>Spreektekst (bij start ronde):</strong> "Twaalf minuten. Klok loopt <strong>nu</strong>." <em>(Geen verdere instructie.)</em>
+      </blockquote>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Timer op 12 min. Zichtbaar.</li>
+        <li>Stilstaan aan de zijkant — niet ingrijpen, niet aanmoedigen.</li>
+        <li>Eigen mini-codering bijhouden voor referentie tijdens debrief (welk valkuil-moment, welk Carucci-signaal opkwam).</li>
+        <li>Bij 1 min over: even oogcontact met directie — niet meer dan dat.</li>
+        <li>Bij 0 min: "Stop. Iedereen blijft zitten."</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> weerstaan om te helpen; pauzes in het gesprek niet vullen; geluid van eigen pen op papier geen reden tot ingrijpen.</div>
+        <div class="dont"><strong>Don'ts:</strong> niet bijspringen voor de directie als ze haperen; niet hinten naar observatoren wat ze moeten coderen.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Stop. Pen op papier. Observatoren — vul jullie codering nog 2 minuten aan. Directie en medewerkers — adempauze."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-30-35">
+    <summary><span><span class="time-tag">0:30–0:35</span>Tussenstop 1: Codering + briefing-update <span class="muted small">(5 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Codering afronden; tweede briefing-laag introduceren.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li><strong>Observatoren</strong>: vullen ronde-1-formulier af; mogen één korte vraag aan facilitator stellen.</li>
+        <li><strong>Directie en medewerkers</strong>: lezen tussentijdse update — niet aan elkaar tonen.</li>
+      </ul>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Loop langs observatoren — beantwoord coderingsvragen kort, suggereer geen specifiek signaal ("kijk wat de gedragsindicator op het formulier zegt").</li>
+        <li>Deel updates uit aan directie en medewerkers — separaat, gevouwen.</li>
+        <li>Geef directie en medewerkers 2 min stille leestijd.</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> zacht spreken; vragen serieus nemen.</div>
+        <div class="dont"><strong>Don'ts:</strong> niet hardop een waarneming bevestigen die observatoren hebben gemaakt — dat ondermijnt de debrief.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Ronde 2. De pilot loopt. En iets gaat niet zoals gepland. Twaalf minuten — klok loopt nu."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-35-47">
+    <summary><span><span class="time-tag">0:35–0:47</span>Ronde 2: De Pilot Loopt Vast <span class="muted small">(12 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Reële weerstand opwekken; directie onder druk plaatsen; observatoren laten coderen op valkuilen.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li><strong>Medewerkers</strong>: melden de problemen die in hun update staan (data-toegang, draaiend houden conflict). Eén teamlid moet de data-issue inbrengen.</li>
+        <li><strong>Directie</strong>: reageert. Hier ontstaat onder tijdsdruk vrijwel zeker minstens één valkuil — meestal <em>doorhaasten naar resolutie</em>.</li>
+        <li><strong>Observatoren</strong>: focus-prompt uit hun update — "kijk specifiek naar welke valkuil de directie inschiet onder druk".</li>
+      </ul>
+
+      <blockquote class="spreektekst">
+        <strong>Spreektekst (bij start ronde):</strong> "Twaalf minuten. Vergeet niet — observatoren, jullie hebben een nieuwe focus-prompt." <em>(Verder geen instructie.)</em>
+      </blockquote>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Timer op 12 min.</li>
+        <li><strong>Niet ingrijpen</strong> — ook niet als de directie zichtbaar verstijft of als medewerkers hard worden. Het ongemak <em>ís</em> het materiaal.</li>
+        <li>Eigen mini-codering bijhouden — let op: schiet de directie in <em>moraliseren</em> ("zijn jullie wel een team player?") of in <em>doorhaasten</em> ("oké, dan doen we het zo")?</li>
+        <li>Bij 1 min over: oogcontact met de groep.</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> stilte als materiaal beschouwen; lichaamstaal (gefronste wenkbrauw) niet vermijden — jij bent zelf observator.</div>
+        <div class="dont"><strong>Don'ts:</strong> niet glimlachen om druk te verlichten; niet ingrijpen als directie en medewerkers in een impasse komen.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Stop. Ronde 2 zit erop. Tweede tussenstop."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-47-55">
+    <summary><span><span class="time-tag">0:47–0:55</span>Tussenstop 2: Codering + tweede update <span class="muted small">(8 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Codering afmaken; derde briefing-laag introduceren; observatoren herijken op spacious-mode.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li><strong>Observatoren</strong>: vullen ronde-2-formulier af; lezen ronde-3-focusprompt.</li>
+        <li><strong>Directie en medewerkers</strong>: lezen tussentijdse update — separaat, gevouwen.</li>
+      </ul>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Loop langs observatoren — kort: "wat zag je het sterkst?".</li>
+        <li>Deel updates uit. Drie aparte enveloppes.</li>
+        <li>Geef 3 min leestijd.</li>
+        <li><strong>Korte plenaire instructie bij overgang naar ronde 3</strong>: "In ronde 3 komt iemand met een ander idee. Observatoren — jullie focus is nu <em>spacious mode versus doing mode</em>. Het formulier helpt jullie."</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> kort blijven; sturen naar het materiaal (formulier).</div>
+        <div class="dont"><strong>Don'ts:</strong> niet vooruit lopen op uitkomst — alsof "spacious mode" beter zou zijn. In ronde 3 is alles open.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Klok start. Twaalf minuten."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-55-67">
+    <summary><span><span class="time-tag">0:55–1:07</span>Ronde 3: De Ommezwaai <span class="muted small">(12 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Een alternatief idee introduceren dat <em>tussen</em> directie en medewerkers ligt; directie laten beslissen; observatoren laten coderen op spacious-mode-momenten.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li><strong>Eén medewerker</strong> (Customer Success — briefing-instructie) presenteert een alternatief: kleinere pilot, één specifiek proces, geen 30%-doel.</li>
+        <li><strong>Andere medewerkers</strong> reageren — sommigen steunen, sommigen niet.</li>
+        <li><strong>Directie</strong> moet beslissen: omarmen, afwijzen, of doorvragen?</li>
+        <li><strong>Observatoren</strong>: coderen <em>vraag zonder agenda / doorvragen zonder oordeel / stilte laten</em>.</li>
+      </ul>
+
+      <blockquote class="spreektekst">
+        <strong>Spreektekst (bij start ronde):</strong> "Klok loopt. Iemand uit Customer Success gaat zo het woord nemen."
+      </blockquote>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Timer op 12 min.</li>
+        <li><strong>Knik richting Customer Success</strong> als ze aarzelen — dat is de enige interventie.</li>
+        <li>Observeer of er minstens één spacious-mode-moment optreedt. Zo niet: dat is óók informatie voor de debrief.</li>
+        <li>Bij 0 min: "Stop. Pen op papier. Observatoren — vul jullie laatste codering aan."</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> ruimte laten voor stilte; geen suggestie geven welk besluit "goed" is.</div>
+        <div class="dont"><strong>Don'ts:</strong> niet glimlachen als de directie spacious mode toont — dat zou observatoren coderen.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Ronde 3 zit erop. We gaan nu naar de spiegel — de debrief."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-67-82">
+    <summary><span><span class="time-tag">1:07–1:22</span>Debrief: De Spiegel <span class="muted small">(15 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Observatoren-bevindingen presenteren; rolnemers laten reageren; patronen benoemen — niet beoordelen.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li><strong>Observatoren</strong>: presenteren in 1 min per observator hun <strong>twee meest opvallende waarnemingen</strong> (al genoteerd onderaan formulier).</li>
+        <li><strong>Directie en medewerkers</strong>: reageren — herkennen ze de codering? Wat ervoeren ze van binnenuit?</li>
+        <li><strong>Allen</strong>: begrippen Carucci + Reitz-Higgins krijgen nu hun naam.</li>
+      </ul>
+
+      <blockquote class="spreektekst">
+        <strong>Spreektekst (start debrief):</strong> "Voordat ik iets vraag, wil ik één ding zeggen. We zijn niet op zoek naar wie schuldig was. We zijn op zoek naar welke patronen onder druk opkomen — bij iedereen. Ik begin met een eigen voorbeeld. Twee jaar geleden in een team waar ik de leider was…" <strong>[Eigen voorbeeld vertellen — 1 minuut, eerlijk, een keer dat je in een valkuil viel.]</strong> "Dat soort patronen gaan we vandaag benoemen. Niet om hen, maar om ons."
+      </blockquote>
+
+      <p><strong>Acties facilitator (gestructureerd, in deze volgorde):</strong></p>
+
+      <ol>
+        <li><strong>Carucci-introductie (2 min)</strong>: "Wat jullie net hebben gezien noemt Ron Carucci, een Amerikaanse change-consultant, <em>resistance-as-data</em>. Vier signalen: Loss, Anxiety, Lack of control, Flaws in the change. En drie valkuilen voor de leider: personaliseren, moraliseren, doorhaasten. <strong>Observatoren — wat zagen jullie het meest?</strong>"</li>
+        <li><strong>Observatoren-rapportage (4 min)</strong>: laat 2-3 observatoren hun belangrijkste waarneming delen. Per waarneming: noteer op flipover welk signaal en welk valkuil het was.</li>
+        <li><strong>Reactie rolnemers (3 min)</strong>: vraag aan directie en medewerkers: "Herkennen jullie dit?" Specifieke vraag: "Directie — wanneer voelden jullie dat het ongemakkelijk werd, en wat deden jullie toen?"</li>
+        <li><strong>Reitz-Higgins-introductie (1 min)</strong>: "Megan Reitz en John Higgins, onderzoekers aan Saïd Oxford, beschrijven twee modi van aandacht. <em>Doing mode</em> — narrow, taakgericht, controle. <em>Spacious mode</em> — open, ontvankelijk, vragenstellend. <strong>Observatoren — kwam spacious mode op? Wanneer?</strong>"</li>
+        <li><strong>Spacious-mode-rapportage (2 min)</strong>: één observator deelt een spacious-mode-moment. Of: "We zagen het niet" — ook waardevol.</li>
+        <li>
+          <strong>DINAMO-mapping-vraag (2 min)</strong>: stap die studenten dwingt het meervoudige DINAMO-perspectief toe te passen. Stel concreet:
+          <blockquote class="spreektekst" style="margin:8px 0;">
+            "Als jullie dit moeten adresseren in een DINAMO-veranderplan — in welke dimensie zit het knelpunt? In Vertrouwen? In Willen — bij Emoties, Gevolgen voor het werk, of Betrokkenheid? In Kunnen — bij Aansturing of Informatievoorziening?"
+          </blockquote>
+          Laat 2-3 studenten reageren. <strong>Daarna korte facilitator-toelichting (max 30 sec)</strong>:
+          <blockquote class="spreektekst" style="margin:8px 0;">
+            "Vertrouwen meet vaak de kloof — het is de thermometer. Adresseren doe je elders. De meeste interventie-aangrijpingspunten liggen in Willen — Emoties, Gevolgen, Betrokkenheid — en in Aansturing. Dat is geen voetnoot; dat is precies waar jullie semesterproject onderscheid kan maken tussen meten en adresseren."
+          </blockquote>
+          Zie <a href="lrd.html#dinamo-mapping">LRD §10a</a> en de <a href="dinamo-mapping.html">interactieve DINAMO-mapping</a> voor de volledige mapping.
+        </li>
+        <li><strong>De 9%-kloof terugkoppelen (1 min)</strong>: "Hier zit de paradox die we openden. De directie wilde nieuwsgierigheid uitstralen. De codering laat zien hoe vaak doing mode dominant was. <strong>Niet door slechte wil. Door druk en gewoonte.</strong> Dat is de 9%-kloof in 12 minuten — en jullie weten nu in welke DINAMO-dimensies je hem zou aanpakken."</li>
+      </ol>
+
+      <div class="callout">
+        <strong>Tijdsoverzicht stap 1–7:</strong> 2 + 4 + 3 + 1 + 2 + 2 + 1 = 15 min. (Reactie-rolnemers in stap 3 verkort van 4→3 min om ruimte te maken voor de DINAMO-mapping-vraag.)
+      </div>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> patronen benoemen, geen oordelen vellen; observatoren expliciet bedanken voor hun werk; rolnemers veiligheid bieden ("dit is niet wie jullie zijn — dit is wat de rol oproept"); bij stap 6 <em>niet</em> zelf het juiste antwoord geven — laat studenten worstelen met het onderscheid meten/adresseren.</div>
+        <div class="dont"><strong>Don'ts:</strong> niet doorvragen of rolnemers het "anders zouden doen" — dat zet ze onder druk; geen vergelijking maken tussen rondes ("ronde 2 was beter dan ronde 1"); bij stap 6 niet wegglijden in een DINAMO-college — 2 minuten is 2 minuten.</div>
+      </div>
+
+      <p class="muted"><strong>Transitie:</strong> "Laatste vraag. Niet over ons hier. Over jullie volgende werkmoment."</p>
+    </div>
+  </details>
+
+  <details class="timeblock" id="blok-82-90">
+    <summary><span><span class="time-tag">1:22–1:30</span>Afsluiting: Eigen Observatievraag <span class="muted small">(8 min)</span></span></summary>
+    <div class="timeblock-body">
+      <p><strong>Doel:</strong> Vertaling naar eigen organisatie / semesterproject; concrete observatievraag formuleren.</p>
+
+      <p><strong>Wat studenten doen:</strong></p>
+      <ul>
+        <li>Iedere student noteert op A6-kaartje: <em>"Welke kloof zoek ik in mijn eigen organisatie? Welke vraag stel ik om die te toetsen?"</em></li>
+        <li>3 studenten lezen hun A6 voor (vrijwillig).</li>
+      </ul>
+
+      <blockquote class="spreektekst">
+        <strong>Spreektekst:</strong> "Pak een A6-kaartje. Schrijf op: één situatie in jullie eigen organisatie — semesterproject of stage-bedrijf — waar je vermoedt dat een kloof bestaat tussen wat de directie zegt te willen en wat de medewerkers ervaren. Schrijf één vraag op die je kunt stellen om te checken of die kloof er is. Niet 'is er een kloof' — een specifiek waarneembare vraag. Vijf minuten."
+      </blockquote>
+
+      <p><strong>Acties facilitator:</strong></p>
+      <ul>
+        <li>Timer 5 min — daarna 3 min voor delen.</li>
+        <li><strong>Vraag 3 vrijwilligers</strong> om voor te lezen. Reageer met één gerichte verfijning per vraag ("kun je 'nieuwsgierigheid' vervangen door waarneembaar gedrag?").</li>
+        <li>Sluit af: "Een huiswerk-opdracht staat klaar in <a href="reflectie-huiswerk.html">Reflectie &amp; huiswerk</a> — kijk daar straks naar. Bedankt voor jullie ervaringskracht."</li>
+      </ul>
+
+      <div class="do-dont">
+        <div class="do"><strong>Do's:</strong> specifiek maken — vragen die toetsbaar zijn; positief framen; eindigen op tijd.</div>
+        <div class="dont"><strong>Don'ts:</strong> niet alle vragen voorlezen (dwingt te bukken); niet samenvatten wat de hele groep heeft geleerd — laat hen het uitdragen.</div>
+      </div>
+
+      <p><strong>Einde sessie.</strong></p>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Vervolgmaterialen</h2>
+  <div class="card-grid">
+    <a class="card-link" href="briefings/directie.html"><h3>Rolbriefing: Directie</h3><p>Volledige A4 — initieel + 2 updates.</p></a>
+    <a class="card-link" href="briefings/engineering.html"><h3>Rolbriefing: Engineering</h3><p>Volledige A4 — initieel + 2 updates.</p></a>
+    <a class="card-link" href="briefings/customer-success.html"><h3>Rolbriefing: Customer Success</h3><p>Volledige A4 — initieel + 2 updates.</p></a>
+    <a class="card-link" href="briefings/observatoren.html"><h3>Rolbriefing: Observatoren</h3><p>Stilte-instructie + 3 focus-prompts.</p></a>
+    <a class="card-link" href="coderingsformulier.html"><h3>Coderingsformulier</h3><p>Drukklaar A4 — 3× per observator.</p></a>
+    <a class="card-link" href="reflectie-huiswerk.html"><h3>Reflectievragen &amp; huiswerk</h3><p>C1/C2/C3 met inlever-opdracht.</p></a>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>STRAOR — Verandermanagement · 9%-Kloof-Simulatie · Draaiboek</p>
+    <div>
+      <a href="index.html">Overzicht</a>
+      <a href="lrd.html">LRD</a>
+      <a href="bronnen.html">Bronnen</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DINAMO-mapping — De 9%-Kloof-Simulatie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<nav class="site-nav no-print">
+  <a class="brand" href="index.html">De 9%-Kloof-Simulatie<span class="brand-sub">Docent-pakket</span></a>
+  <ul>
+    <li><a href="index.html">Overzicht</a></li>
+    <li><a href="draaiboek.html">Draaiboek</a></li>
+    <li><a href="lrd.html">LRD</a></li>
+    <li><a href="dinamo-mapping.html" class="active">DINAMO-mapping</a></li>
+    <li><a href="coderingsformulier.html">Coderingsformulier</a></li>
+    <li><a href="reflectie-huiswerk.html">Reflectie &amp; huiswerk</a></li>
+    <li><a href="bronnen.html">Bronnen</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Interactieve mapping · Debrief-hulp</span>
+    <h1>Carucci-signalen ↔ DINAMO-dimensies</h1>
+    <p class="lead">
+      Inzet tijdens <strong>debrief stap 6</strong>. Klik op een signaal-kaart om te zien aan welke
+      DINAMO-dimensie het raakt, in welke cluster (Willen / Kunnen) het zit, en wat het
+      <strong>interventie-aangrijpingspunt</strong> is. <em>Vertrouwen</em> is bewust apart gemarkeerd
+      als <strong>uitkomst-laag</strong> — meet de kloof, adresseert hem niet.
+    </p>
+  </div>
+</header>
+
+<div class="container">
+
+<div class="print-bar no-print">
+  <button class="print-btn" onclick="window.print()">Print als PDF</button>
+</div>
+
+<section>
+  <h2>Zes signalen — klik voor details</h2>
+  <p>
+    Vier Carucci-signalen (Loss / Anxiety / Lack of control / Flaws in change), één Reitz-Higgins-default
+    (doing-mode), en één uitkomst-laag (Vertrouwen). Samen vormen ze het diagnostische raster van
+    deze sessie.
+  </p>
+
+  <div class="mapping-grid no-print" id="mapping-grid"></div>
+
+  <div class="mapping-detail placeholder no-print" id="mapping-detail" aria-live="polite"></div>
+</section>
+
+<section class="no-print">
+  <h2>Hoe je deze mapping inzet in stap 6 van de debrief</h2>
+  <div class="callout callout-amber">
+    <ol>
+      <li>Vraag de groep: <em>"Als je deze kloof moet adresseren — in welke DINAMO-dimensie zit het knelpunt?"</em></li>
+      <li>Laat 2-3 studenten reageren. <strong>Spar de mapping nog niet hardop — laat hen worstelen.</strong></li>
+      <li>Klik dan op de signalen die in de groep het meest opkwamen. Toon de mapping als bevestiging of contrast op wat studenten zelf bedachten.</li>
+      <li>Sluit af met: <em>"Vertrouwen meet vaak de kloof — het is de thermometer. Adresseren doe je elders."</em></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <h2>Volledige mapping als tabel</h2>
+  <p class="muted small">Voor wie liever in tabelvorm leest of een papieren versie nodig heeft.</p>
+  <div id="print-table-fallback"></div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>STRAOR — Verandermanagement · 9%-Kloof-Simulatie · DINAMO-mapping</p>
+    <div>
+      <a href="index.html">Overzicht</a>
+      <a href="lrd.html#dinamo-mapping">LRD §11a</a>
+      <a href="bronnen.html">Bronnen</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/dinamo-mapping.js"></script>
+</body>
+</html>
