@@ -382,6 +382,27 @@ details.timeblock summary .time-tag {
   margin-right: 12px;
 }
 
+details.timeblock summary .summary-slide-link {
+  background: var(--primary-50);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: 14px;
+  border: 1px solid var(--primary-200);
+  transition: background 0.15s;
+}
+
+details.timeblock summary .summary-slide-link:hover {
+  background: var(--primary-100);
+  color: var(--primary);
+}
+
 details.timeblock .timeblock-body {
   padding: 0 24px 24px;
 }
